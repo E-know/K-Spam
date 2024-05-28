@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5FAC0EF22C05EB8700323BC8 /* WKWebViewUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FAC0EF12C05EB8700323BC8 /* WKWebViewUI.swift */; };
 		5FB340502C0595CA000B7A53 /* K_SpamApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB3404F2C0595CA000B7A53 /* K_SpamApp.swift */; };
 		5FB340542C0595CB000B7A53 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5FB340532C0595CB000B7A53 /* Assets.xcassets */; };
 		5FB340572C0595CB000B7A53 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5FB340562C0595CB000B7A53 /* Preview Assets.xcassets */; };
@@ -70,6 +71,7 @@
 /* Begin PBXFileReference section */
 		5FAC0EEF2C05D8D300323BC8 /* K-Spam.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "K-Spam.entitlements"; sourceTree = "<group>"; };
 		5FAC0EF02C05D8E100323BC8 /* K-SpamFilter.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "K-SpamFilter.entitlements"; sourceTree = "<group>"; };
+		5FAC0EF12C05EB8700323BC8 /* WKWebViewUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKWebViewUI.swift; sourceTree = "<group>"; };
 		5FB3404C2C0595CA000B7A53 /* K-Spam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "K-Spam.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FB3404F2C0595CA000B7A53 /* K_SpamApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = K_SpamApp.swift; sourceTree = "<group>"; };
 		5FB340532C0595CB000B7A53 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -194,6 +196,7 @@
 			children = (
 				5FB3407C2C0596A8000B7A53 /* OnboardingMainView.swift */,
 				5FB3407D2C0596A8000B7A53 /* OnboardingPages.swift */,
+				5FAC0EF12C05EB8700323BC8 /* WKWebViewUI.swift */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -420,6 +423,7 @@
 				5FB340922C0596A8000B7A53 /* UserDefaultsManager.swift in Sources */,
 				5FB340502C0595CA000B7A53 /* K_SpamApp.swift in Sources */,
 				5FB3408B2C0596A8000B7A53 /* OnboardingPages.swift in Sources */,
+				5FAC0EF22C05EB8700323BC8 /* WKWebViewUI.swift in Sources */,
 				5FB3408C2C0596A8000B7A53 /* EditSpecialCharacterView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

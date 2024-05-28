@@ -51,6 +51,7 @@ struct OnboardingPage2: View {
 }
 
 struct OnboardingPage3: View {
+    @State var showWebView = false
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -67,12 +68,19 @@ struct OnboardingPage3: View {
                 .padding()
             }
             
-            Link(destination: URL(string: "https://developer.apple.com/documentation/sms_and_call_reporting/sms_and_mms_message_filtering")!, label: {
+            Button(action: { 
+                showWebView.toggle()
+            }) {
                 Text("Apple 보안정책")
+                    .foregroundStyle(Color.blue)
                     .font(.system(size: 12, weight: .light))
-            })
+            }
             .padding()
             
+        }
+        .sheet(isPresented: $showWebView) {
+            WKWebViewUI(url: "https://developer.apple.com/documentation/sms_and_call_reporting/sms_and_mms_message_filtering")
+                .border(Color.black)
         }
     }
 }
@@ -143,5 +151,5 @@ struct ListElement: View {
 }
 
 #Preview {
-    OnboardingPage4()
+    OnboardingPage3()
 }
