@@ -50,6 +50,7 @@ struct OnboardingMainView: View {
                             UserDefaults.standard.set(onClick, forKey: "onboarding")
                         }
                     } else {
+                        UserDefaults.standard.setValue(true, forKey: "Onboarding")
                         path.append(NavigationDestination.main)
                     }
                 } ) {

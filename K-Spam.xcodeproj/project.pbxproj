@@ -68,6 +68,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		5FAC0EEF2C05D8D300323BC8 /* K-Spam.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "K-Spam.entitlements"; sourceTree = "<group>"; };
+		5FAC0EF02C05D8E100323BC8 /* K-SpamFilter.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "K-SpamFilter.entitlements"; sourceTree = "<group>"; };
 		5FB3404C2C0595CA000B7A53 /* K-Spam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "K-Spam.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FB3404F2C0595CA000B7A53 /* K_SpamApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = K_SpamApp.swift; sourceTree = "<group>"; };
 		5FB340532C0595CB000B7A53 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -150,6 +152,7 @@
 		5FB3404E2C0595CA000B7A53 /* K-Spam */ = {
 			isa = PBXGroup;
 			children = (
+				5FAC0EEF2C05D8D300323BC8 /* K-Spam.entitlements */,
 				5FB340872C0596A8000B7A53 /* Lottie */,
 				5FB340892C0596A8000B7A53 /* Manager */,
 				5FB340842C0596A8000B7A53 /* Model */,
@@ -234,6 +237,7 @@
 		5FB340982C0599FE000B7A53 /* K-SpamFilter */ = {
 			isa = PBXGroup;
 			children = (
+				5FAC0EF02C05D8E100323BC8 /* K-SpamFilter.entitlements */,
 				5FB340992C0599FE000B7A53 /* MessageFilterExtension.swift */,
 				5FB340A32C059A8F000B7A53 /* FilterExtension.swift */,
 				5FB3409B2C0599FE000B7A53 /* Info.plist */,
@@ -593,6 +597,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "K-Spam/K-Spam.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"K-Spam/Preview Content\"";
@@ -629,6 +634,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "K-Spam/K-Spam.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"K-Spam/Preview Content\"";
@@ -738,6 +744,7 @@
 		5FB340A02C0599FE000B7A53 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "K-SpamFilter/K-SpamFilter.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = P2UJWPTGRX;
@@ -768,6 +775,7 @@
 		5FB340A12C0599FE000B7A53 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "K-SpamFilter/K-SpamFilter.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = P2UJWPTGRX;
