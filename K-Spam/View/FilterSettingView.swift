@@ -29,7 +29,7 @@ struct FilterSettingView: View {
             
             Toggle(isOn: $internationalSend) {
                 Text("국제발신 차단")
-                Text("Google 인증문자도 필터링 됨을 주의")
+                Text("해외기업의 인증문자도 필터링 됨을 주의")
                     .fontWeight(.thin)
             }
             
@@ -55,6 +55,7 @@ struct FilterSettingView: View {
         }
         .onChange(of: chargeCasino) {
             UserDefaultsManager.shared.setValue(key: .ChargeCasino, value: chargeCasino)
+            print(UserDefaultsManager.shared.getBool(key: .ChargeCasino))
         }
         .sheet(isPresented: $showEditSpecialCharacter, content: {
             EditSpecialCharacterView()
