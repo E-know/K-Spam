@@ -23,6 +23,10 @@
 		5FB340902C0596A8000B7A53 /* MainHome.json in Resources */ = {isa = PBXBuildFile; fileRef = 5FB340852C0596A8000B7A53 /* MainHome.json */; };
 		5FB340912C0596A8000B7A53 /* Slider.json in Resources */ = {isa = PBXBuildFile; fileRef = 5FB340862C0596A8000B7A53 /* Slider.json */; };
 		5FB340922C0596A8000B7A53 /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB340882C0596A8000B7A53 /* UserDefaultsManager.swift */; };
+		5FB3409A2C0599FE000B7A53 /* MessageFilterExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB340992C0599FE000B7A53 /* MessageFilterExtension.swift */; };
+		5FB3409E2C0599FE000B7A53 /* K-SpamFilter.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 5FB340972C0599FE000B7A53 /* K-SpamFilter.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		5FB340A42C059A8F000B7A53 /* FilterExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB340A32C059A8F000B7A53 /* FilterExtension.swift */; };
+		5FB340A52C059AC7000B7A53 /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB340882C0596A8000B7A53 /* UserDefaultsManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,7 +44,28 @@
 			remoteGlobalIDString = 5FB3404B2C0595CA000B7A53;
 			remoteInfo = "K-Spam";
 		};
+		5FB3409C2C0599FE000B7A53 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5FB340442C0595CA000B7A53 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5FB340962C0599FE000B7A53;
+			remoteInfo = "K-SpamFilter";
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		5FB340A22C0599FE000B7A53 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				5FB3409E2C0599FE000B7A53 /* K-SpamFilter.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		5FB3404C2C0595CA000B7A53 /* K-Spam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "K-Spam.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -61,6 +86,10 @@
 		5FB340852C0596A8000B7A53 /* MainHome.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MainHome.json; sourceTree = "<group>"; };
 		5FB340862C0596A8000B7A53 /* Slider.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Slider.json; sourceTree = "<group>"; };
 		5FB340882C0596A8000B7A53 /* UserDefaultsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
+		5FB340972C0599FE000B7A53 /* K-SpamFilter.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "K-SpamFilter.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5FB340992C0599FE000B7A53 /* MessageFilterExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageFilterExtension.swift; sourceTree = "<group>"; };
+		5FB3409B2C0599FE000B7A53 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5FB340A32C059A8F000B7A53 /* FilterExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +115,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		5FB340942C0599FE000B7A53 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -95,6 +131,7 @@
 				5FB3404E2C0595CA000B7A53 /* K-Spam */,
 				5FB3405F2C0595CB000B7A53 /* K-SpamTests */,
 				5FB340692C0595CB000B7A53 /* K-SpamUITests */,
+				5FB340982C0599FE000B7A53 /* K-SpamFilter */,
 				5FB3404D2C0595CA000B7A53 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -105,6 +142,7 @@
 				5FB3404C2C0595CA000B7A53 /* K-Spam.app */,
 				5FB3405C2C0595CB000B7A53 /* K-SpamTests.xctest */,
 				5FB340662C0595CB000B7A53 /* K-SpamUITests.xctest */,
+				5FB340972C0599FE000B7A53 /* K-SpamFilter.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -193,6 +231,16 @@
 			path = Manager;
 			sourceTree = "<group>";
 		};
+		5FB340982C0599FE000B7A53 /* K-SpamFilter */ = {
+			isa = PBXGroup;
+			children = (
+				5FB340992C0599FE000B7A53 /* MessageFilterExtension.swift */,
+				5FB340A32C059A8F000B7A53 /* FilterExtension.swift */,
+				5FB3409B2C0599FE000B7A53 /* Info.plist */,
+			);
+			path = "K-SpamFilter";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -203,10 +251,12 @@
 				5FB340482C0595CA000B7A53 /* Sources */,
 				5FB340492C0595CA000B7A53 /* Frameworks */,
 				5FB3404A2C0595CA000B7A53 /* Resources */,
+				5FB340A22C0599FE000B7A53 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				5FB3409D2C0599FE000B7A53 /* PBXTargetDependency */,
 			);
 			name = "K-Spam";
 			packageProductDependencies = (
@@ -252,6 +302,23 @@
 			productReference = 5FB340662C0595CB000B7A53 /* K-SpamUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		5FB340962C0599FE000B7A53 /* K-SpamFilter */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5FB3409F2C0599FE000B7A53 /* Build configuration list for PBXNativeTarget "K-SpamFilter" */;
+			buildPhases = (
+				5FB340932C0599FE000B7A53 /* Sources */,
+				5FB340942C0599FE000B7A53 /* Frameworks */,
+				5FB340952C0599FE000B7A53 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "K-SpamFilter";
+			productName = "K-SpamFilter";
+			productReference = 5FB340972C0599FE000B7A53 /* K-SpamFilter.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -272,6 +339,9 @@
 					5FB340652C0595CB000B7A53 = {
 						CreatedOnToolsVersion = 15.4;
 						TestTargetID = 5FB3404B2C0595CA000B7A53;
+					};
+					5FB340962C0599FE000B7A53 = {
+						CreatedOnToolsVersion = 15.4;
 					};
 				};
 			};
@@ -294,6 +364,7 @@
 				5FB3404B2C0595CA000B7A53 /* K-Spam */,
 				5FB3405B2C0595CB000B7A53 /* K-SpamTests */,
 				5FB340652C0595CB000B7A53 /* K-SpamUITests */,
+				5FB340962C0599FE000B7A53 /* K-SpamFilter */,
 			);
 		};
 /* End PBXProject section */
@@ -318,6 +389,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		5FB340642C0595CB000B7A53 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5FB340952C0599FE000B7A53 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -359,6 +437,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		5FB340932C0599FE000B7A53 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5FB3409A2C0599FE000B7A53 /* MessageFilterExtension.swift in Sources */,
+				5FB340A42C059A8F000B7A53 /* FilterExtension.swift in Sources */,
+				5FB340A52C059AC7000B7A53 /* UserDefaultsManager.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -371,6 +459,11 @@
 			isa = PBXTargetDependency;
 			target = 5FB3404B2C0595CA000B7A53 /* K-Spam */;
 			targetProxy = 5FB340672C0595CB000B7A53 /* PBXContainerItemProxy */;
+		};
+		5FB3409D2C0599FE000B7A53 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5FB340962C0599FE000B7A53 /* K-SpamFilter */;
+			targetProxy = 5FB3409C2C0599FE000B7A53 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -497,6 +590,7 @@
 		5FB340712C0595CB000B7A53 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -516,7 +610,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.1;
+				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "toby.app.K-Spam";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -532,6 +626,7 @@
 		5FB340722C0595CB000B7A53 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -551,7 +646,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.1;
+				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "toby.app.K-Spam";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -640,6 +735,66 @@
 			};
 			name = Release;
 		};
+		5FB340A02C0599FE000B7A53 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = P2UJWPTGRX;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "K-SpamFilter/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "K-SpamFilter";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "toby.app.K-Spam.K-SpamFilter";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		5FB340A12C0599FE000B7A53 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = P2UJWPTGRX;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "K-SpamFilter/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "K-SpamFilter";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "toby.app.K-Spam.K-SpamFilter";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -675,6 +830,15 @@
 			buildConfigurations = (
 				5FB340772C0595CB000B7A53 /* Debug */,
 				5FB340782C0595CB000B7A53 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5FB3409F2C0599FE000B7A53 /* Build configuration list for PBXNativeTarget "K-SpamFilter" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5FB340A02C0599FE000B7A53 /* Debug */,
+				5FB340A12C0599FE000B7A53 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
