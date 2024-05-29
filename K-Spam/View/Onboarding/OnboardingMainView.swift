@@ -11,7 +11,8 @@ import SwiftUI
 struct OnboardingMainView: View {
     @State var pageIdx = 1
     @State var onClick = false
-    @Binding var path: NavigationPath
+    let dismiss: () -> Void
+
     
     var body: some View {
         VStack {
@@ -51,7 +52,7 @@ struct OnboardingMainView: View {
                         }
                     } else {
                         UserDefaults.standard.setValue(true, forKey: "Onboarding")
-                        path.append(NavigationDestination.main)
+                        dismiss()
                     }
                 } ) {
                     Text(onClick ? "KSpam 시작하기" : "설정하러 가기")
@@ -74,5 +75,5 @@ struct OnboardingMainView: View {
 }
 
 #Preview {
-    OnboardingMainView(path: .constant(.init()))
+    OnboardingMainView(dismiss: {})
 }
