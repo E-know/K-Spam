@@ -8,15 +8,8 @@
 import SwiftUI
 
 struct CustomSettingView: View {
-    @State private var internationalSend = UserDefaultsManager.shared.getBool(key: .InternationalSend) {
-        didSet { UserDefaultsManager.shared.setValue(key: .InternationalSend, value: internationalSend) }
-    }
-    @State private var customSpecialCharacter = UserDefaultsManager.shared.getBool(key: .CustomSpecialCharacter) {
-        didSet { UserDefaultsManager.shared.setValue(key: .CustomSpecialCharacter, value: customSpecialCharacter) }
-    }
-    @State private var chargeCasino = UserDefaultsManager.shared.getBool(key: .ChargeCasino) {
-        didSet { UserDefaultsManager.shared.setValue(key: .ChargeCasino, value: chargeCasino) }
-    }
+    @State private var internationalSend = UserDefaultsManager.shared.getBool(key: .InternationalSend)
+    @State private var chargeCasino = UserDefaultsManager.shared.getBool(key: .ChargeCasino)
     
     var body: some View {
         VStack() {
@@ -43,8 +36,12 @@ struct CustomSettingView: View {
             }
             
             Spacer()
+            
         }
         .padding()
+        
+        .onChange(of: chargeCasino) { UserDefaultsManager.shared.setValue(key: .ChargeCasino, value: chargeCasino) }
+        .onChange(of: internationalSend) { UserDefaultsManager.shared.setValue(key: .InternationalSend, value: internationalSend) }
     }
 }
 

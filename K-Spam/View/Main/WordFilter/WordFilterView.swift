@@ -7,34 +7,14 @@
 
 import SwiftUI
 
-enum FilterType: CaseIterable, Identifiable {
-    var id: Self { self }
-    case white
-    case black
-    
-    var title: String {
-        switch self {
-        case .white: "필터 제외 단어"
-        case .black: "필터할 단어"
-        }
-    }
-}
 
 struct WordFilterView: View {
     @State private var filterType = FilterType.black
     @State private var showInfo = false
     @State private var inputText = ""
     
-    @State private var whiteFilterWords = UserDefaultsManager.shared.getStrings(key: .WhiteFilterWords) {
-        didSet {
-            UserDefaultsManager.shared.setValue(key: .WhiteFilterWords, value: whiteFilterWords)
-        }
-    }
-    @State private var blackFilterWords = UserDefaultsManager.shared.getStrings(key: .BlackFilterWords) {
-        didSet {
-            UserDefaultsManager.shared.setValue(key: .BlackFilterWords, value: blackFilterWords)
-        }
-    }
+    @State private var whiteFilterWords = UserDefaultsManager.shared.getStrings(key: .WhiteFilterWords)
+    @State private var blackFilterWords = UserDefaultsManager.shared.getStrings(key: .BlackFilterWords)
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -54,10 +34,11 @@ struct WordFilterView: View {
             List {
                 ForEach(filterType == .black ? blackFilterWords : whiteFilterWords, id: \.self) {
                     Text($0)
-                        
                 }
                 .onDelete(perform: delete)
+                .listRowBackground(Color.superLightPurple)
             }
+            .scrollContentBackground(.hidden)
             
             
             Spacer()
@@ -88,6 +69,9 @@ struct WordFilterView: View {
                 .presentationDetents([.medium])
                 .presentationCornerRadius(20)
         }
+        
+        .onChange(of: whiteFilterWords) {UserDefaultsManager.shared.setValue(key: .WhiteFilterWords, value: whiteFilterWords)}
+        .onChange(of: blackFilterWords) {UserDefaultsManager.shared.setValue(key: .BlackFilterWords, value: blackFilterWords)}
     }
     
     private func delete(at offsets: IndexSet) {
