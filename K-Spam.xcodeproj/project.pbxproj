@@ -17,8 +17,6 @@
 		5FB3407B2C05965D000B7A53 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 5FB3407A2C05965D000B7A53 /* Lottie */; };
 		5FB3408A2C0596A8000B7A53 /* OnboardingMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB3407C2C0596A8000B7A53 /* OnboardingMainView.swift */; };
 		5FB3408B2C0596A8000B7A53 /* OnboardingPages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB3407D2C0596A8000B7A53 /* OnboardingPages.swift */; };
-		5FB3408C2C0596A8000B7A53 /* EditSpecialCharacterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB3407F2C0596A8000B7A53 /* EditSpecialCharacterView.swift */; };
-		5FB3408D2C0596A8000B7A53 /* FilterSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB340802C0596A8000B7A53 /* FilterSettingView.swift */; };
 		5FB3408E2C0596A8000B7A53 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB340812C0596A8000B7A53 /* HomeView.swift */; };
 		5FB340902C0596A8000B7A53 /* MainHome.json in Resources */ = {isa = PBXBuildFile; fileRef = 5FB340852C0596A8000B7A53 /* MainHome.json */; };
 		5FB340912C0596A8000B7A53 /* Slider.json in Resources */ = {isa = PBXBuildFile; fileRef = 5FB340862C0596A8000B7A53 /* Slider.json */; };
@@ -87,8 +85,6 @@
 		5FB3406C2C0595CB000B7A53 /* K_SpamUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = K_SpamUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		5FB3407C2C0596A8000B7A53 /* OnboardingMainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingMainView.swift; sourceTree = "<group>"; };
 		5FB3407D2C0596A8000B7A53 /* OnboardingPages.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingPages.swift; sourceTree = "<group>"; };
-		5FB3407F2C0596A8000B7A53 /* EditSpecialCharacterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditSpecialCharacterView.swift; sourceTree = "<group>"; };
-		5FB340802C0596A8000B7A53 /* FilterSettingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterSettingView.swift; sourceTree = "<group>"; };
 		5FB340812C0596A8000B7A53 /* HomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		5FB340852C0596A8000B7A53 /* MainHome.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MainHome.json; sourceTree = "<group>"; };
 		5FB340862C0596A8000B7A53 /* Slider.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Slider.json; sourceTree = "<group>"; };
@@ -269,7 +265,6 @@
 		5FFC81C52C078460009DC5C1 /* WordFilter */ = {
 			isa = PBXGroup;
 			children = (
-				5FB3407F2C0596A8000B7A53 /* EditSpecialCharacterView.swift */,
 				5FFC81C62C0784EF009DC5C1 /* WordFilterView.swift */,
 			);
 			path = WordFilter;
@@ -278,7 +273,6 @@
 		5FFC81CA2C079248009DC5C1 /* CustomSetting */ = {
 			isa = PBXGroup;
 			children = (
-				5FB340802C0596A8000B7A53 /* FilterSettingView.swift */,
 				5FFC81CB2C079265009DC5C1 /* CustomSettingView.swift */,
 			);
 			path = CustomSetting;
@@ -455,7 +449,6 @@
 				5FB3408E2C0596A8000B7A53 /* HomeView.swift in Sources */,
 				5FFC81C92C078A52009DC5C1 /* FilterLogicView.swift in Sources */,
 				5FFC81C32C077B34009DC5C1 /* MainTapPages.swift in Sources */,
-				5FB3408D2C0596A8000B7A53 /* FilterSettingView.swift in Sources */,
 				5FB3408A2C0596A8000B7A53 /* OnboardingMainView.swift in Sources */,
 				5FB340922C0596A8000B7A53 /* UserDefaultsManager.swift in Sources */,
 				5FB340502C0595CA000B7A53 /* K_SpamApp.swift in Sources */,
@@ -463,7 +456,6 @@
 				5FFC81C72C0784EF009DC5C1 /* WordFilterView.swift in Sources */,
 				5FFC81CC2C079265009DC5C1 /* CustomSettingView.swift in Sources */,
 				5FAC0EF22C05EB8700323BC8 /* WKWebViewUI.swift in Sources */,
-				5FB3408C2C0596A8000B7A53 /* EditSpecialCharacterView.swift in Sources */,
 				5FFC81C12C077B06009DC5C1 /* MainTabView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
