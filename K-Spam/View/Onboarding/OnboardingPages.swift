@@ -51,6 +51,7 @@ struct OnboardingPage2: View {
 }
 
 struct OnboardingPage3: View {
+    @State private var showWebView = false
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -67,12 +68,19 @@ struct OnboardingPage3: View {
                 .padding()
             }
             
-            Link(destination: URL(string: "https://developer.apple.com/documentation/sms_and_call_reporting/sms_and_mms_message_filtering")!, label: {
+            Button(action: { 
+                showWebView.toggle()
+            }) {
                 Text("Apple 보안정책")
+                    .foregroundStyle(Color.blue)
                     .font(.system(size: 12, weight: .light))
-            })
+            }
             .padding()
             
+        }
+        .sheet(isPresented: $showWebView) {
+            WKWebViewUI(url: "https://developer.apple.com/documentation/sms_and_call_reporting/sms_and_mms_message_filtering")
+                .border(Color.black)
         }
     }
 }
@@ -81,16 +89,23 @@ struct OnboardingPage4: View {
     
     var body: some View {
         VStack {
-            Text("K-Spam 시작하기")
-                .font(.system(size: 32, weight: .heavy))
-                .padding()
+                Text("K-Spam 시작하기")
+                    .font(.system(size: 32, weight: .heavy))
+                    .padding()
             
             HStack {
                 VStack(alignment: .leading) {
-                    Text("설정에서 K-Spam 설정을 완료해주세요.")
-                        .fontWeight(.bold)
-                        .foregroundStyle(.green)
-                        .padding(.bottom, 8)
+                    HStack {
+                        Image("SettingIcon")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(height: 25)
+                        
+                        Text("설정에서 K-Spam 설정을 완료해주세요.")
+                            .fontWeight(.bold)
+                            .foregroundStyle(.green)
+                    }
+                    .padding(.bottom, 8)
                     
                     Text("1. [설정 > 메세지 > 알 수 없는 연락처 및 스팸 ]")
                         .font(.system(size: 12, weight: .light))
@@ -110,11 +125,16 @@ struct OnboardingPage4: View {
                         Image(systemName: "checkmark")
                             .foregroundStyle(.blue)
                     }
+                    
                 }
-                
                 Spacer()
             }
             .padding()
+            
+            
+            Image("SettingOrder")
+                .resizable()
+                .aspectRatio(contentMode: .fit)
         }
     }
 }
