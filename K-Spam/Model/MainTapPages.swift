@@ -1,0 +1,42 @@
+//
+//  MainTapPages.swift
+//  K-Spam
+//
+//  Created by Inho Choi on 5/30/24.
+//
+
+import SwiftUI
+
+enum MainTapPages: Identifiable, CaseIterable {
+    var id: Self { self }
+    
+    case wordFilter
+    case home
+    case customSetting
+    
+        
+    var view: some View {
+        switch self {
+        case .home:
+            HomeView()
+            
+        default:
+            HomeView()
+        }
+    }
+    
+    @ViewBuilder
+    var tapItem: some View {
+        switch self {
+        case .wordFilter:
+            Image(systemName: "text.word.spacing")
+            Text("단어 필터")
+        case .home:
+            Image(systemName: "house")
+            Text("홈")
+        case .customSetting:
+            Image(systemName: "xmark.bin")
+            Text("개인설정")
+        }
+    }
+}

@@ -14,7 +14,7 @@ struct KSpamApp: App {
     
     var body: some Scene {
         WindowGroup {
-            MainView()
+            MainTabView()
                 .fullScreenCover(isPresented: $showOnBoarding) {
                     OnboardingMainView {
                         self.showOnBoarding = false

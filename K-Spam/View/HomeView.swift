@@ -8,7 +8,7 @@
 import Lottie
 import SwiftUI
 
-struct MainView: View {
+struct HomeView: View {
     @State var path: NavigationPath = .init()
     
     var body: some View {
@@ -48,7 +48,7 @@ struct MainView: View {
             .navigationDestination(for: NavigationDestination.self) { value in
                 switch value {
                 case .main:
-                    MainView()
+                    HomeView()
                 case .settings:
                     FilterSettingView()
                 }
@@ -58,5 +58,5 @@ struct MainView: View {
 }
 
 #Preview {
-    MainView()
+    HomeView()
 }
