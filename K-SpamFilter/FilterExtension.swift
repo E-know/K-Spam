@@ -12,6 +12,10 @@ extension MessageFilterExtension {
         guard let messageBody = queryRequest.messageBody else { return (.none, .none) }
         let messageLines = messageBody.split(separator: "\n").map { String($0) }
         
+        if checkWhiteFilterWords(messageLines: messageLines) {
+            return (.allow, .none)
+        }
+        
         if checkKSpam(messageLines: messageLines) {
             return (.junk, .none)
         }
@@ -28,13 +32,26 @@ extension MessageFilterExtension {
             }
         }
         
-        if UserDefaultsManager.shared.getBool(key: .CustomSpecialCharacter) {
-            if checkCustomChars(messageLines) {
-                return (.junk, .none)
-            }
+        if checkBlackFilterWords(messageLines: messageLines) {
+            return (.junk, .none)
         }
         
+        
         return (.none, .none)
+    }
+    
+    private func checkWhiteFilterWords(messageLines: [String]) -> Bool {
+        let whiteFilterWords = UserDefaultsManager.shared.getStrings(key: .WhiteFilterWords)
+        guard !whiteFilterWords.isEmpty else { return false }
+        
+        for line in messageLines {
+            for whiteFilterWord in whiteFilterWords {
+                if line.contains(whiteFilterWord) {
+                    return true
+                }
+            }
+        }
+        return false
     }
     
     private func checkKSpam(messageLines: [String]) -> Bool {
@@ -124,17 +141,17 @@ extension MessageFilterExtension {
         return false
     }
     
-    private func checkCustomChars(_ lines: [String]) -> Bool {
-        let strings = UserDefaultsManager.shared.getStrings(key: .CustomFilterStrings)
+    private func checkBlackFilterWords(messageLines: [String]) -> Bool {
+        let blackFilterWords = UserDefaultsManager.shared.getStrings(key: .BlackFilterWords)
+        guard !blackFilterWords.isEmpty else { return false }
         
-        for line in lines {
-            for str in strings {
-                if line.contains(str) {
+        for line in messageLines {
+            for blackFilterWord in blackFilterWords {
+                if line.contains(blackFilterWord) {
                     return true
                 }
             }
         }
-        
         return false
     }
 }
