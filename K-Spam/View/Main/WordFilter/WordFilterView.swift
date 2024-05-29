@@ -11,10 +11,12 @@ import SwiftUI
 struct WordFilterView: View {
     @State private var filterType = FilterType.black
     @State private var showInfo = false
+    @FocusState private var isFocused: Bool
     @State private var inputText = ""
     
     @State private var whiteFilterWords = UserDefaultsManager.shared.getStrings(key: .WhiteFilterWords)
     @State private var blackFilterWords = UserDefaultsManager.shared.getStrings(key: .BlackFilterWords)
+    
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -39,14 +41,22 @@ struct WordFilterView: View {
                 .listRowBackground(Color.superLightPurple)
             }
             .scrollContentBackground(.hidden)
+            .onTapGesture {
+                isFocused = false
+            }
             
             
             Spacer()
+                .onTapGesture {
+                    isFocused = false
+                }
             
             Divider()
             
             HStack {
                 TextField("텍스트를 입력해주세요", text: $inputText)
+                    .focused($isFocused)
+                    .onSubmit(submit)
                     .padding()
                 
                 Spacer()
