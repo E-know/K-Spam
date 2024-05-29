@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5F3D829E2C07B90C001F595D /* Keyboard+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F3D829D2C07B90C001F595D /* Keyboard+.swift */; };
 		5FAC0EF22C05EB8700323BC8 /* WKWebViewUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FAC0EF12C05EB8700323BC8 /* WKWebViewUI.swift */; };
 		5FB340502C0595CA000B7A53 /* K_SpamApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB3404F2C0595CA000B7A53 /* K_SpamApp.swift */; };
 		5FB340542C0595CB000B7A53 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5FB340532C0595CB000B7A53 /* Assets.xcassets */; };
@@ -72,6 +73,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		5F3D829D2C07B90C001F595D /* Keyboard+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Keyboard+.swift"; sourceTree = "<group>"; };
 		5FAC0EEF2C05D8D300323BC8 /* K-Spam.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "K-Spam.entitlements"; sourceTree = "<group>"; };
 		5FAC0EF02C05D8E100323BC8 /* K-SpamFilter.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "K-SpamFilter.entitlements"; sourceTree = "<group>"; };
 		5FAC0EF12C05EB8700323BC8 /* WKWebViewUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKWebViewUI.swift; sourceTree = "<group>"; };
@@ -135,6 +137,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5F3D829C2C07B8F4001F595D /* extension */ = {
+			isa = PBXGroup;
+			children = (
+				5F3D829D2C07B90C001F595D /* Keyboard+.swift */,
+			);
+			path = extension;
+			sourceTree = "<group>";
+		};
 		5FB340432C0595CA000B7A53 = {
 			isa = PBXGroup;
 			children = (
@@ -160,6 +170,7 @@
 		5FB3404E2C0595CA000B7A53 /* K-Spam */ = {
 			isa = PBXGroup;
 			children = (
+				5F3D829C2C07B8F4001F595D /* extension */,
 				5FAC0EEF2C05D8D300323BC8 /* K-Spam.entitlements */,
 				5FB340872C0596A8000B7A53 /* Lottie */,
 				5FB340892C0596A8000B7A53 /* Manager */,
@@ -450,6 +461,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5FB3408E2C0596A8000B7A53 /* HomeView.swift in Sources */,
+				5F3D829E2C07B90C001F595D /* Keyboard+.swift in Sources */,
 				5FFC81C92C078A52009DC5C1 /* FilterLogicView.swift in Sources */,
 				5FFC81C32C077B34009DC5C1 /* MainTapPages.swift in Sources */,
 				5FB3408A2C0596A8000B7A53 /* OnboardingMainView.swift in Sources */,
