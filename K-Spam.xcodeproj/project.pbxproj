@@ -30,6 +30,8 @@
 		5FB340A52C059AC7000B7A53 /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB340882C0596A8000B7A53 /* UserDefaultsManager.swift */; };
 		5FFC81C12C077B06009DC5C1 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFC81C02C077B06009DC5C1 /* MainTabView.swift */; };
 		5FFC81C32C077B34009DC5C1 /* MainTapPages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFC81C22C077B34009DC5C1 /* MainTapPages.swift */; };
+		5FFC81C72C0784EF009DC5C1 /* WordFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFC81C62C0784EF009DC5C1 /* WordFilterView.swift */; };
+		5FFC81C92C078A52009DC5C1 /* WordFilterInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFC81C82C078A52009DC5C1 /* WordFilterInfoView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -98,6 +100,8 @@
 		5FB340A32C059A8F000B7A53 /* FilterExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterExtension.swift; sourceTree = "<group>"; };
 		5FFC81C02C077B06009DC5C1 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 		5FFC81C22C077B34009DC5C1 /* MainTapPages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTapPages.swift; sourceTree = "<group>"; };
+		5FFC81C62C0784EF009DC5C1 /* WordFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordFilterView.swift; sourceTree = "<group>"; };
+		5FFC81C82C078A52009DC5C1 /* WordFilterInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordFilterInfoView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -211,7 +215,6 @@
 				5FFC81C42C078456009DC5C1 /* Main */,
 				5FB3407E2C0596A8000B7A53 /* Onboarding */,
 				5FB340802C0596A8000B7A53 /* FilterSettingView.swift */,
-				5FB340812C0596A8000B7A53 /* HomeView.swift */,
 				5FFC81C02C077B06009DC5C1 /* MainTabView.swift */,
 			);
 			path = View;
@@ -257,6 +260,7 @@
 		5FFC81C42C078456009DC5C1 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				5FB340812C0596A8000B7A53 /* HomeView.swift */,
 				5FFC81C52C078460009DC5C1 /* WordFilter */,
 			);
 			path = Main;
@@ -266,6 +270,8 @@
 			isa = PBXGroup;
 			children = (
 				5FB3407F2C0596A8000B7A53 /* EditSpecialCharacterView.swift */,
+				5FFC81C62C0784EF009DC5C1 /* WordFilterView.swift */,
+				5FFC81C82C078A52009DC5C1 /* WordFilterInfoView.swift */,
 			);
 			path = WordFilter;
 			sourceTree = "<group>";
@@ -440,12 +446,14 @@
 			files = (
 				5FB3408F2C0596A8000B7A53 /* NavigationDestination.swift in Sources */,
 				5FB3408E2C0596A8000B7A53 /* HomeView.swift in Sources */,
+				5FFC81C92C078A52009DC5C1 /* WordFilterInfoView.swift in Sources */,
 				5FFC81C32C077B34009DC5C1 /* MainTapPages.swift in Sources */,
 				5FB3408D2C0596A8000B7A53 /* FilterSettingView.swift in Sources */,
 				5FB3408A2C0596A8000B7A53 /* OnboardingMainView.swift in Sources */,
 				5FB340922C0596A8000B7A53 /* UserDefaultsManager.swift in Sources */,
 				5FB340502C0595CA000B7A53 /* K_SpamApp.swift in Sources */,
 				5FB3408B2C0596A8000B7A53 /* OnboardingPages.swift in Sources */,
+				5FFC81C72C0784EF009DC5C1 /* WordFilterView.swift in Sources */,
 				5FAC0EF22C05EB8700323BC8 /* WKWebViewUI.swift in Sources */,
 				5FB3408C2C0596A8000B7A53 /* EditSpecialCharacterView.swift in Sources */,
 				5FFC81C12C077B06009DC5C1 /* MainTabView.swift in Sources */,

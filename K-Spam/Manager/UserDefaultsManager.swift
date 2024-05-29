@@ -35,4 +35,6 @@ enum UserDefaultsKey: String {
     case CustomSpecialCharacter
     case ChargeCasino
     case CustomFilterStrings
+    case WhiteFilterWords
+    case BlackFilterWords
 }

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct MainTabView: View {
-    @State var selction = MainTapPages.home
+    @State var selction = MainTapPages.wordFilter
     var body: some View {
         TabView(selection: $selction) {
             ForEach(MainTapPages.allCases) { value in

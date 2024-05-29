@@ -14,9 +14,11 @@ enum MainTapPages: Identifiable, CaseIterable {
     case home
     case customSetting
     
-        
+    @ViewBuilder
     var view: some View {
         switch self {
+        case .wordFilter:
+            WordFilterView()
         case .home:
             HomeView()
             
