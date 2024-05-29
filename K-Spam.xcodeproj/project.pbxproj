@@ -20,7 +20,6 @@
 		5FB3408C2C0596A8000B7A53 /* EditSpecialCharacterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB3407F2C0596A8000B7A53 /* EditSpecialCharacterView.swift */; };
 		5FB3408D2C0596A8000B7A53 /* FilterSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB340802C0596A8000B7A53 /* FilterSettingView.swift */; };
 		5FB3408E2C0596A8000B7A53 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB340812C0596A8000B7A53 /* HomeView.swift */; };
-		5FB3408F2C0596A8000B7A53 /* NavigationDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB340832C0596A8000B7A53 /* NavigationDestination.swift */; };
 		5FB340902C0596A8000B7A53 /* MainHome.json in Resources */ = {isa = PBXBuildFile; fileRef = 5FB340852C0596A8000B7A53 /* MainHome.json */; };
 		5FB340912C0596A8000B7A53 /* Slider.json in Resources */ = {isa = PBXBuildFile; fileRef = 5FB340862C0596A8000B7A53 /* Slider.json */; };
 		5FB340922C0596A8000B7A53 /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB340882C0596A8000B7A53 /* UserDefaultsManager.swift */; };
@@ -31,7 +30,7 @@
 		5FFC81C12C077B06009DC5C1 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFC81C02C077B06009DC5C1 /* MainTabView.swift */; };
 		5FFC81C32C077B34009DC5C1 /* MainTapPages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFC81C22C077B34009DC5C1 /* MainTapPages.swift */; };
 		5FFC81C72C0784EF009DC5C1 /* WordFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFC81C62C0784EF009DC5C1 /* WordFilterView.swift */; };
-		5FFC81C92C078A52009DC5C1 /* WordFilterInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFC81C82C078A52009DC5C1 /* WordFilterInfoView.swift */; };
+		5FFC81C92C078A52009DC5C1 /* FilterLogicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFC81C82C078A52009DC5C1 /* FilterLogicView.swift */; };
 		5FFC81CC2C079265009DC5C1 /* CustomSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFC81CB2C079265009DC5C1 /* CustomSettingView.swift */; };
 /* End PBXBuildFile section */
 
@@ -91,7 +90,6 @@
 		5FB3407F2C0596A8000B7A53 /* EditSpecialCharacterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditSpecialCharacterView.swift; sourceTree = "<group>"; };
 		5FB340802C0596A8000B7A53 /* FilterSettingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterSettingView.swift; sourceTree = "<group>"; };
 		5FB340812C0596A8000B7A53 /* HomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
-		5FB340832C0596A8000B7A53 /* NavigationDestination.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationDestination.swift; sourceTree = "<group>"; };
 		5FB340852C0596A8000B7A53 /* MainHome.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MainHome.json; sourceTree = "<group>"; };
 		5FB340862C0596A8000B7A53 /* Slider.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Slider.json; sourceTree = "<group>"; };
 		5FB340882C0596A8000B7A53 /* UserDefaultsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
@@ -102,7 +100,7 @@
 		5FFC81C02C077B06009DC5C1 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 		5FFC81C22C077B34009DC5C1 /* MainTapPages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTapPages.swift; sourceTree = "<group>"; };
 		5FFC81C62C0784EF009DC5C1 /* WordFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordFilterView.swift; sourceTree = "<group>"; };
-		5FFC81C82C078A52009DC5C1 /* WordFilterInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordFilterInfoView.swift; sourceTree = "<group>"; };
+		5FFC81C82C078A52009DC5C1 /* FilterLogicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterLogicView.swift; sourceTree = "<group>"; };
 		5FFC81CB2C079265009DC5C1 /* CustomSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSettingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -224,7 +222,6 @@
 		5FB340842C0596A8000B7A53 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				5FB340832C0596A8000B7A53 /* NavigationDestination.swift */,
 				5FFC81C22C077B34009DC5C1 /* MainTapPages.swift */,
 			);
 			path = Model;
@@ -262,6 +259,7 @@
 			isa = PBXGroup;
 			children = (
 				5FB340812C0596A8000B7A53 /* HomeView.swift */,
+				5FFC81C82C078A52009DC5C1 /* FilterLogicView.swift */,
 				5FFC81C52C078460009DC5C1 /* WordFilter */,
 				5FFC81CA2C079248009DC5C1 /* CustomSetting */,
 			);
@@ -273,7 +271,6 @@
 			children = (
 				5FB3407F2C0596A8000B7A53 /* EditSpecialCharacterView.swift */,
 				5FFC81C62C0784EF009DC5C1 /* WordFilterView.swift */,
-				5FFC81C82C078A52009DC5C1 /* WordFilterInfoView.swift */,
 			);
 			path = WordFilter;
 			sourceTree = "<group>";
@@ -455,9 +452,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5FB3408F2C0596A8000B7A53 /* NavigationDestination.swift in Sources */,
 				5FB3408E2C0596A8000B7A53 /* HomeView.swift in Sources */,
-				5FFC81C92C078A52009DC5C1 /* WordFilterInfoView.swift in Sources */,
+				5FFC81C92C078A52009DC5C1 /* FilterLogicView.swift in Sources */,
 				5FFC81C32C077B34009DC5C1 /* MainTapPages.swift in Sources */,
 				5FB3408D2C0596A8000B7A53 /* FilterSettingView.swift in Sources */,
 				5FB3408A2C0596A8000B7A53 /* OnboardingMainView.swift in Sources */,

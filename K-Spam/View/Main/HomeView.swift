@@ -9,50 +9,54 @@ import Lottie
 import SwiftUI
 
 struct HomeView: View {
-    @State var path: NavigationPath = .init()
+    @State private var showSettingInfo = false
+    @State private var showFilterLogicView = false
     
     var body: some View {
-        NavigationStack(path: $path) {
-            VStack {
-                LottieView(animation: .named("MainHome"))
-                    .playing(loopMode: .loop)
-                    .frame(height: UIScreen.main.bounds.height / 3)
-                    .padding(
-                    )
+        VStack {
+            Text("K-Spam Home")
+                .font(.system(size: 32, weight: .heavy))
+                .padding()
+            LottieView(animation: .named("MainHome"))
+                .playing(loopMode: .loop)
+                .frame(height: UIScreen.main.bounds.height / 3)
+                .padding(
+                )
+            
+            VStack(spacing: 16) {
+                Text("자주 하는 질문")
+                    .fontWeight(.bold)
+                    .foregroundStyle(Color.green)
+                    .padding(.bottom, 8)
                 
-                Text("K-Spam이 정상적으로 작동중 입니다.")
-                    .padding()
-                
-                VStack(spacing: 8) {
-                    Text("[설정 > 메세지 > 알 수 없는 연락처 및 스팸]을 확인해주세요.")
+                HStack {
+                    Text("∙ K-Spam이 작동 안해요.")
+                        .font(.system(size: 14, weight: .light))
                     
-                    HStack {
-                        Text("우측 상단")
-                        Image(systemName: "plus.message")
-                            .foregroundStyle(.blue)
-                        
-                        Text("표시를 통해 추가 설정을 해주세요.")
+                    Button(action: { showSettingInfo.toggle() }) {
+                        Image(systemName: "info.circle")
                     }
+                    Spacer()
                 }
-                Spacer()
-            }
-            .toolbar {
-                ToolbarItem(placement: .topBarTrailing) {
-                    Button(action: {
-                        path.append(NavigationDestination.settings)
-                    }) {
-                        Image(systemName: "plus.message")
+                .padding(.horizontal)
+                
+                HStack {
+                    Text("∙ K-Spam 작동 순서를 알고 싶어요.")
+                        .font(.system(size: 14, weight: .light))
+                    Button(action: { showFilterLogicView.toggle() }) {
+                        Image(systemName: "info.circle")
                     }
-                }
+                    Spacer()
+                }.padding(.horizontal)
+                
+
             }
-            .navigationDestination(for: NavigationDestination.self) { value in
-                switch value {
-                case .main:
-                    HomeView()
-                case .settings:
-                    FilterSettingView()
-                }
-            }
+        }
+        .sheet(isPresented: $showSettingInfo) { OnboardingPage4() }
+        .sheet(isPresented: $showFilterLogicView) {
+            FilterLogicView()
+                .presentationDetents([.medium])
+                .presentationCornerRadius(20)
         }
     }
 }

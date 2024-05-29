@@ -84,7 +84,7 @@ struct WordFilterView: View {
         }
         .padding()
         .sheet(isPresented: $showInfo) {
-            WordFilterInfoView()
+            FilterLogicView()
                 .presentationDetents([.medium])
                 .presentationCornerRadius(20)
         }
@@ -99,6 +99,7 @@ struct WordFilterView: View {
     }
     
     func submit() {
+        guard inputText != "" else { return }
         if filterType == .black {
             blackFilterWords.append(inputText)
         } else if filterType == .white {

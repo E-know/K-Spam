@@ -21,9 +21,8 @@ enum MainTapPages: Identifiable, CaseIterable {
             WordFilterView()
         case .home:
             HomeView()
-            
-        default:
-            HomeView()
+        case .customSetting:
+            CustomSettingView()
         }
     }
     
