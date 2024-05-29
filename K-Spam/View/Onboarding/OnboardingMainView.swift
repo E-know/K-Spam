@@ -12,7 +12,7 @@ struct OnboardingMainView: View {
     @State var pageIdx = 1
     @State var onClick = false
     let dismiss: () -> Void
-
+    
     
     var body: some View {
         VStack {
@@ -28,36 +28,31 @@ struct OnboardingMainView: View {
             }
             .tabViewStyle(PageTabViewStyle(indexDisplayMode: .always))
             
-            if pageIdx < 4 {
-                SliderView
-                    .gesture( DragGesture()
-                        .onEnded { value in
-                            withAnimation {
-                                if value.startLocation.x - value.location.x > 0 && pageIdx + 1 <= 4 {
-                                    pageIdx += 1
-                                }
+            Spacer()
+            
+            BottomView
+                .frame(height: UIScreen.main.bounds.height / 7)
+        }
+    }
+    
+    @ViewBuilder
+    private var BottomView: some View {
+        if pageIdx < 4 {
+            SliderView
+                .gesture( DragGesture()
+                    .onEnded { value in
+                        withAnimation {
+                            if value.startLocation.x - value.location.x > 0 && pageIdx + 1 <= 4 {
+                                pageIdx += 1
                             }
                         }
-                    )
-            } else {
-                Button(action: {
-                    if !onClick {
-                        Task {
-                            if let url = URL(string: UIApplication.openSettingsURLString) {
-                                // Ask the system to open that URL.
-                                await UIApplication.shared.open(url)
-                            }
-                            onClick = true
-                            UserDefaults.standard.set(onClick, forKey: "onboarding")
-                        }
-                    } else {
-                        UserDefaults.standard.setValue(true, forKey: "Onboarding")
-                        dismiss()
                     }
-                } ) {
-                    Text(onClick ? "KSpam 시작하기" : "설정하러 가기")
-                }
-                .frame(height: UIScreen.main.bounds.height / 5)
+                )
+        } else {
+            if onClick {
+                GoMainViewButton
+            } else {
+                GoSettingAppButton
             }
         }
     }
@@ -70,7 +65,37 @@ struct OnboardingMainView: View {
             Text("밀어서 진행하기")
                 .foregroundStyle(.gray)
         }
-        .frame(height: UIScreen.main.bounds.height / 5)
+    }
+    
+    private var GoSettingAppButton: some View {
+        Button(action: {
+            Task { @MainActor in
+                if let url = URL(string: UIApplication.openSettingsURLString) {
+                    // Ask the system to open that URL.
+                    await UIApplication.shared.open(url)
+                }
+                onClick = true
+                UserDefaults.standard.set(onClick, forKey: "onboarding")
+            }
+        }) {
+            Text("설정하러 가기")
+        }
+    }
+    
+    private var GoMainViewButton: some View {
+        Button(action: {
+            UserDefaults.standard.setValue(true, forKey: "Onboarding")
+            dismiss()
+        }) {
+            Text("KSpam 시작하기")
+                .foregroundStyle(Color.white)
+                .padding(10)
+                .background {
+                    RoundedRectangle(cornerRadius: 8)
+                        .foregroundStyle(Color.green)
+                }
+        }
+        
     }
 }
 

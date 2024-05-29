@@ -51,7 +51,7 @@ struct OnboardingPage2: View {
 }
 
 struct OnboardingPage3: View {
-    @State var showWebView = false
+    @State private var showWebView = false
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -89,16 +89,23 @@ struct OnboardingPage4: View {
     
     var body: some View {
         VStack {
-            Text("K-Spam 시작하기")
-                .font(.system(size: 32, weight: .heavy))
-                .padding()
+                Text("K-Spam 시작하기")
+                    .font(.system(size: 32, weight: .heavy))
+                    .padding()
             
             HStack {
                 VStack(alignment: .leading) {
-                    Text("설정에서 K-Spam 설정을 완료해주세요.")
-                        .fontWeight(.bold)
-                        .foregroundStyle(.green)
-                        .padding(.bottom, 8)
+                    HStack {
+                        Image("SettingIcon")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(height: 25)
+                        
+                        Text("설정에서 K-Spam 설정을 완료해주세요.")
+                            .fontWeight(.bold)
+                            .foregroundStyle(.green)
+                    }
+                    .padding(.bottom, 8)
                     
                     Text("1. [설정 > 메세지 > 알 수 없는 연락처 및 스팸 ]")
                         .font(.system(size: 12, weight: .light))
@@ -118,11 +125,16 @@ struct OnboardingPage4: View {
                         Image(systemName: "checkmark")
                             .foregroundStyle(.blue)
                     }
+                    
                 }
-                
                 Spacer()
             }
             .padding()
+            
+            
+            Image("SettingOrder")
+                .resizable()
+                .aspectRatio(contentMode: .fit)
         }
     }
 }
@@ -151,5 +163,5 @@ struct ListElement: View {
 }
 
 #Preview {
-    OnboardingPage3()
+    OnboardingPage4()
 }
