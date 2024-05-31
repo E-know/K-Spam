@@ -75,7 +75,7 @@ struct OnboardingMainView: View {
                     await UIApplication.shared.open(url)
                 }
                 onClick = true
-                UserDefaults.standard.set(onClick, forKey: "onboarding")
+                UserDefaults.standard.set(true, forKey: "onboarding")
             }
         }) {
             Text("설정하러 가기")
@@ -95,7 +95,6 @@ struct OnboardingMainView: View {
                         .foregroundStyle(Color.green)
                 }
         }
-        
     }
 }
 
