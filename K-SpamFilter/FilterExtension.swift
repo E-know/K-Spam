@@ -36,6 +36,12 @@ extension MessageFilterExtension {
             return (.junk, .none)
         }
         
+        if UserDefaultsManager.shared.getBool(key: .Advertise) {
+            if checkAdvertise(messageLines: messageLines) {
+                return (.junk, .none)
+            }
+        }
+        
         
         return (.none, .none)
     }
@@ -153,6 +159,12 @@ extension MessageFilterExtension {
             }
         }
         return false
+    }
+    
+    private func checkAdvertise(messageLines: [String]) -> Bool {
+        guard let firstLine = messageLines.first else { return false }
+        
+        return firstLine.contains("(광고)")
     }
 }
 

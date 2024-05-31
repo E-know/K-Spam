@@ -32,9 +32,9 @@ class UserDefaultsManager {
 
 enum UserDefaultsKey: String {
     case InternationalSend
-    case CustomSpecialCharacter
     case ChargeCasino
-    case CustomFilterStrings
+    case Advertise
+    
     case WhiteFilterWords
     case BlackFilterWords
 }

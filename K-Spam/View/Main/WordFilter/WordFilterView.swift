@@ -19,11 +19,14 @@ struct WordFilterView: View {
     
     
     var body: some View {
-        VStack(alignment: .leading) {
-            Button(action: { showInfo.toggle() }, label: {
+        VStack {
+            HStack {
+                Button(action: { showInfo.toggle() }, label: {
                     Image(systemName: "info.circle")
                 })
                 .padding(.bottom, 4)
+                Spacer()
+            }
             
             Picker("", selection: $filterType) {
                 ForEach(FilterType.allCases) {
@@ -33,14 +36,14 @@ struct WordFilterView: View {
             }
             .pickerStyle(.segmented)
             
-            List {
-                ForEach(filterType == .black ? blackFilterWords : whiteFilterWords, id: \.self) {
-                    Text($0)
-                }
-                .onDelete(perform: delete)
-                .listRowBackground(Color.superLightPurple)
-            }
-            .scrollContentBackground(.hidden)
+            Text("✷ 스와이프를 통해서 리스트 항목 제거가 가능합니다")
+                .foregroundStyle(Color.gray)
+                .font(.caption)
+                .padding(.vertical, 4)
+            
+            
+            WordsListView(type: filterType)
+            
             
             Divider()
             
@@ -75,6 +78,31 @@ struct WordFilterView: View {
         .onChange(of: blackFilterWords) {UserDefaultsManager.shared.setValue(key: .BlackFilterWords, value: blackFilterWords)}
     }
     
+    @ViewBuilder
+    private func WordsListView(type: FilterType) -> some View {
+        let words = filterType == .black ? blackFilterWords : whiteFilterWords
+        
+        if !words.isEmpty {
+            List {
+                ForEach(words, id: \.self) {
+                    Text($0)
+                }
+                .onDelete(perform: delete)
+                .listRowBackground(Color.superLightPurple)
+            }
+            .scrollContentBackground(.hidden)
+        } else {
+            VStack(spacing: 8) {
+                Spacer()
+                Text("추가한 단어가 없습니다.")
+                Text("단어를 추가해주세요.")
+                    .font(.caption)
+                    .foregroundStyle(Color.gray)
+                Spacer()
+            }
+        }
+    }
+    
     private func delete(at offsets: IndexSet) {
         if filterType == .black {
             blackFilterWords.remove(atOffsets: offsets)
@@ -83,7 +111,7 @@ struct WordFilterView: View {
         }
     }
     
-    func submit() {
+    private func submit() {
         guard inputText != "" else { return }
         if filterType == .black {
             blackFilterWords.append(inputText)
