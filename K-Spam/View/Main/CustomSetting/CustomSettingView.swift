@@ -12,8 +12,10 @@ struct CustomSettingView: View {
     @State private var chargeCasino = UserDefaultsManager.shared.getBool(key: .ChargeCasino)
     @State private var advertise = UserDefaultsManager.shared.getBool(key: .Advertise)
     
+    @State private var showActivity = false
+    
     var body: some View {
-        VStack() {
+        VStack {
             Text("K-Spam\n 한국 특화 필터")
                 .font(.system(size: 32, weight: .heavy))
                 .padding()
@@ -32,8 +34,35 @@ struct CustomSettingView: View {
             
             Spacer()
             
+            HStack {
+                VStack(alignment: .leading, spacing: 6) {
+                    Text("주변 지인들에게 앱을 홍보해주세요.")
+                        .font(.system(size: 15))
+                        .foregroundStyle(Color.black)
+                    Text("개발자에게 큰 힘이 됩니다.")
+                        .font(.footnote)
+                        .foregroundStyle(Color.gray)
+                }
+                    .padding(.trailing)
+                
+                Button(action: {showActivity.toggle()}, label: {
+                    VStack {
+                        Image(systemName: "square.and.arrow.up")
+                            .font(.system(size: 24))
+                            .padding(.bottom, 1)
+                        Text("공유하기")
+                            .font(.caption)
+                    }
+                })
+            }
+            .padding()
         }
         .padding()
+        .sheet(isPresented: $showActivity, content: {
+            ActivityView(text: "화면공유 텍스트")
+                .presentationDetents([.medium, .large])
+                .presentationCornerRadius(20)
+        })
         
         .onChange(of: chargeCasino) { UserDefaultsManager.shared.setValue(key: .ChargeCasino, value: chargeCasino) }
         .onChange(of: internationalSend) { UserDefaultsManager.shared.setValue(key: .InternationalSend, value: internationalSend) }

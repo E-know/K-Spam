@@ -37,8 +37,8 @@ extension MessageFilterExtension {
         }
         
         if UserDefaultsManager.shared.getBool(key: .Advertise) {
-            if checkAdvertise(messageLines) {
-                
+            if checkAdvertise(messageLines: messageLines) {
+                return (.junk, .none)
             }
         }
         
