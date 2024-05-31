@@ -16,25 +16,17 @@ struct FilterLogicView: View {
             
             HStack {
                 VStack(alignment: .leading, spacing: 16) {
-                    Text("1. 필터 제외 단어는 가장 먼저 적용되어 필터에서 제외됩니다.")
-                        .font(.system(size: 13, weight: .light))
-                        .lineSpacing(10)
+                    MainText(number: 1, text: "[필터 제외 단어]는 가장 먼저 적용되어 제외됩니다.")
                     
-                    Text("2. 이후 개인 설정에 따라서 필터가 이뤄집니다.")
-                        .font(.system(size: 13, weight: .light))
-                        .lineSpacing(10)
-                    
+                    MainText(number: 2, text: "이후 개인 설정에 추가한 설정에 따라 필터가 이뤄집니다.")
                     
                     Divider()
                         .padding()
                     
                     VStack(alignment: .leading, spacing: 12) {
-                        Text("∙ [필터 제외 단어 / 필터할 단어]가 1개라도 존재하면 필터가 작동합니다.")
-                            .font(.system(size: 11, weight: .light))
-                        Text("∙ 스와이프를 통해서 단어를 삭제 할 수 있습니다.")
-                            .font(.system(size: 11, weight: .light))
-                        Text("∙ 필터 단어는 앱 삭제시 같이 사라짐으로 앱 삭제에 유의해주세요.")
-                            .font(.system(size: 11, weight: .light))
+                        SubText(text: "단어를 동록하시면 해당 필터가 작동합니다.")
+                        SubText(text: "스와이프를 통해서 단어를 삭제 할 수 있습니다.")
+                        SubText(text: "단어는 앱 삭제시 같이 사라짐으로 앱 삭제에 유의해주세요.")
                     }
                 }
                 Spacer()
@@ -43,6 +35,25 @@ struct FilterLogicView: View {
             Spacer()
         }
         .padding()
+    }
+    
+    private func MainText(number: Int, text: String) -> some View {
+        HStack(alignment: .top) {
+            Text("\(number).")
+                .font(.system(size: 14, weight: .light))
+            Text(text)
+                .font(.system(size: 14, weight: .light))
+                .lineSpacing(10)
+        }
+    }
+    
+    private func SubText(head: String = "∙", text: String) -> some View {
+        HStack {
+            Text("\(head) ")
+                .font(.system(size: 12, weight: .bold))
+            Text(text)
+                .font(.system(size: 12, weight: .light))
+        }
     }
 }
 
