@@ -38,7 +38,7 @@ struct WordFilterView: View {
             
             Text("✷ 스와이프를 통해서 리스트 항목 제거가 가능합니다")
                 .foregroundStyle(Color.gray)
-                .font(.caption)
+                .font(.system(size: 14))
                 .padding(.vertical, 4)
             
             
@@ -96,7 +96,7 @@ struct WordFilterView: View {
                 Spacer()
                 Text("추가한 단어가 없습니다.")
                 Text("단어를 추가해주세요.")
-                    .font(.caption)
+                    .font(.system(size: 13))
                     .foregroundStyle(Color.gray)
                 Spacer()
             }

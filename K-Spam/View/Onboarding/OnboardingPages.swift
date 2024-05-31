@@ -41,9 +41,9 @@ struct OnboardingPage2: View {
             VStack(alignment: .leading, spacing: 24) {
                 ListElement(title: "1. 저장된 연락처에 한해서는 필터링 되지 않습니다.", detail: "필터링을 원치 않는 연락처는 저장해주세요")
                 
-                ListElement(title: "2. 스팸/비스팸만 구분합니다.", detail: "추후 기능이 업데이트 된다면 금융거래 및 홍보가 추가될 수 있습니다.")
+                ListElement(title: "2. 스팸/비스팸만 구분합니다.", detail: "추후 기능이 업데이트된다면 금융거래 및 홍보가 추가될 수 있습니다.")
                 
-                ListElement(title: "3. 완벽하지 않습니다.", detail: "요새는 스팸이 고도화되고 있습니다.  필터링 조건을 논문까지 찾아봐 구현해보아도 쉽지 않습니다. 😢 필터가 완벽하지 않아서 스팸문자가 필터가 될 수 있습니다. 양해부탁드립니다. 😭")
+                ListElement(title: "3. 완벽하지 않습니다.", detail: "요새는 스팸이 고도화되고 있습니다.  필터링 조건을 논문까지 찾아봐 구현해 보아도 쉽지 않습니다. 😢 필터가 완벽하지 않아서 스팸문자가 필터가 안 될 수 있습니다. 양해부탁드립니다. 😭")
             }
             .padding()
         }
@@ -156,7 +156,7 @@ struct ListElement: View {
                 .padding(.bottom, 8)
             
             Text(detail)
-                .font(.system(size: 12, weight: .light))
+                .font(.system(size: 14, weight: .light))
                 .lineSpacing(10)
         }
     }
