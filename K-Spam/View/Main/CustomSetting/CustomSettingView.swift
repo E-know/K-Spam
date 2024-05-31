@@ -62,6 +62,7 @@ struct CustomSettingView: View {
             ActivityView(text: "화면공유 텍스트")
                 .presentationDetents([.medium, .large])
                 .presentationCornerRadius(20)
+                .ignoresSafeArea()
         })
         
         .onChange(of: chargeCasino) { UserDefaultsManager.shared.setValue(key: .ChargeCasino, value: chargeCasino) }
