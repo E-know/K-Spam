@@ -61,7 +61,7 @@ struct OnboardingPage3: View {
                     .padding()
                 
                 VStack(alignment: .leading, spacing: 24) {
-                    ListElement(title: "1. 혹시 개발자가 내 문자 무단으로 수집하면 어떻하지?", detail: "개인정보 수집은 Apple 정책상 그러한 구현 방법이 불가능합니다.\n자세한건 아래 링크 참고 바랍니다.")
+                    ListElement(title: "1. 혹시 개발자가 내 문자 무단으로 수집하면 어떻게 하지?", detail: "개인정보 수집은 Apple 정책상 그러한 구현 방법이 불가능합니다.\n자세한건 아래 링크 참고 바랍니다.")
                     
                     ListElement(title: "2. 오프라인 필터를 지원합니다.", detail: "⌯ K-Spam은 오프라인 필터를 지원합니다\n⌯ 서버 비용이 없어서 오프라인으로 만든건 안 비밀")
                 }
