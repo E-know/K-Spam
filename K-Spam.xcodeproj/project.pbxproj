@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		5F3D829E2C07B90C001F595D /* Keyboard+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F3D829D2C07B90C001F595D /* Keyboard+.swift */; };
 		5F57E8902C096CA300A0D1C1 /* ActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F57E88F2C096CA300A0D1C1 /* ActivityView.swift */; };
+		5F60C86F2C0AF6D4003E8E77 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F60C86E2C0AF6D4003E8E77 /* AppDelegate.swift */; };
+		5F60C8722C0B1912003E8E77 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 5F60C8712C0B1912003E8E77 /* FirebaseMessaging */; };
+		5F60C8752C0B1B2A003E8E77 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5F60C8742C0B1B29003E8E77 /* GoogleService-Info.plist */; };
+		5F60C8772C0B1CC1003E8E77 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 5F60C8762C0B1CC1003E8E77 /* FirebaseAnalytics */; };
+		5F60C8792C0B5078003E8E77 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F60C8782C0B5078003E8E77 /* NetworkManager.swift */; };
 		5FAC0EF22C05EB8700323BC8 /* WKWebViewUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FAC0EF12C05EB8700323BC8 /* WKWebViewUI.swift */; };
 		5FB340502C0595CA000B7A53 /* K_SpamApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB3404F2C0595CA000B7A53 /* K_SpamApp.swift */; };
 		5FB340542C0595CB000B7A53 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5FB340532C0595CB000B7A53 /* Assets.xcassets */; };
@@ -76,6 +81,10 @@
 /* Begin PBXFileReference section */
 		5F3D829D2C07B90C001F595D /* Keyboard+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Keyboard+.swift"; sourceTree = "<group>"; };
 		5F57E88F2C096CA300A0D1C1 /* ActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityView.swift; sourceTree = "<group>"; };
+		5F60C86E2C0AF6D4003E8E77 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		5F60C8732C0B194E003E8E77 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		5F60C8742C0B1B29003E8E77 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		5F60C8782C0B5078003E8E77 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		5FAC0EEF2C05D8D300323BC8 /* K-Spam.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "K-Spam.entitlements"; sourceTree = "<group>"; };
 		5FAC0EF02C05D8E100323BC8 /* K-SpamFilter.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "K-SpamFilter.entitlements"; sourceTree = "<group>"; };
 		5FAC0EF12C05EB8700323BC8 /* WKWebViewUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKWebViewUI.swift; sourceTree = "<group>"; };
@@ -111,7 +120,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5F60C8722C0B1912003E8E77 /* FirebaseMessaging in Frameworks */,
 				5FB3407B2C05965D000B7A53 /* Lottie in Frameworks */,
+				5F60C8772C0B1CC1003E8E77 /* FirebaseAnalytics in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -172,15 +183,18 @@
 		5FB3404E2C0595CA000B7A53 /* K-Spam */ = {
 			isa = PBXGroup;
 			children = (
+				5F60C8742C0B1B29003E8E77 /* GoogleService-Info.plist */,
+				5F60C8732C0B194E003E8E77 /* Info.plist */,
 				5F3D829C2C07B8F4001F595D /* extension */,
 				5FAC0EEF2C05D8D300323BC8 /* K-Spam.entitlements */,
 				5FB340872C0596A8000B7A53 /* Lottie */,
 				5FB340892C0596A8000B7A53 /* Manager */,
 				5FB340842C0596A8000B7A53 /* Model */,
 				5FB340822C0596A8000B7A53 /* View */,
-				5FB3404F2C0595CA000B7A53 /* K_SpamApp.swift */,
 				5FB340532C0595CB000B7A53 /* Assets.xcassets */,
 				5FB340552C0595CB000B7A53 /* Preview Content */,
+				5F60C86E2C0AF6D4003E8E77 /* AppDelegate.swift */,
+				5FB3404F2C0595CA000B7A53 /* K_SpamApp.swift */,
 			);
 			path = "K-Spam";
 			sourceTree = "<group>";
@@ -252,6 +266,7 @@
 			isa = PBXGroup;
 			children = (
 				5FB340882C0596A8000B7A53 /* UserDefaultsManager.swift */,
+				5F60C8782C0B5078003E8E77 /* NetworkManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -315,6 +330,8 @@
 			name = "K-Spam";
 			packageProductDependencies = (
 				5FB3407A2C05965D000B7A53 /* Lottie */,
+				5F60C8712C0B1912003E8E77 /* FirebaseMessaging */,
+				5F60C8762C0B1CC1003E8E77 /* FirebaseAnalytics */,
 			);
 			productName = "K-Spam";
 			productReference = 5FB3404C2C0595CA000B7A53 /* K-Spam.app */;
@@ -401,15 +418,16 @@
 			};
 			buildConfigurationList = 5FB340472C0595CA000B7A53 /* Build configuration list for PBXProject "K-Spam" */;
 			compatibilityVersion = "Xcode 14.0";
-			developmentRegion = en;
+			developmentRegion = ko;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				en,
 				Base,
+				ko,
 			);
 			mainGroup = 5FB340432C0595CA000B7A53;
 			packageReferences = (
 				5FB340792C05965D000B7A53 /* XCRemoteSwiftPackageReference "lottie-ios" */,
+				5F60C8702C0B1912003E8E77 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = 5FB3404D2C0595CA000B7A53 /* Products */;
 			projectDirPath = "";
@@ -430,6 +448,7 @@
 			files = (
 				5FB340572C0595CB000B7A53 /* Preview Assets.xcassets in Resources */,
 				5FB340902C0596A8000B7A53 /* MainHome.json in Resources */,
+				5F60C8752C0B1B2A003E8E77 /* GoogleService-Info.plist in Resources */,
 				5FB340912C0596A8000B7A53 /* Slider.json in Resources */,
 				5FB340542C0595CB000B7A53 /* Assets.xcassets in Resources */,
 			);
@@ -466,6 +485,8 @@
 				5FB3408E2C0596A8000B7A53 /* HomeView.swift in Sources */,
 				5F3D829E2C07B90C001F595D /* Keyboard+.swift in Sources */,
 				5FFC81C92C078A52009DC5C1 /* FilterLogicView.swift in Sources */,
+				5F60C86F2C0AF6D4003E8E77 /* AppDelegate.swift in Sources */,
+				5F60C8792C0B5078003E8E77 /* NetworkManager.swift in Sources */,
 				5FFC81C32C077B34009DC5C1 /* MainTapPages.swift in Sources */,
 				5FB3408A2C0596A8000B7A53 /* OnboardingMainView.swift in Sources */,
 				5FB340922C0596A8000B7A53 /* UserDefaultsManager.swift in Sources */,
@@ -660,6 +681,7 @@
 				DEVELOPMENT_TEAM = P2UJWPTGRX;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "K-Spam/Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -697,6 +719,7 @@
 				DEVELOPMENT_TEAM = P2UJWPTGRX;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "K-Spam/Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -730,13 +753,17 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = P2UJWPTGRX;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "toby.app.K-SpamTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/K-Spam.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/K-Spam";
 			};
 			name = Debug;
@@ -750,13 +777,17 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = P2UJWPTGRX;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "toby.app.K-SpamTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/K-Spam.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/K-Spam";
 			};
 			name = Release;
@@ -769,12 +800,17 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = P2UJWPTGRX;
 				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "toby.app.K-SpamUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				TEST_TARGET_NAME = "K-Spam";
 			};
 			name = Debug;
@@ -787,12 +823,17 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = P2UJWPTGRX;
 				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "toby.app.K-SpamUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				TEST_TARGET_NAME = "K-Spam";
 			};
 			name = Release;
@@ -910,6 +951,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		5F60C8702C0B1912003E8E77 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.27.0;
+			};
+		};
 		5FB340792C05965D000B7A53 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/airbnb/lottie-ios";
@@ -921,6 +970,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		5F60C8712C0B1912003E8E77 /* FirebaseMessaging */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5F60C8702C0B1912003E8E77 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseMessaging;
+		};
+		5F60C8762C0B1CC1003E8E77 /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5F60C8702C0B1912003E8E77 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
 		5FB3407A2C05965D000B7A53 /* Lottie */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 5FB340792C05965D000B7A53 /* XCRemoteSwiftPackageReference "lottie-ios" */;
