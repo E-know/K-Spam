@@ -9,7 +9,7 @@ import SwiftUI
 
 @main
 struct KSpamApp: App {
-    @State var path: NavigationPath = .init()
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     @State var showOnBoarding: Bool = !UserDefaults.standard.bool(forKey: "Onboarding")
     
     var body: some Scene {
