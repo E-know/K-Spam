@@ -14,6 +14,9 @@ struct CustomSettingView: View {
     
     @State private var showActivity = false
     
+    private let currentVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as! String
+    @State private var lastVersion: String? = nil
+    
     var body: some View {
         VStack {
             Text("K-Spam\n 한국 특화 필터")
@@ -33,6 +36,10 @@ struct CustomSettingView: View {
             SettingElement(bindingValue: $advertise, text: "광고 문자 차단")
             
             Spacer()
+            
+            if let lastVersion {
+                UpdateVersionButton(currentVersion: currentVersion, lastVersion: lastVersion)
+            }
             
             HStack {
                 VStack(alignment: .leading, spacing: 6) {
@@ -69,6 +76,12 @@ struct CustomSettingView: View {
         .onChange(of: internationalSend) { UserDefaultsManager.shared.setValue(key: .InternationalSend, value: internationalSend) }
         .onChange(of: advertise) { UserDefaultsManager.shared.setValue(key: .Advertise, value: advertise)
         }
+        .onAppear {
+            Task.detached {
+                let networkVersion = try await NetworkManager().getLastVersion()
+                await updateVersion(updatedVersion: networkVersion)
+            }
+        }
     }
     
     @ViewBuilder
@@ -83,6 +96,48 @@ struct CustomSettingView: View {
             }
         }
         .disabled(disabled)
+    }
+    
+    @ViewBuilder
+    private func UpdateVersionButton(currentVersion: String, lastVersion: String) -> some View {
+        if currentVersion == lastVersion {
+            Text("앱이 최신 버전입니다.")
+                .foregroundStyle(Color.gray)
+                .font(.footnote)
+        } else {
+            HStack {
+                VStack(alignment: .leading) {
+                    Text("현재 버전: \(currentVersion)")
+                    Text("최신 버전: \(lastVersion)")
+                }
+                .foregroundStyle(Color.gray)
+                .font(.caption)
+                .padding(.horizontal)
+                
+                Button(action: {
+                    if let url = URL(string: "https://apps.apple.com/kr/app/k-spam/id6503290039") {
+                        UIApplication.shared.open(url)
+                    }
+                }) {
+                    Text("업데이트")
+                        .font(.system(size: 15))
+                        .padding(.vertical, 8)
+                        .padding(.horizontal, 12)
+                        .foregroundStyle(Color.white)
+                        .background {
+                            RoundedRectangle(cornerRadius: 8)
+                                .foregroundStyle(Color.blue)
+                        }
+                }
+            }
+        }
+    }
+    
+    @MainActor
+    private func updateVersion(updatedVersion: String) {
+        withAnimation {
+            self.lastVersion = updatedVersion
+        }
     }
 }
 
