@@ -11,6 +11,7 @@ import SwiftUI
 struct OnboardingMainView: View {
     @State var pageIdx = 1
     @State var onClick = false
+    @State var showConfigureAlert = false
     let dismiss: () -> Void
     
     
@@ -32,7 +33,24 @@ struct OnboardingMainView: View {
             
             BottomView
                 .frame(height: UIScreen.main.bounds.height / 7)
+            
         }
+        .alert("필터가 업데이트되면 알림을 받으시겠어요?", isPresented: $showConfigureAlert, actions: {
+            Button(action: {
+                dismiss()
+            }) {
+                Text("아니요")
+            }
+            
+            Button(action: {
+                configureAlert()
+                dismiss()
+            }) {
+                Text("네")
+            }
+        }, message: {
+            Text("광고성 메세지는 없습니다.")
+        })
     }
     
     @ViewBuilder
@@ -85,7 +103,7 @@ struct OnboardingMainView: View {
     private var GoMainViewButton: some View {
         Button(action: {
             UserDefaults.standard.setValue(true, forKey: "Onboarding")
-            dismiss()
+            showConfigureAlert.toggle()
         }) {
             Text("KSpam 시작하기")
                 .foregroundStyle(Color.white)
@@ -94,6 +112,14 @@ struct OnboardingMainView: View {
                     RoundedRectangle(cornerRadius: 8)
                         .foregroundStyle(Color.green)
                 }
+        }
+    }
+    
+    private func configureAlert() {
+        Task {
+            let authOptions: UNAuthorizationOptions = [.alert, .sound]
+            guard try await UNUserNotificationCenter.current().requestAuthorization(options: authOptions) else { return }
+            print("알림 등록이 완료되었습니다.")
         }
     }
 }
