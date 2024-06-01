@@ -17,12 +17,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Messaging.messaging().delegate = self
 
         UNUserNotificationCenter.current().delegate = self
-        let authOptions: UNAuthorizationOptions = [.alert, .sound]
         
-        Task { [authOptions] in
-            guard try await UNUserNotificationCenter.current().requestAuthorization(options: authOptions) else { return }
-            print("알림 등록이 완료되었습니다.")
-        }
+//        Task {
+//            let authOptions: UNAuthorizationOptions = [.alert, .sound]
+//            guard try await UNUserNotificationCenter.current().requestAuthorization(options: authOptions) else { return }
+//            print("알림 등록이 완료되었습니다.")
+//        }
         
         application.registerForRemoteNotifications()
 
@@ -49,8 +49,8 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
     }
 
     // foreground 상에서 알림이 보이게끔 해준다.
-    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-        completionHandler([.banner, .sound, .badge])
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification) async -> UNNotificationPresentationOptions {
+        return [.banner, .sound, .badge]
     }
 }
 
@@ -59,6 +59,7 @@ extension AppDelegate: MessagingDelegate {
         // 여기서 이제 서버로 다시 fcm 토큰을 보내줘야 한다!
         // 그러나 서버가 없기 때문에 이렇게 token을 출력하게 한다.
         // 이 토큰은 뒤에서 Test할때 필요하다!
+        guard let fcmToken else { return }
         print("FCM Token: \(fcmToken)")
     }
 }
