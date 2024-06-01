@@ -15,15 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         FirebaseApp.configure()
         Messaging.messaging().delegate = self
-
         UNUserNotificationCenter.current().delegate = self
-        
-//        Task {
-//            let authOptions: UNAuthorizationOptions = [.alert, .sound]
-//            guard try await UNUserNotificationCenter.current().requestAuthorization(options: authOptions) else { return }
-//            print("알림 등록이 완료되었습니다.")
-//        }
-        
         application.registerForRemoteNotifications()
 
         return true
