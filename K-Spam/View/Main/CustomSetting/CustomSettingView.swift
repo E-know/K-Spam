@@ -100,11 +100,7 @@ struct CustomSettingView: View {
     
     @ViewBuilder
     private func UpdateVersionButton(currentVersion: String, lastVersion: String) -> some View {
-        if currentVersion == lastVersion {
-            Text("앱이 최신 버전입니다.")
-                .foregroundStyle(Color.gray)
-                .font(.footnote)
-        } else {
+        if currentVersion < lastVersion {
             HStack {
                 VStack(alignment: .leading) {
                     Text("현재 버전: \(currentVersion)")
@@ -130,6 +126,10 @@ struct CustomSettingView: View {
                         }
                 }
             }
+        } else {
+            Text("앱이 최신 버전입니다.")
+                .foregroundStyle(Color.gray)
+                .font(.footnote)
         }
     }
     
