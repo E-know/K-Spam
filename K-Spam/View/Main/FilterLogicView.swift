@@ -26,7 +26,7 @@ struct FilterLogicView: View {
                     VStack(alignment: .leading, spacing: 12) {
                         SubText(text: "단어를 동록하시면 해당 필터가 작동합니다.")
                         SubText(text: "스와이프를 통해서 단어를 삭제 할 수 있습니다.")
-                        SubText(text: "단어는 앱 삭제시 같이 사라짐으로 앱 삭제에 유의해주세요.")
+                        SubText(text: "단어는 앱 삭제시 같이 사라지므로 앱 삭제에 유의해주세요.")
                     }
                 }
                 Spacer()

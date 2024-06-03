@@ -1,5 +1,5 @@
 //
-//  MainTapPages.swift
+//  MainTabPages.swift
 //  K-Spam
 //
 //  Created by Inho Choi on 5/30/24.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-enum MainTapPages: Identifiable, CaseIterable {
+enum MainTabPages: Identifiable, CaseIterable {
     var id: Self { self }
     
     case wordFilter

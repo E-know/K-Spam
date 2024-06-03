@@ -164,7 +164,11 @@ extension MessageFilterExtension {
     private func checkAdvertise(messageLines: [String]) -> Bool {
         guard let firstLine = messageLines.first else { return false }
         
-        return firstLine.contains("(광고)")
+        if firstLine.contains("광고") { return true }
+        
+        guard messageLines.count >= 2 else { return false }
+        
+        return messageLines[1].contains("광고")
     }
 }
 
