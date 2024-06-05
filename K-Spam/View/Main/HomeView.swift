@@ -12,6 +12,7 @@ struct HomeView: View {
     @State private var showSettingInfo = false
     @State private var showFilterLogicView = false
     @State private var showWantNotFilter = false
+    @State private var showFilterResultInfo = false
     
     var body: some View {
         VStack {
@@ -35,6 +36,8 @@ struct HomeView: View {
                 FAQElement(text: "K-Spam 작동 순서를 알고 싶어요.", showModal: $showFilterLogicView)
                 
                 FAQElement(text: "필터하고 싶지 않은 번호가 있어요.", showModal: $showWantNotFilter)
+                
+                FAQElement(text: "필터된 결과를 알고 싶어요", showModal: $showFilterResultInfo)
             }
         }
         .sheet(isPresented: $showSettingInfo) { OnboardingPage4() }
@@ -42,10 +45,11 @@ struct HomeView: View {
             FilterLogicView()
                 .presentationDetents([.medium])
         }
-        .sheet(isPresented: $showWantNotFilter, content: {
+        .sheet(isPresented: $showWantNotFilter) {
             OnboardingPage2()
                 .presentationDetents([.height(UIScreen.main.bounds.size.height * 3 / 4)])
-        })
+        }
+        .sheet(isPresented: $showFilterResultInfo) { FilterResultInfoView() }
     }
     
     @ViewBuilder
@@ -54,7 +58,10 @@ struct HomeView: View {
             Text("∙ \(text)")
                 .font(.system(size: 14, weight: .light))
             
-            Button(action: { showModal.wrappedValue.toggle() }) {
+            Button(action: {
+                showModal.wrappedValue.toggle()
+                HapticManager.shared.hapticImpact(style: .light, occurAt: [#fileID, #function])
+            }) {
                 Image(systemName: "info.circle")
             }
             

@@ -21,9 +21,12 @@ struct WordFilterView: View {
     var body: some View {
         VStack {
             HStack {
-                Button(action: { showInfo.toggle() }, label: {
+                Button(action: {
+                    showInfo.toggle()
+                    HapticManager.shared.hapticImpact(style: .light, occurAt: [#fileID, #function])
+                }) {
                     Image(systemName: "info.circle")
-                })
+                }
                 .padding(.bottom, 4)
                 Spacer()
             }
@@ -104,6 +107,7 @@ struct WordFilterView: View {
     }
     
     private func delete(at offsets: IndexSet) {
+        HapticManager.shared.hapticImpact(style: .light, occurAt: [#fileID, #function])
         if filterType == .black {
             blackFilterWords.remove(atOffsets: offsets)
         } else if filterType == .white {
