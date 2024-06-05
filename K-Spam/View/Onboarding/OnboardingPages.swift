@@ -80,6 +80,7 @@ struct OnboardingPage3: View {
             }
             .padding()
             
+            Spacer()
         }
         .sheet(isPresented: $showWebView) {
             WKWebViewUI(url: "https://developer.apple.com/documentation/sms_and_call_reporting/sms_and_mms_message_filtering")
@@ -166,5 +167,5 @@ struct ListElement: View {
 }
 
 #Preview {
-    OnboardingPage4()
+    OnboardingPage3()
 }
