@@ -54,7 +54,10 @@ struct HomeView: View {
             Text("∙ \(text)")
                 .font(.system(size: 14, weight: .light))
             
-            Button(action: { showModal.wrappedValue.toggle() }) {
+            Button(action: {
+                showModal.wrappedValue.toggle()
+                HapticManager.shared.hapticImpact(style: .light, occurAt: [#fileID, #function])
+            }) {
                 Image(systemName: "info.circle")
             }
             

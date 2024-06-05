@@ -99,7 +99,7 @@ struct OnboardingPage4: View {
             HStack {
                 VStack(alignment: .leading) {
                     HStack {
-                        Image("SettingIcon")
+                        Image("settingIcon")
                             .resizable()
                             .aspectRatio(contentMode: .fit)
                             .frame(height: 25)
