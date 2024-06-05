@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5F2709C82C107C0000565243 /* HapticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F2709C72C107C0000565243 /* HapticManager.swift */; };
+		5F2709CC2C108AE900565243 /* FilterResultInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F2709CB2C108AE900565243 /* FilterResultInfoView.swift */; };
 		5F3D829E2C07B90C001F595D /* Keyboard+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F3D829D2C07B90C001F595D /* Keyboard+.swift */; };
 		5F57E8902C096CA300A0D1C1 /* ActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F57E88F2C096CA300A0D1C1 /* ActivityView.swift */; };
 		5F60C86F2C0AF6D4003E8E77 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F60C86E2C0AF6D4003E8E77 /* AppDelegate.swift */; };
@@ -81,6 +82,7 @@
 
 /* Begin PBXFileReference section */
 		5F2709C72C107C0000565243 /* HapticManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticManager.swift; sourceTree = "<group>"; };
+		5F2709CB2C108AE900565243 /* FilterResultInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterResultInfoView.swift; sourceTree = "<group>"; };
 		5F3D829D2C07B90C001F595D /* Keyboard+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Keyboard+.swift"; sourceTree = "<group>"; };
 		5F57E88F2C096CA300A0D1C1 /* ActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityView.swift; sourceTree = "<group>"; };
 		5F60C86E2C0AF6D4003E8E77 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -242,6 +244,7 @@
 				5FFC81C42C078456009DC5C1 /* Main */,
 				5FB3407E2C0596A8000B7A53 /* Onboarding */,
 				5FFC81C02C077B06009DC5C1 /* MainTabView.swift */,
+				5F2709CB2C108AE900565243 /* FilterResultInfoView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -486,6 +489,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5FB3408E2C0596A8000B7A53 /* HomeView.swift in Sources */,
+				5F2709CC2C108AE900565243 /* FilterResultInfoView.swift in Sources */,
 				5F3D829E2C07B90C001F595D /* Keyboard+.swift in Sources */,
 				5FFC81C92C078A52009DC5C1 /* FilterLogicView.swift in Sources */,
 				5F60C86F2C0AF6D4003E8E77 /* AppDelegate.swift in Sources */,
