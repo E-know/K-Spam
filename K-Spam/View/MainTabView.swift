@@ -19,6 +19,9 @@ struct MainTabView: View {
                     .tag(value)
             }
         }
+        .onChange(of: selction) {
+            HapticManager.shared.hapticImpact(style: .light, occurAt: [#fileID, #function])
+        }
     }
 }
 
