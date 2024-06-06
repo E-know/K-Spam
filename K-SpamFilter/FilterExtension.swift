@@ -21,6 +21,10 @@ extension MessageFilterExtension {
         }
         
         if UserDefaultsManager.shared.getBool(key: .InternationalSend) {
+            if let sender = queryRequest.sender, !isFromKorea(sender: sender) {
+                return (.junk, .none)
+            }
+            
             if let res = messageLines.first?.elementsEqual("[국제발신]"), res {
                 return (.junk, .none)
             }
@@ -169,6 +173,12 @@ extension MessageFilterExtension {
         guard messageLines.count >= 2 else { return false }
         
         return messageLines[1].contains("광고")
+    }
+    
+    private func isFromKorea(sender: String) -> Bool {
+        let nationalCode = sender[sender.startIndex..<sender.index(sender.startIndex, offsetBy: 3)]
+        
+        return nationalCode == "+82"
     }
 }
 

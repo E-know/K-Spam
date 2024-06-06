@@ -24,6 +24,8 @@ extension MessageFilterExtension: ILMessageFilterQueryHandling, ILMessageFilterC
         // First, check whether to filter using offline data (if possible).
         let (offlineAction, offlineSubAction) = self.offlineAction(for: queryRequest)
         
+//        NSLog("Request \(queryRequest.sender)")
+        
         switch offlineAction {
         case .allow, .junk, .promotion, .transaction, .none:
             // Based on offline data, we know this message should either be Allowed, Filtered as Junk, Promotional or Transactional. Send response immediately.
