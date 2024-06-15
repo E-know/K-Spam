@@ -34,6 +34,10 @@
 		5FB3409E2C0599FE000B7A53 /* K-SpamFilter.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 5FB340972C0599FE000B7A53 /* K-SpamFilter.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		5FB340A42C059A8F000B7A53 /* FilterExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB340A32C059A8F000B7A53 /* FilterExtension.swift */; };
 		5FB340A52C059AC7000B7A53 /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB340882C0596A8000B7A53 /* UserDefaultsManager.swift */; };
+		5FC09E052C1DE28A00CFB2DA /* SpamFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC09E042C1DE28A00CFB2DA /* SpamFilter.swift */; };
+		5FC09E062C1DE2F000CFB2DA /* SpamFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC09E042C1DE28A00CFB2DA /* SpamFilter.swift */; };
+		5FC09E082C1DF17600CFB2DA /* SpamResultModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC09E072C1DF17600CFB2DA /* SpamResultModel.swift */; };
+		5FC09E092C1DF1C700CFB2DA /* SpamResultModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC09E072C1DF17600CFB2DA /* SpamResultModel.swift */; };
 		5FFC81C12C077B06009DC5C1 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFC81C02C077B06009DC5C1 /* MainTabView.swift */; };
 		5FFC81C32C077B34009DC5C1 /* MainTabPages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFC81C22C077B34009DC5C1 /* MainTabPages.swift */; };
 		5FFC81C72C0784EF009DC5C1 /* WordFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFC81C62C0784EF009DC5C1 /* WordFilterView.swift */; };
@@ -111,6 +115,8 @@
 		5FB340992C0599FE000B7A53 /* MessageFilterExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageFilterExtension.swift; sourceTree = "<group>"; };
 		5FB3409B2C0599FE000B7A53 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5FB340A32C059A8F000B7A53 /* FilterExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterExtension.swift; sourceTree = "<group>"; };
+		5FC09E042C1DE28A00CFB2DA /* SpamFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpamFilter.swift; sourceTree = "<group>"; };
+		5FC09E072C1DF17600CFB2DA /* SpamResultModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpamResultModel.swift; sourceTree = "<group>"; };
 		5FFC81C02C077B06009DC5C1 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 		5FFC81C22C077B34009DC5C1 /* MainTabPages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabPages.swift; sourceTree = "<group>"; };
 		5FFC81C62C0784EF009DC5C1 /* WordFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordFilterView.swift; sourceTree = "<group>"; };
@@ -284,6 +290,8 @@
 				5FB340992C0599FE000B7A53 /* MessageFilterExtension.swift */,
 				5FB340A32C059A8F000B7A53 /* FilterExtension.swift */,
 				5FB3409B2C0599FE000B7A53 /* Info.plist */,
+				5FC09E042C1DE28A00CFB2DA /* SpamFilter.swift */,
+				5FC09E072C1DF17600CFB2DA /* SpamResultModel.swift */,
 			);
 			path = "K-SpamFilter";
 			sourceTree = "<group>";
@@ -495,6 +503,7 @@
 				5F60C86F2C0AF6D4003E8E77 /* AppDelegate.swift in Sources */,
 				5F60C8792C0B5078003E8E77 /* NetworkManager.swift in Sources */,
 				5FFC81C32C077B34009DC5C1 /* MainTabPages.swift in Sources */,
+				5FC09E062C1DE2F000CFB2DA /* SpamFilter.swift in Sources */,
 				5FB3408A2C0596A8000B7A53 /* OnboardingMainView.swift in Sources */,
 				5FB340922C0596A8000B7A53 /* UserDefaultsManager.swift in Sources */,
 				5FB340502C0595CA000B7A53 /* K_SpamApp.swift in Sources */,
@@ -504,6 +513,7 @@
 				5FAC0EF22C05EB8700323BC8 /* WKWebViewUI.swift in Sources */,
 				5F57E8902C096CA300A0D1C1 /* ActivityView.swift in Sources */,
 				5FFC81C12C077B06009DC5C1 /* MainTabView.swift in Sources */,
+				5FC09E092C1DF1C700CFB2DA /* SpamResultModel.swift in Sources */,
 				5FFC81CE2C07A1F8009DC5C1 /* FilterType.swift in Sources */,
 				5F2709C82C107C0000565243 /* HapticManager.swift in Sources */,
 			);
@@ -532,7 +542,9 @@
 			files = (
 				5FB3409A2C0599FE000B7A53 /* MessageFilterExtension.swift in Sources */,
 				5FB340A42C059A8F000B7A53 /* FilterExtension.swift in Sources */,
+				5FC09E052C1DE28A00CFB2DA /* SpamFilter.swift in Sources */,
 				5FB340A52C059AC7000B7A53 /* UserDefaultsManager.swift in Sources */,
+				5FC09E082C1DF17600CFB2DA /* SpamResultModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -701,7 +713,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.3.3;
+				MARKETING_VERSION = 1.3.4;
 				PRODUCT_BUNDLE_IDENTIFIER = "toby.app.K-Spam";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -739,7 +751,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.3.3;
+				MARKETING_VERSION = 1.3.4;
 				PRODUCT_BUNDLE_IDENTIFIER = "toby.app.K-Spam";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -863,7 +875,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.3.3;
+				MARKETING_VERSION = 1.3.4;
 				PRODUCT_BUNDLE_IDENTIFIER = "toby.app.K-Spam.K-SpamFilter";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -894,7 +906,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.3.3;
+				MARKETING_VERSION = 1.3.4;
 				PRODUCT_BUNDLE_IDENTIFIER = "toby.app.K-Spam.K-SpamFilter";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
