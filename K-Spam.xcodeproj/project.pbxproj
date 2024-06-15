@@ -38,6 +38,7 @@
 		5FC09E062C1DE2F000CFB2DA /* SpamFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC09E042C1DE28A00CFB2DA /* SpamFilter.swift */; };
 		5FC09E082C1DF17600CFB2DA /* SpamResultModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC09E072C1DF17600CFB2DA /* SpamResultModel.swift */; };
 		5FC09E092C1DF1C700CFB2DA /* SpamResultModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC09E072C1DF17600CFB2DA /* SpamResultModel.swift */; };
+		5FC09E0B2C1DF55000CFB2DA /* LabotoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC09E0A2C1DF55000CFB2DA /* LabotoryView.swift */; };
 		5FFC81C12C077B06009DC5C1 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFC81C02C077B06009DC5C1 /* MainTabView.swift */; };
 		5FFC81C32C077B34009DC5C1 /* MainTabPages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFC81C22C077B34009DC5C1 /* MainTabPages.swift */; };
 		5FFC81C72C0784EF009DC5C1 /* WordFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFC81C62C0784EF009DC5C1 /* WordFilterView.swift */; };
@@ -117,6 +118,7 @@
 		5FB340A32C059A8F000B7A53 /* FilterExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterExtension.swift; sourceTree = "<group>"; };
 		5FC09E042C1DE28A00CFB2DA /* SpamFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpamFilter.swift; sourceTree = "<group>"; };
 		5FC09E072C1DF17600CFB2DA /* SpamResultModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpamResultModel.swift; sourceTree = "<group>"; };
+		5FC09E0A2C1DF55000CFB2DA /* LabotoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabotoryView.swift; sourceTree = "<group>"; };
 		5FFC81C02C077B06009DC5C1 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 		5FFC81C22C077B34009DC5C1 /* MainTabPages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabPages.swift; sourceTree = "<group>"; };
 		5FFC81C62C0784EF009DC5C1 /* WordFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordFilterView.swift; sourceTree = "<group>"; };
@@ -320,6 +322,7 @@
 			children = (
 				5FFC81CB2C079265009DC5C1 /* CustomSettingView.swift */,
 				5F57E88F2C096CA300A0D1C1 /* ActivityView.swift */,
+				5FC09E0A2C1DF55000CFB2DA /* LabotoryView.swift */,
 			);
 			path = CustomSetting;
 			sourceTree = "<group>";
@@ -501,6 +504,7 @@
 				5F3D829E2C07B90C001F595D /* Keyboard+.swift in Sources */,
 				5FFC81C92C078A52009DC5C1 /* FilterLogicView.swift in Sources */,
 				5F60C86F2C0AF6D4003E8E77 /* AppDelegate.swift in Sources */,
+				5FC09E0B2C1DF55000CFB2DA /* LabotoryView.swift in Sources */,
 				5F60C8792C0B5078003E8E77 /* NetworkManager.swift in Sources */,
 				5FFC81C32C077B34009DC5C1 /* MainTabPages.swift in Sources */,
 				5FC09E062C1DE2F000CFB2DA /* SpamFilter.swift in Sources */,

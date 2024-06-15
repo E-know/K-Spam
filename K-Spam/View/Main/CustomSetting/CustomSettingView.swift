@@ -37,6 +37,12 @@ struct CustomSettingView: View {
             
             Spacer()
             
+            HStack(spacing: 32) {
+                LaboratoryButton
+                BugReportButton
+            }
+            .padding()
+            
             if let lastVersion {
                 UpdateVersionButton(currentVersion: currentVersion, lastVersion: lastVersion)
             }
@@ -138,6 +144,22 @@ struct CustomSettingView: View {
             Text("앱이 최신 버전입니다.")
                 .foregroundStyle(Color.gray)
                 .font(.footnote)
+        }
+    }
+    
+    @ViewBuilder
+    private var LaboratoryButton: some View {
+        Button(action: {} ) {
+            Image(systemName: "flask")
+            Text("필터링 실험실")
+        }
+    }
+    
+    @ViewBuilder
+    private var BugReportButton: some View {
+        Button(action: {}) {
+            Image(systemName: "exclamationmark.bubble.fill")
+            Text("제보하기")
         }
     }
     

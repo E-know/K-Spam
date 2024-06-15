@@ -9,7 +9,8 @@ import SwiftUI
 
 @main
 struct KSpamApp: App {
-    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+    // TODO: 이거 내려야 함
+//    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     @State var showOnBoarding: Bool = !UserDefaults.standard.bool(forKey: "Onboarding")
     
     var body: some Scene {
