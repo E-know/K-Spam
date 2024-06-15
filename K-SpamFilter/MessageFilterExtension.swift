@@ -7,7 +7,9 @@
 
 import IdentityLookup
 
-final class MessageFilterExtension: ILMessageFilterExtension {}
+final class MessageFilterExtension: ILMessageFilterExtension {
+    let filter = SpamFilter()
+}
 
 extension MessageFilterExtension: ILMessageFilterQueryHandling, ILMessageFilterCapabilitiesQueryHandling {
     func handle(_ capabilitiesQueryRequest: ILMessageFilterCapabilitiesQueryRequest, context: ILMessageFilterExtensionContext) async -> ILMessageFilterCapabilitiesQueryResponse {
