@@ -23,6 +23,9 @@ final class SpamFilter {
     }
     
     func checkKSpam(messageLines: [String]) -> Bool {
+        let messageLines = messageLines
+            .map { $0.trimmingCharacters(in: .whitespaces)}
+            .filter { $0 != "" }
         var strDic = [String: Int]()
         
         for line in messageLines {
