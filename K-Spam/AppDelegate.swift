@@ -51,7 +51,9 @@ extension AppDelegate: MessagingDelegate {
         // 여기서 이제 서버로 다시 fcm 토큰을 보내줘야 한다!
         // 그러나 서버가 없기 때문에 이렇게 token을 출력하게 한다.
         // 이 토큰은 뒤에서 Test할때 필요하다!
+        #if DEBUG
         guard let fcmToken else { return }
         print("FCM Token: \(fcmToken)")
+        #endif
     }
 }
