@@ -125,6 +125,14 @@ final class SpamFilter {
         
         return .unknown
     }
+    
+    func isStrangeNumber(sender: String) -> Bool {
+        if let first = sender.first, first != "+" {
+            return sender.count > 13
+        }
+        
+        return false
+    }
 }
 
 struct LinkQueue {
