@@ -11,7 +11,6 @@ struct CustomSettingView: View {
     @State private var internationalSend = UserDefaultsManager.shared.getBool(key: .InternationalSend)
     @State private var chargeCasino = UserDefaultsManager.shared.getBool(key: .ChargeCasino)
     @State private var advertise = UserDefaultsManager.shared.getBool(key: .Advertise)
-    
     @State private var showActivity = false
     @State private var showReportView = false
     
@@ -59,8 +58,7 @@ struct CustomSettingView: View {
         
         .onChange(of: chargeCasino) { UserDefaultsManager.shared.setValue(key: .ChargeCasino, value: chargeCasino) }
         .onChange(of: internationalSend) { UserDefaultsManager.shared.setValue(key: .InternationalSend, value: internationalSend) }
-        .onChange(of: advertise) { UserDefaultsManager.shared.setValue(key: .Advertise, value: advertise)
-        }
+        .onChange(of: advertise) { UserDefaultsManager.shared.setValue(key: .Advertise, value: advertise) }
         .onAppear {
             Task.detached {
                 do {

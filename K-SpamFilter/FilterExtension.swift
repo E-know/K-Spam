@@ -20,6 +20,12 @@ extension MessageFilterExtension {
             return (.junk, .none)
         }
         
+        if let sender = queryRequest.sender, filter.isStrangeNumber(sender: sender) {
+            return (.junk, .none)
+        }
+        
+        
+        // MARK: Custom Filter
         if UserDefaultsManager.shared.getBool(key: .InternationalSend) {
             if let sender = queryRequest.sender {
                 let res = filter.isFromKorea(sender: sender)
@@ -38,14 +44,14 @@ extension MessageFilterExtension {
             }
         }
         
-        if filter.checkBlackFilterWords(messageLines: messageLines) {
-            return (.junk, .none)
-        }
-        
         if UserDefaultsManager.shared.getBool(key: .Advertise) {
             if filter.checkAdvertise(messageLines: messageLines) {
                 return (.junk, .none)
             }
+        }
+        
+        if filter.checkBlackFilterWords(messageLines: messageLines) {
+            return (.junk, .none)
         }
         
         return (.none, .none)
