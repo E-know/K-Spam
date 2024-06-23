@@ -14,7 +14,7 @@ enum NetworkError: Error {
 
 enum BaseURL: String {
     case lastVersion = "https://raw.githubusercontent.com"
-    case telegramBot = "https://api.telegram.org" // bot7442830474:AAGPcz-bdEjgKOpuijRezIo0Fn0bum134TI/sendMessage?chat_id=7298669942&text=Build 이벤트 시작"
+    case telegramBot = "https://api.telegram.org"
     
     var path: String {
         switch self {
