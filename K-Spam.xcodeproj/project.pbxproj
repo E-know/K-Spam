@@ -16,6 +16,8 @@
 		5F60C8752C0B1B2A003E8E77 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5F60C8742C0B1B29003E8E77 /* GoogleService-Info.plist */; };
 		5F60C8772C0B1CC1003E8E77 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 5F60C8762C0B1CC1003E8E77 /* FirebaseAnalytics */; };
 		5F60C8792C0B5078003E8E77 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F60C8782C0B5078003E8E77 /* NetworkManager.swift */; };
+		5F8421DF2C27F7DC00C1B62A /* NetworkResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F8421DE2C27F7DC00C1B62A /* NetworkResponse.swift */; };
+		5F8421E12C27F7FD00C1B62A /* Key.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F8421E02C27F7FD00C1B62A /* Key.swift */; };
 		5FAC0EF22C05EB8700323BC8 /* WKWebViewUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FAC0EF12C05EB8700323BC8 /* WKWebViewUI.swift */; };
 		5FB340502C0595CA000B7A53 /* K_SpamApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB3404F2C0595CA000B7A53 /* K_SpamApp.swift */; };
 		5FB340542C0595CB000B7A53 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5FB340532C0595CB000B7A53 /* Assets.xcassets */; };
@@ -34,6 +36,7 @@
 		5FB3409E2C0599FE000B7A53 /* K-SpamFilter.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 5FB340972C0599FE000B7A53 /* K-SpamFilter.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		5FB340A42C059A8F000B7A53 /* FilterExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB340A32C059A8F000B7A53 /* FilterExtension.swift */; };
 		5FB340A52C059AC7000B7A53 /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB340882C0596A8000B7A53 /* UserDefaultsManager.swift */; };
+		5FBD4AEE2C27195E00B9AB72 /* ReportingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FBD4AED2C27195E00B9AB72 /* ReportingView.swift */; };
 		5FC09E052C1DE28A00CFB2DA /* SpamFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC09E042C1DE28A00CFB2DA /* SpamFilter.swift */; };
 		5FC09E062C1DE2F000CFB2DA /* SpamFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC09E042C1DE28A00CFB2DA /* SpamFilter.swift */; };
 		5FC09E082C1DF17600CFB2DA /* SpamResultModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC09E072C1DF17600CFB2DA /* SpamResultModel.swift */; };
@@ -94,6 +97,8 @@
 		5F60C8732C0B194E003E8E77 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		5F60C8742C0B1B29003E8E77 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5F60C8782C0B5078003E8E77 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		5F8421DE2C27F7DC00C1B62A /* NetworkResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResponse.swift; sourceTree = "<group>"; };
+		5F8421E02C27F7FD00C1B62A /* Key.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Key.swift; sourceTree = "<group>"; };
 		5FAC0EEF2C05D8D300323BC8 /* K-Spam.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "K-Spam.entitlements"; sourceTree = "<group>"; };
 		5FAC0EF02C05D8E100323BC8 /* K-SpamFilter.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "K-SpamFilter.entitlements"; sourceTree = "<group>"; };
 		5FAC0EF12C05EB8700323BC8 /* WKWebViewUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKWebViewUI.swift; sourceTree = "<group>"; };
@@ -116,6 +121,7 @@
 		5FB340992C0599FE000B7A53 /* MessageFilterExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageFilterExtension.swift; sourceTree = "<group>"; };
 		5FB3409B2C0599FE000B7A53 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5FB340A32C059A8F000B7A53 /* FilterExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterExtension.swift; sourceTree = "<group>"; };
+		5FBD4AED2C27195E00B9AB72 /* ReportingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportingView.swift; sourceTree = "<group>"; };
 		5FC09E042C1DE28A00CFB2DA /* SpamFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpamFilter.swift; sourceTree = "<group>"; };
 		5FC09E072C1DF17600CFB2DA /* SpamResultModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpamResultModel.swift; sourceTree = "<group>"; };
 		5FC09E0A2C1DF55000CFB2DA /* LabotoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabotoryView.swift; sourceTree = "<group>"; };
@@ -207,6 +213,7 @@
 				5FB340552C0595CB000B7A53 /* Preview Content */,
 				5F60C86E2C0AF6D4003E8E77 /* AppDelegate.swift */,
 				5FB3404F2C0595CA000B7A53 /* K_SpamApp.swift */,
+				5F8421E02C27F7FD00C1B62A /* Key.swift */,
 			);
 			path = "K-Spam";
 			sourceTree = "<group>";
@@ -262,6 +269,7 @@
 			children = (
 				5FFC81C22C077B34009DC5C1 /* MainTabPages.swift */,
 				5FFC81CD2C07A1F8009DC5C1 /* FilterType.swift */,
+				5F8421DE2C27F7DC00C1B62A /* NetworkResponse.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -323,6 +331,7 @@
 				5FFC81CB2C079265009DC5C1 /* CustomSettingView.swift */,
 				5F57E88F2C096CA300A0D1C1 /* ActivityView.swift */,
 				5FC09E0A2C1DF55000CFB2DA /* LabotoryView.swift */,
+				5FBD4AED2C27195E00B9AB72 /* ReportingView.swift */,
 			);
 			path = CustomSetting;
 			sourceTree = "<group>";
@@ -504,10 +513,13 @@
 				5F3D829E2C07B90C001F595D /* Keyboard+.swift in Sources */,
 				5FFC81C92C078A52009DC5C1 /* FilterLogicView.swift in Sources */,
 				5F60C86F2C0AF6D4003E8E77 /* AppDelegate.swift in Sources */,
+				5F8421E12C27F7FD00C1B62A /* Key.swift in Sources */,
+				5FBD4AEE2C27195E00B9AB72 /* ReportingView.swift in Sources */,
 				5FC09E0B2C1DF55000CFB2DA /* LabotoryView.swift in Sources */,
 				5F60C8792C0B5078003E8E77 /* NetworkManager.swift in Sources */,
 				5FFC81C32C077B34009DC5C1 /* MainTabPages.swift in Sources */,
 				5FC09E062C1DE2F000CFB2DA /* SpamFilter.swift in Sources */,
+				5F8421DF2C27F7DC00C1B62A /* NetworkResponse.swift in Sources */,
 				5FB3408A2C0596A8000B7A53 /* OnboardingMainView.swift in Sources */,
 				5FB340922C0596A8000B7A53 /* UserDefaultsManager.swift in Sources */,
 				5FB340502C0595CA000B7A53 /* K_SpamApp.swift in Sources */,
