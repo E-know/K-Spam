@@ -13,6 +13,7 @@ struct CustomSettingView: View {
     @State private var advertise = UserDefaultsManager.shared.getBool(key: .Advertise)
     
     @State private var showActivity = false
+    @State private var showReportView = false
     
     private let currentVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as! String
     @State private var lastVersion: String? = nil
@@ -37,12 +38,16 @@ struct CustomSettingView: View {
             
             Spacer()
             
-            if let lastVersion {
-                UpdateVersionButton(currentVersion: currentVersion, lastVersion: lastVersion)
+            VStack(spacing: 25) {
+                if let lastVersion {
+                    UpdateVersionButton(currentVersion: currentVersion, lastVersion: lastVersion)
+                }
+                
+                BugReportButton
+                
+                ShareButton
             }
-            
-            ShareButton
-                .padding()
+            .padding()
         }
         .padding()
         .sheet(isPresented: $showActivity, content: {
@@ -58,9 +63,17 @@ struct CustomSettingView: View {
         }
         .onAppear {
             Task.detached {
-                let networkVersion = try await NetworkManager().getLastVersion()
-                await updateVersion(updatedVersion: networkVersion)
+                do {
+                    let networkVersion: LastAppVersion = try await NetworkManager(type: .lastVersion)
+                        .decode()
+                    await updateVersion(updatedVersion: networkVersion.lastVersion)
+                } catch {
+                    print(error.localizedDescription)
+                }
             }
+        }
+        .fullScreenCover(isPresented: $showReportView) {
+            ReportingView(showThisView: $showReportView)
         }
     }
     
@@ -138,6 +151,15 @@ struct CustomSettingView: View {
             Text("앱이 최신 버전입니다.")
                 .foregroundStyle(Color.gray)
                 .font(.footnote)
+        }
+    }
+    
+    @ViewBuilder
+    private var BugReportButton: some View {
+        Button(action: { showReportView.toggle() }) {
+            Image(systemName: "exclamationmark.bubble.fill")
+            Text("버그 및 건의사항 제보하기")
+                .foregroundStyle(Color.secondary)
         }
     }
     
