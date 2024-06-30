@@ -31,20 +31,16 @@ struct ReportingView: View {
     var body: some View {
         VStack {
             ZStack {
-                VStack(spacing: 8) {
-                    Text("제보하기")
-                        .multilineTextAlignment(.center)
-                        .font(.system(size: 24, weight: .heavy))
-                }
+                Text("제보하기")
+                    .multilineTextAlignment(.center)
+                    .font(.system(size: 24, weight: .heavy))
                 
-                HStack(alignment: .top) {
-                    Spacer()
-                    Button(action: { showThisView.toggle() }) {
-                        Image(systemName: "xmark")
-                            .foregroundStyle(.black)
-                    }
-                    .padding()
+                Button(action: { showThisView.toggle() }) {
+                    Image(systemName: "xmark")
+                        .foregroundStyle(.black)
                 }
+                .frame(maxWidth: .infinity, alignment: .trailing)
+                
             }
             Text("건의사항 및 스팸메세지 제보")
                 .font(.callout)
@@ -53,24 +49,26 @@ struct ReportingView: View {
             Picker("제보유형", selection: $reportType) {
                 ForEach(ReportType.allCases) { value in
                     Text(value.messageString)
+                        .frame(width: 500)
                         .tag(value)
                 }
             }
-            
+            .pickerStyle(.menu)
+            .frame(maxWidth: .infinity, alignment: .leading)
             
             ZStack(alignment: .top) {
-                RoundedRectangle(cornerRadius: 25)
-                    .foregroundStyle(Color.white)
+                Rectangle()
+                    .foregroundStyle(Color.clear)
                     .onTapGesture {
                         focusField = true
                     }
+                
                 TextField("건의사항 및 스팸메세지를 적어주세요", text: $context, axis: .vertical)
                     .multilineTextAlignment(.leading)
                     .focused($focusField)
                     .padding()
                 
-            }
-            .border(Color.black)
+            }.border(Color.black)
             
             Spacer()
             
@@ -82,11 +80,11 @@ struct ReportingView: View {
     private var SendButton: some View {
         Button(action: {
             Task.detached {
-                let result = try await NetworkManager(type: .telegramBot)
+                let response: TelegramBotResponse = try await NetworkManager(type: .telegramBot)
                     .appendQuery(key: "text", value: "[\(reportType.rawValue.uppercased())]\n\(context)")
-                    .sendRequest()
+                    .decode()
                 #if DEBUG
-                print("Send \(context), \(result)")
+                print("Send \(response.result.text), \(response.ok)")
                 #endif
             }
             showThisView = false

@@ -47,17 +47,6 @@ class NetworkManager {
         return self
     }
     
-    @discardableResult
-    func sendRequest() async throws -> Bool {
-        url.append(queryItems: self.queryItems)
-        
-        let (rawData, response) = try await URLSession.shared.data(from: url)
-        
-        guard let urlResponse = response as? HTTPURLResponse, urlResponse.statusCode == 200 else { throw NetworkError.ResponseBad }
-        
-        return true
-    }
-    
     func decode<T: Decodable>() async throws -> T {
         url.append(queryItems: self.queryItems)
         #if DEBUG

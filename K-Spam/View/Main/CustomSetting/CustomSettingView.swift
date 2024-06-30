@@ -14,7 +14,7 @@ struct CustomSettingView: View {
     @State private var showActivity = false
     @State private var showReportView = false
     
-    private let currentVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as! String
+    private let currentVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
     @State private var lastVersion: String? = nil
     
     var body: some View {
@@ -24,21 +24,12 @@ struct CustomSettingView: View {
                 .padding()
                 .multilineTextAlignment(.center)
             
-            SettingElement(bindingValue: .constant(true), text: "K-Spam 필터", disabled: true)
-            
-            SettingElement(bindingValue: $internationalSend,
-                           text: "국제 발신 차단",
-                           subText: "해외기업의 인증문자도 필터링됨을 주의")
-            
-            
-            SettingElement(bindingValue: $chargeCasino, text: "카지노 충전 문자 차단")
-            
-            SettingElement(bindingValue: $advertise, text: "광고 문자 차단")
+            CustomFilterSettings
             
             Spacer()
             
             VStack(spacing: 25) {
-                if let lastVersion {
+                if let lastVersion, let currentVersion {
                     UpdateVersionButton(currentVersion: currentVersion, lastVersion: lastVersion)
                 }
                 
@@ -55,20 +46,13 @@ struct CustomSettingView: View {
                 .presentationCornerRadius(20)
                 .ignoresSafeArea()
         })
-        
         .onChange(of: chargeCasino) { UserDefaultsManager.shared.setValue(key: .ChargeCasino, value: chargeCasino) }
         .onChange(of: internationalSend) { UserDefaultsManager.shared.setValue(key: .InternationalSend, value: internationalSend) }
         .onChange(of: advertise) { UserDefaultsManager.shared.setValue(key: .Advertise, value: advertise) }
-        .onAppear {
-            Task.detached {
-                do {
-                    let networkVersion: LastAppVersion = try await NetworkManager(type: .lastVersion)
-                        .decode()
-                    await updateVersion(updatedVersion: networkVersion.lastVersion)
-                } catch {
-                    print(error.localizedDescription)
-                }
-            }
+        .task {
+            #if !DEBUG
+            updateVersion()
+            #endif
         }
         .fullScreenCover(isPresented: $showReportView) {
             ReportingView(showThisView: $showReportView)
@@ -101,6 +85,19 @@ struct CustomSettingView: View {
                 }
             })
         }
+    }
+    
+    @ViewBuilder
+    var CustomFilterSettings: some View {
+        SettingElement(bindingValue: .constant(true), text: "K-Spam 필터", disabled: true)
+        
+        SettingElement(bindingValue: $internationalSend,
+                       text: "국제 발신 차단",
+                       subText: "해외기업의 인증문자도 필터링됨을 주의")
+        
+        SettingElement(bindingValue: $chargeCasino, text: "카지노 충전 문자 차단")
+        
+        SettingElement(bindingValue: $advertise, text: "광고 문자 차단")
     }
     
     @ViewBuilder
@@ -160,11 +157,18 @@ struct CustomSettingView: View {
                 .foregroundStyle(Color.secondary)
         }
     }
-    
-    @MainActor
-    private func updateVersion(updatedVersion: String) {
-        withAnimation {
-            self.lastVersion = updatedVersion
+}
+
+extension CustomSettingView {
+    private func updateVersion() async {
+        do {
+            let networkVersion: LastAppVersion = try await NetworkManager(type: .lastVersion)
+                .decode()
+            withAnimation {
+                self.lastVersion = networkVersion.lastVersion
+            }
+        } catch {
+            print(error.localizedDescription)
         }
     }
 }
