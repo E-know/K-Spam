@@ -12,6 +12,8 @@
 		5F24B6232C285F7B00964F4A /* NetworkResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F24B6222C285F7B00964F4A /* NetworkResponse.swift */; };
 		5F2709C82C107C0000565243 /* HapticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F2709C72C107C0000565243 /* HapticManager.swift */; };
 		5F2709CC2C108AE900565243 /* FilterResultInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F2709CB2C108AE900565243 /* FilterResultInfoView.swift */; };
+		5F279D2C2C31416300A54F47 /* TelegramBotResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F279D2B2C31416300A54F47 /* TelegramBotResponse.swift */; };
+		5F279D2E2C31536000A54F47 /* View+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F279D2D2C31536000A54F47 /* View+.swift */; };
 		5F3D829E2C07B90C001F595D /* Keyboard+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F3D829D2C07B90C001F595D /* Keyboard+.swift */; };
 		5F57E8902C096CA300A0D1C1 /* ActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F57E88F2C096CA300A0D1C1 /* ActivityView.swift */; };
 		5F60C86F2C0AF6D4003E8E77 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F60C86E2C0AF6D4003E8E77 /* AppDelegate.swift */; };
@@ -93,6 +95,8 @@
 		5F24B6222C285F7B00964F4A /* NetworkResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkResponse.swift; sourceTree = "<group>"; };
 		5F2709C72C107C0000565243 /* HapticManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticManager.swift; sourceTree = "<group>"; };
 		5F2709CB2C108AE900565243 /* FilterResultInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterResultInfoView.swift; sourceTree = "<group>"; };
+		5F279D2B2C31416300A54F47 /* TelegramBotResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelegramBotResponse.swift; sourceTree = "<group>"; };
+		5F279D2D2C31536000A54F47 /* View+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+.swift"; sourceTree = "<group>"; };
 		5F3D829D2C07B90C001F595D /* Keyboard+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Keyboard+.swift"; sourceTree = "<group>"; };
 		5F57E88F2C096CA300A0D1C1 /* ActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityView.swift; sourceTree = "<group>"; };
 		5F60C86E2C0AF6D4003E8E77 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -166,12 +170,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		5F3D829C2C07B8F4001F595D /* extension */ = {
+		5F279D2A2C313EF600A54F47 /* App Settings */ = {
+			isa = PBXGroup;
+			children = (
+				5FB340532C0595CB000B7A53 /* Assets.xcassets */,
+				5F60C86E2C0AF6D4003E8E77 /* AppDelegate.swift */,
+				5FB3404F2C0595CA000B7A53 /* K_SpamApp.swift */,
+			);
+			name = "App Settings";
+			sourceTree = "<group>";
+		};
+		5F3D829C2C07B8F4001F595D /* Extension */ = {
 			isa = PBXGroup;
 			children = (
 				5F3D829D2C07B90C001F595D /* Keyboard+.swift */,
+				5F279D2D2C31536000A54F47 /* View+.swift */,
 			);
-			path = extension;
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		5FB340432C0595CA000B7A53 = {
@@ -199,18 +214,16 @@
 		5FB3404E2C0595CA000B7A53 /* K-Spam */ = {
 			isa = PBXGroup;
 			children = (
+				5F279D2A2C313EF600A54F47 /* App Settings */,
 				5F60C8742C0B1B29003E8E77 /* GoogleService-Info.plist */,
 				5F60C8732C0B194E003E8E77 /* Info.plist */,
-				5F3D829C2C07B8F4001F595D /* extension */,
+				5F3D829C2C07B8F4001F595D /* Extension */,
 				5FAC0EEF2C05D8D300323BC8 /* K-Spam.entitlements */,
 				5FB340872C0596A8000B7A53 /* Lottie */,
 				5FB340892C0596A8000B7A53 /* Manager */,
 				5FB340842C0596A8000B7A53 /* Model */,
 				5FB340822C0596A8000B7A53 /* View */,
-				5FB340532C0595CB000B7A53 /* Assets.xcassets */,
 				5FB340552C0595CB000B7A53 /* Preview Content */,
-				5F60C86E2C0AF6D4003E8E77 /* AppDelegate.swift */,
-				5FB3404F2C0595CA000B7A53 /* K_SpamApp.swift */,
 			);
 			path = "K-Spam";
 			sourceTree = "<group>";
@@ -267,6 +280,7 @@
 				5FFC81C22C077B34009DC5C1 /* MainTabPages.swift */,
 				5F24B6222C285F7B00964F4A /* NetworkResponse.swift */,
 				5FFC81CD2C07A1F8009DC5C1 /* FilterType.swift */,
+				5F279D2B2C31416300A54F47 /* TelegramBotResponse.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -512,6 +526,7 @@
 				5F60C86F2C0AF6D4003E8E77 /* AppDelegate.swift in Sources */,
 				5F24B6212C285F5100964F4A /* ReportingView.swift in Sources */,
 				5F60C8792C0B5078003E8E77 /* NetworkManager.swift in Sources */,
+				5F279D2C2C31416300A54F47 /* TelegramBotResponse.swift in Sources */,
 				5FFC81C32C077B34009DC5C1 /* MainTabPages.swift in Sources */,
 				5FC09E062C1DE2F000CFB2DA /* SpamFilter.swift in Sources */,
 				5FB3408A2C0596A8000B7A53 /* OnboardingMainView.swift in Sources */,
@@ -526,6 +541,7 @@
 				5F57E8902C096CA300A0D1C1 /* ActivityView.swift in Sources */,
 				5FFC81C12C077B06009DC5C1 /* MainTabView.swift in Sources */,
 				5FC09E092C1DF1C700CFB2DA /* SpamResultModel.swift in Sources */,
+				5F279D2E2C31536000A54F47 /* View+.swift in Sources */,
 				5FFC81CE2C07A1F8009DC5C1 /* FilterType.swift in Sources */,
 				5F2709C82C107C0000565243 /* HapticManager.swift in Sources */,
 			);
