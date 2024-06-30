@@ -50,9 +50,7 @@ struct CustomSettingView: View {
         .onChange(of: internationalSend) { UserDefaultsManager.shared.setValue(key: .InternationalSend, value: internationalSend) }
         .onChange(of: advertise) { UserDefaultsManager.shared.setValue(key: .Advertise, value: advertise) }
         .task {
-            #if !DEBUG
-            updateVersion()
-            #endif
+            await updateVersion()
         }
         .fullScreenCover(isPresented: $showReportView) {
             ReportingView(showThisView: $showReportView)
