@@ -3,17 +3,17 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5F1610632DE041E400CC547F /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 5F1610622DE041E400CC547F /* Moya */; };
 		5F24B61F2C285EEF00964F4A /* Key.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F24B61E2C285EEF00964F4A /* Key.swift */; };
 		5F24B6212C285F5100964F4A /* ReportingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F24B6202C285F5100964F4A /* ReportingView.swift */; };
 		5F24B6232C285F7B00964F4A /* NetworkResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F24B6222C285F7B00964F4A /* NetworkResponse.swift */; };
 		5F2709C82C107C0000565243 /* HapticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F2709C72C107C0000565243 /* HapticManager.swift */; };
 		5F2709CC2C108AE900565243 /* FilterResultInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F2709CB2C108AE900565243 /* FilterResultInfoView.swift */; };
 		5F279D2C2C31416300A54F47 /* TelegramBotResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F279D2B2C31416300A54F47 /* TelegramBotResponse.swift */; };
-		5F279D2E2C31536000A54F47 /* View+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F279D2D2C31536000A54F47 /* View+.swift */; };
 		5F3D829E2C07B90C001F595D /* Keyboard+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F3D829D2C07B90C001F595D /* Keyboard+.swift */; };
 		5F57E8902C096CA300A0D1C1 /* ActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F57E88F2C096CA300A0D1C1 /* ActivityView.swift */; };
 		5F60C86F2C0AF6D4003E8E77 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F60C86E2C0AF6D4003E8E77 /* AppDelegate.swift */; };
@@ -43,7 +43,7 @@
 		5FC09E062C1DE2F000CFB2DA /* SpamFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC09E042C1DE28A00CFB2DA /* SpamFilter.swift */; };
 		5FC09E082C1DF17600CFB2DA /* SpamResultModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC09E072C1DF17600CFB2DA /* SpamResultModel.swift */; };
 		5FC09E092C1DF1C700CFB2DA /* SpamResultModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC09E072C1DF17600CFB2DA /* SpamResultModel.swift */; };
-		5FFC81C12C077B06009DC5C1 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFC81C02C077B06009DC5C1 /* MainTabView.swift */; };
+		5FFC81C12C077B06009DC5C1 /* MainTabViewOld.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFC81C02C077B06009DC5C1 /* MainTabViewOld.swift */; };
 		5FFC81C32C077B34009DC5C1 /* MainTabPages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFC81C22C077B34009DC5C1 /* MainTabPages.swift */; };
 		5FFC81C72C0784EF009DC5C1 /* WordFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFC81C62C0784EF009DC5C1 /* WordFilterView.swift */; };
 		5FFC81C92C078A52009DC5C1 /* FilterLogicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFC81C82C078A52009DC5C1 /* FilterLogicView.swift */; };
@@ -96,7 +96,6 @@
 		5F2709C72C107C0000565243 /* HapticManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticManager.swift; sourceTree = "<group>"; };
 		5F2709CB2C108AE900565243 /* FilterResultInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterResultInfoView.swift; sourceTree = "<group>"; };
 		5F279D2B2C31416300A54F47 /* TelegramBotResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelegramBotResponse.swift; sourceTree = "<group>"; };
-		5F279D2D2C31536000A54F47 /* View+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+.swift"; sourceTree = "<group>"; };
 		5F3D829D2C07B90C001F595D /* Keyboard+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Keyboard+.swift"; sourceTree = "<group>"; };
 		5F57E88F2C096CA300A0D1C1 /* ActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityView.swift; sourceTree = "<group>"; };
 		5F60C86E2C0AF6D4003E8E77 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -127,13 +126,19 @@
 		5FB340A32C059A8F000B7A53 /* FilterExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterExtension.swift; sourceTree = "<group>"; };
 		5FC09E042C1DE28A00CFB2DA /* SpamFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpamFilter.swift; sourceTree = "<group>"; };
 		5FC09E072C1DF17600CFB2DA /* SpamResultModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpamResultModel.swift; sourceTree = "<group>"; };
-		5FFC81C02C077B06009DC5C1 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
+		5FFC81C02C077B06009DC5C1 /* MainTabViewOld.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabViewOld.swift; sourceTree = "<group>"; };
 		5FFC81C22C077B34009DC5C1 /* MainTabPages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabPages.swift; sourceTree = "<group>"; };
 		5FFC81C62C0784EF009DC5C1 /* WordFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordFilterView.swift; sourceTree = "<group>"; };
 		5FFC81C82C078A52009DC5C1 /* FilterLogicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterLogicView.swift; sourceTree = "<group>"; };
 		5FFC81CB2C079265009DC5C1 /* CustomSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSettingView.swift; sourceTree = "<group>"; };
 		5FFC81CD2C07A1F8009DC5C1 /* FilterType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		5F1610642DE041F900CC547F /* Scene */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Scene; sourceTree = "<group>"; };
+		5F1610662DE0444500CC547F /* Common */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Common; sourceTree = "<group>"; };
+		5F1C4BC52DE5F5C00082D4AC /* Extension */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Extension; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		5FB340492C0595CA000B7A53 /* Frameworks */ = {
@@ -142,6 +147,7 @@
 			files = (
 				5F60C8722C0B1912003E8E77 /* FirebaseMessaging in Frameworks */,
 				5FB3407B2C05965D000B7A53 /* Lottie in Frameworks */,
+				5F1610632DE041E400CC547F /* Moya in Frameworks */,
 				5F60C8772C0B1CC1003E8E77 /* FirebaseAnalytics in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -180,13 +186,12 @@
 			name = "App Settings";
 			sourceTree = "<group>";
 		};
-		5F3D829C2C07B8F4001F595D /* Extension */ = {
+		5F3D829C2C07B8F4001F595D /* Extension2 */ = {
 			isa = PBXGroup;
 			children = (
 				5F3D829D2C07B90C001F595D /* Keyboard+.swift */,
-				5F279D2D2C31536000A54F47 /* View+.swift */,
 			);
-			path = Extension;
+			path = Extension2;
 			sourceTree = "<group>";
 		};
 		5FB340432C0595CA000B7A53 = {
@@ -214,10 +219,13 @@
 		5FB3404E2C0595CA000B7A53 /* K-Spam */ = {
 			isa = PBXGroup;
 			children = (
+				5F1C4BC52DE5F5C00082D4AC /* Extension */,
+				5F1610662DE0444500CC547F /* Common */,
+				5F1610642DE041F900CC547F /* Scene */,
 				5F279D2A2C313EF600A54F47 /* App Settings */,
 				5F60C8742C0B1B29003E8E77 /* GoogleService-Info.plist */,
 				5F60C8732C0B194E003E8E77 /* Info.plist */,
-				5F3D829C2C07B8F4001F595D /* Extension */,
+				5F3D829C2C07B8F4001F595D /* Extension2 */,
 				5FAC0EEF2C05D8D300323BC8 /* K-Spam.entitlements */,
 				5FB340872C0596A8000B7A53 /* Lottie */,
 				5FB340892C0596A8000B7A53 /* Manager */,
@@ -268,7 +276,7 @@
 			children = (
 				5FFC81C42C078456009DC5C1 /* Main */,
 				5FB3407E2C0596A8000B7A53 /* Onboarding */,
-				5FFC81C02C077B06009DC5C1 /* MainTabView.swift */,
+				5FFC81C02C077B06009DC5C1 /* MainTabViewOld.swift */,
 				5F2709CB2C108AE900565243 /* FilterResultInfoView.swift */,
 			);
 			path = View;
@@ -358,17 +366,24 @@
 				5FB340492C0595CA000B7A53 /* Frameworks */,
 				5FB3404A2C0595CA000B7A53 /* Resources */,
 				5FB340A22C0599FE000B7A53 /* Embed Foundation Extensions */,
+				5F1C4B552DE5ED3C0082D4AC /* Find TODOs and FIXMEs */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				5FB3409D2C0599FE000B7A53 /* PBXTargetDependency */,
 			);
+			fileSystemSynchronizedGroups = (
+				5F1610642DE041F900CC547F /* Scene */,
+				5F1610662DE0444500CC547F /* Common */,
+				5F1C4BC52DE5F5C00082D4AC /* Extension */,
+			);
 			name = "K-Spam";
 			packageProductDependencies = (
 				5FB3407A2C05965D000B7A53 /* Lottie */,
 				5F60C8712C0B1912003E8E77 /* FirebaseMessaging */,
 				5F60C8762C0B1CC1003E8E77 /* FirebaseAnalytics */,
+				5F1610622DE041E400CC547F /* Moya */,
 			);
 			productName = "K-Spam";
 			productReference = 5FB3404C2C0595CA000B7A53 /* K-Spam.app */;
@@ -435,7 +450,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1540;
-				LastUpgradeCheck = 1540;
+				LastUpgradeCheck = 1630;
 				TargetAttributes = {
 					5FB3404B2C0595CA000B7A53 = {
 						CreatedOnToolsVersion = 15.4;
@@ -465,6 +480,7 @@
 			packageReferences = (
 				5FB340792C05965D000B7A53 /* XCRemoteSwiftPackageReference "lottie-ios" */,
 				5F60C8702C0B1912003E8E77 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				5F1610612DE041E400CC547F /* XCRemoteSwiftPackageReference "Moya" */,
 			);
 			productRefGroup = 5FB3404D2C0595CA000B7A53 /* Products */;
 			projectDirPath = "";
@@ -514,6 +530,28 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		5F1C4B552DE5ED3C0082D4AC /* Find TODOs and FIXMEs */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Find TODOs and FIXMEs";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "KEYWORDS=\"TODO:|FIXME:\"\nfind \"${SRCROOT}\" \\( -name \"*.h\" -or -name \"*.m\" -or -name \"*.swift\" \\) -print0 | \\\nxargs -0 egrep --with-filename --line-number --only-matching \"($KEYWORDS).*\\$\" | \\\nperl -p -e \"s/($KEYWORDS)/ warning: \\$1/\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		5FB340482C0595CA000B7A53 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -539,9 +577,8 @@
 				5F24B61F2C285EEF00964F4A /* Key.swift in Sources */,
 				5FAC0EF22C05EB8700323BC8 /* WKWebViewUI.swift in Sources */,
 				5F57E8902C096CA300A0D1C1 /* ActivityView.swift in Sources */,
-				5FFC81C12C077B06009DC5C1 /* MainTabView.swift in Sources */,
+				5FFC81C12C077B06009DC5C1 /* MainTabViewOld.swift in Sources */,
 				5FC09E092C1DF1C700CFB2DA /* SpamResultModel.swift in Sources */,
-				5F279D2E2C31536000A54F47 /* View+.swift in Sources */,
 				5FFC81CE2C07A1F8009DC5C1 /* FilterType.swift in Sources */,
 				5F2709C82C107C0000565243 /* HapticManager.swift in Sources */,
 			);
@@ -632,6 +669,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = P2UJWPTGRX;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
@@ -695,6 +733,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = P2UJWPTGRX;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
@@ -719,14 +758,12 @@
 		5FB340712C0595CB000B7A53 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "K-Spam/K-Spam.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"K-Spam/Preview Content\"";
-				DEVELOPMENT_TEAM = P2UJWPTGRX;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "K-Spam/Info.plist";
@@ -741,7 +778,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.4.1;
+				MARKETING_VERSION = 2;
 				PRODUCT_BUNDLE_IDENTIFIER = "toby.app.K-Spam";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -757,14 +794,12 @@
 		5FB340722C0595CB000B7A53 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "K-Spam/K-Spam.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"K-Spam/Preview Content\"";
-				DEVELOPMENT_TEAM = P2UJWPTGRX;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "K-Spam/Info.plist";
@@ -779,7 +814,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.4.1;
+				MARKETING_VERSION = 2;
 				PRODUCT_BUNDLE_IDENTIFIER = "toby.app.K-Spam";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -795,11 +830,9 @@
 		5FB340742C0595CB000B7A53 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = P2UJWPTGRX;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MARKETING_VERSION = 1.0;
@@ -819,11 +852,9 @@
 		5FB340752C0595CB000B7A53 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = P2UJWPTGRX;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MARKETING_VERSION = 1.0;
@@ -843,10 +874,8 @@
 		5FB340772C0595CB000B7A53 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = P2UJWPTGRX;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MARKETING_VERSION = 1.0;
@@ -866,10 +895,8 @@
 		5FB340782C0595CB000B7A53 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = P2UJWPTGRX;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MARKETING_VERSION = 1.0;
@@ -892,7 +919,6 @@
 				CODE_SIGN_ENTITLEMENTS = "K-SpamFilter/K-SpamFilter.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = P2UJWPTGRX;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "K-SpamFilter/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "K-SpamFilter";
@@ -903,7 +929,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.4.1;
+				MARKETING_VERSION = 2;
 				PRODUCT_BUNDLE_IDENTIFIER = "toby.app.K-Spam.K-SpamFilter";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -923,7 +949,6 @@
 				CODE_SIGN_ENTITLEMENTS = "K-SpamFilter/K-SpamFilter.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = P2UJWPTGRX;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "K-SpamFilter/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "K-SpamFilter";
@@ -934,7 +959,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.4.1;
+				MARKETING_VERSION = 2;
 				PRODUCT_BUNDLE_IDENTIFIER = "toby.app.K-Spam.K-SpamFilter";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -999,6 +1024,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		5F1610612DE041E400CC547F /* XCRemoteSwiftPackageReference "Moya" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Moya/Moya";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 15.0.3;
+			};
+		};
 		5F60C8702C0B1912003E8E77 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
@@ -1018,6 +1051,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		5F1610622DE041E400CC547F /* Moya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5F1610612DE041E400CC547F /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = Moya;
+		};
 		5F60C8712C0B1912003E8E77 /* FirebaseMessaging */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 5F60C8702C0B1912003E8E77 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;

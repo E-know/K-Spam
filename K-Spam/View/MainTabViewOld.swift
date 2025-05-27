@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct MainTabView: View {
+struct MainTabViewOld: View {
     @State var selction = MainTabPages.home
     var body: some View {
         TabView(selection: $selction) {
@@ -26,5 +26,5 @@ struct MainTabView: View {
 }
 
 #Preview {
-    MainTabView()
+    MainTabViewOld()
 }

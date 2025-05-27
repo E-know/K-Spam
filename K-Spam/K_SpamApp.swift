@@ -10,6 +10,7 @@ import SwiftUI
 @main
 struct KSpamApp: App {
     // TODO: 이거 내려야 함
+    // TODO: 할 일
     #if !DEBUG
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     #endif
@@ -18,11 +19,6 @@ struct KSpamApp: App {
     var body: some Scene {
         WindowGroup {
             MainTabView()
-                .fullScreenCover(isPresented: $showOnBoarding) {
-                    OnboardingMainView {
-                        self.showOnBoarding = false
-                    }
-                }
         }
     }
     
