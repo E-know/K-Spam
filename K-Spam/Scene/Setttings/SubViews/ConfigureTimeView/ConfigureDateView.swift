@@ -53,6 +53,7 @@ struct ConfigureDateView: View {
         .padding(.bottom, 20)
         .navigationTitle("여행 기간 설정")
         .navigationBarTitleDisplayMode(.inline)
+        .navigationBarBackButtonHidden(true)
     }
     
     private func confirmView() -> some View {

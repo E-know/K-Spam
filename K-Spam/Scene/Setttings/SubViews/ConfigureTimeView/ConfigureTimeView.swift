@@ -56,6 +56,7 @@ struct ConfigureTimeView: View {
         .padding()
         .navigationTitle("예약 시간 설정")
         .navigationBarTitleDisplayMode(.inline)
+        .navigationBarBackButtonHidden(true)
     }
     
     private func confirmView() -> some View {

@@ -8,7 +8,7 @@
 import SwiftUI
 
 
-struct WordFilterView: View {
+struct WordFilterView2: View {
     @State private var filterType = FilterType.black
     @State private var showInfo = false
 //    @FocusState private var isFocused: Bool
@@ -127,5 +127,5 @@ struct WordFilterView: View {
 }
 
 #Preview {
-    WordFilterView()
+    WordFilterView2()
 }

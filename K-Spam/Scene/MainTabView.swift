@@ -54,6 +54,15 @@ struct MainTabView: View {
                                 Text(tab.text)
                             }
                             .tag(tab)
+                    case .words:
+                        WordFilterView()
+                            .tabItem {
+                                Image(tab.tabImage)
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                Text(tab.text)
+                            }
+                            .tag(tab)
                     default:
                         Text(tab.text)
                             .tabItem {
@@ -67,7 +76,7 @@ struct MainTabView: View {
             }
         }
         .onChange(of: currentTab) {
-            #warning("여기에 햅틱 넣기")
+            HapticManager.shared.haptic(style: .soft)
         }
     }
 }

@@ -18,7 +18,7 @@ enum MainTabPages: Identifiable, CaseIterable {
     var view: some View {
         switch self {
         case .wordFilter:
-            WordFilterView()
+            WordFilterView2()
         case .home:
             HomeView()
         case .customSetting:

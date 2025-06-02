@@ -45,9 +45,9 @@ struct SettingsView: MVIView {
             .navigationDestination(for: SettingsModels.NavigationPath.self) { value in
                 switch value {
                     case .appInfo:
-                        Text("APPINFO")
+                        AppInfoView()
                     case .privacyPolicy:
-                        Text("PrivacyPolicy")
+                        PrivacyInfoView()
                     case .configureTime:
                         ConfigureTimeView(
                             startTime: state.filterStartTime,
@@ -66,7 +66,6 @@ struct SettingsView: MVIView {
                                     break
                             }
                         }
-                            .navigationBarBackButtonHidden(true)
                     case .configureTravel:
                         ConfigureDateView() { action in
                             switch action {
@@ -79,7 +78,6 @@ struct SettingsView: MVIView {
                                     break
                             }
                         }
-                            .navigationBarBackButtonHidden(true)
                 }
             }
         }
