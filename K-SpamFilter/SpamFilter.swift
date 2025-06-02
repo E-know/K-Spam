@@ -9,16 +9,16 @@ import Foundation
 
 final class SpamFilter {
     func checkWhiteFilterWords(messageLines: [String]) -> Bool {
-        let whiteFilterWords = UserDefaultsManager.shared.getStrings(key: .WhiteFilterWords)
-        guard !whiteFilterWords.isEmpty else { return false }
-        
-        for line in messageLines {
-            for whiteFilterWord in whiteFilterWords {
-                if line.contains(whiteFilterWord) {
-                    return true
-                }
-            }
-        }
+//        let whiteFilterWords = UserDefaultsManager.shared.getStrings(key: .WhiteFilterWords)
+//        guard !whiteFilterWords.isEmpty else { return false }
+//        
+//        for line in messageLines {
+//            for whiteFilterWord in whiteFilterWords {
+//                if line.contains(whiteFilterWord) {
+//                    return true
+//                }
+//            }
+//        }
         return false
     }
     
@@ -91,16 +91,16 @@ final class SpamFilter {
     }
     
     func checkBlackFilterWords(messageLines: [String]) -> Bool {
-        let blackFilterWords = UserDefaultsManager.shared.getStrings(key: .BlackFilterWords)
-        guard !blackFilterWords.isEmpty else { return false }
-        
-        for line in messageLines {
-            for blackFilterWord in blackFilterWords {
-                if line.contains(blackFilterWord) {
-                    return true
-                }
-            }
-        }
+//        let blackFilterWords = UserDefaultsManager.shared.getStrings(key: .BlackFilterWords)
+//        guard !blackFilterWords.isEmpty else { return false }
+//        
+//        for line in messageLines {
+//            for blackFilterWord in blackFilterWords {
+//                if line.contains(blackFilterWord) {
+//                    return true
+//                }
+//            }
+//        }
         return false
     }
     

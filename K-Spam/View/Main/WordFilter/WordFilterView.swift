@@ -14,8 +14,8 @@ struct WordFilterView: View {
 //    @FocusState private var isFocused: Bool
     @State private var inputText = ""
     
-    @State private var whiteFilterWords = UserDefaultsManager.shared.getStrings(key: .WhiteFilterWords)
-    @State private var blackFilterWords = UserDefaultsManager.shared.getStrings(key: .BlackFilterWords)
+    @State private var whiteFilterWords = ""//UserDefaultsManager.shared.getStrings(key: .WhiteFilterWords)
+    @State private var blackFilterWords = ""//UserDefaultsManager.shared.getStrings(key: .BlackFilterWords)
     
     
     var body: some View {
@@ -77,8 +77,8 @@ struct WordFilterView: View {
         }
         .onAppear(perform: UIApplication.shared.hideKeyboard)
         
-        .onChange(of: whiteFilterWords) {UserDefaultsManager.shared.setValue(key: .WhiteFilterWords, value: whiteFilterWords)}
-        .onChange(of: blackFilterWords) {UserDefaultsManager.shared.setValue(key: .BlackFilterWords, value: blackFilterWords)}
+//        .onChange(of: whiteFilterWords) {UserDefaultsManager.shared.setValue(key: .WhiteFilterWords, value: whiteFilterWords)}
+//        .onChange(of: blackFilterWords) {UserDefaultsManager.shared.setValue(key: .BlackFilterWords, value: blackFilterWords)}
     }
     
     @ViewBuilder
@@ -86,14 +86,14 @@ struct WordFilterView: View {
         let words = filterType == .black ? blackFilterWords : whiteFilterWords
         
         if !words.isEmpty {
-            List {
-                ForEach(words, id: \.self) {
-                    Text($0)
-                }
-                .onDelete(perform: delete)
-                .listRowBackground(Color.superLightPurple)
-            }
-            .scrollContentBackground(.hidden)
+//            List {
+//                ForEach(words, id: \.self) {
+//                    Text($0)
+//                }
+//                .onDelete(perform: delete)
+//                .listRowBackground(Color.superLightPurple)
+//            }
+//            .scrollContentBackground(.hidden)
         } else {
             VStack(spacing: 8) {
                 Spacer()
@@ -108,11 +108,11 @@ struct WordFilterView: View {
     
     private func delete(at offsets: IndexSet) {
         HapticManager.shared.hapticImpact(style: .light, occurAt: [#fileID, #function])
-        if filterType == .black {
-            blackFilterWords.remove(atOffsets: offsets)
-        } else if filterType == .white {
-            whiteFilterWords.remove(atOffsets: offsets)
-        }
+//        if filterType == .black {
+//            blackFilterWords.remove(atOffsets: offsets)
+//        } else if filterType == .white {
+//            whiteFilterWords.remove(atOffsets: offsets)
+//        }
     }
     
     private func submit() {

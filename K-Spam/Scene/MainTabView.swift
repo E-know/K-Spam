@@ -44,12 +44,26 @@ struct MainTabView: View {
     var body: some View {
         TabView(selection: $currentTab) {
             ForEach(TabSelection.allCases, id: \.self) { tab in
-                Text(tab.text)
-                    .tabItem {
-                        Image(tab.tabImage)
+                switch tab {
+                    case .settings:
+                        SettingsView()
+                            .tabItem {
+                                Image(tab.tabImage)
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                Text(tab.text)
+                            }
+                            .tag(tab)
+                    default:
                         Text(tab.text)
-                    }
-                    .tag(tab)
+                            .tabItem {
+                                Image(tab.tabImage)
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                Text(tab.text)
+                            }
+                            .tag(tab)
+                }
             }
         }
         .onChange(of: currentTab) {

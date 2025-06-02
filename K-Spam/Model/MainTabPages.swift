@@ -22,7 +22,8 @@ enum MainTabPages: Identifiable, CaseIterable {
         case .home:
             HomeView()
         case .customSetting:
-            CustomSettingView()
+            Text("Empty")
+//            CustomSettingView()
         }
     }
     

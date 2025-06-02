@@ -134,10 +134,56 @@
 		5FFC81CD2C07A1F8009DC5C1 /* FilterType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		5F4019B42DEDB7BB0089E2E1 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				GroupUserDefaultsWorker.swift,
+			);
+			target = 5FB340962C0599FE000B7A53 /* K-SpamFilter */;
+		};
+		5F4019B72DEDB8000089E2E1 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Domain/FilterDateData.swift,
+				Domain/FilterTimeData.swift,
+				Entity/GroupUserDefaultsKey.swift,
+			);
+			target = 5FB340962C0599FE000B7A53 /* K-SpamFilter */;
+		};
+		5F4019B92DEDB8400089E2E1 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				GroupUserDefaultsRepository.swift,
+			);
+			target = 5FB340962C0599FE000B7A53 /* K-SpamFilter */;
+		};
+		5F4019BB2DEDB84E0089E2E1 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				GroupUserDefaultsService.swift,
+			);
+			target = 5FB340962C0599FE000B7A53 /* K-SpamFilter */;
+		};
+		5F4019BE2DEDBA420089E2E1 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				"Date+.swift",
+			);
+			target = 5FB340962C0599FE000B7A53 /* K-SpamFilter */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		5F1610642DE041F900CC547F /* Scene */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Scene; sourceTree = "<group>"; };
 		5F1610662DE0444500CC547F /* Common */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Common; sourceTree = "<group>"; };
-		5F1C4BC52DE5F5C00082D4AC /* Extension */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Extension; sourceTree = "<group>"; };
+		5F1C4BC52DE5F5C00082D4AC /* Extension */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (5F4019BE2DEDBA420089E2E1 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = Extension; sourceTree = "<group>"; };
+		5F40198F2DED8B1F0089E2E1 /* Repository */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (5F4019B92DEDB8400089E2E1 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = Repository; sourceTree = "<group>"; };
+		5F4019922DED8B490089E2E1 /* Service */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (5F4019BB2DEDB84E0089E2E1 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = Service; sourceTree = "<group>"; };
+		5F4019952DED8B670089E2E1 /* Data */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (5F4019B72DEDB8000089E2E1 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = Data; sourceTree = "<group>"; };
+		5F4019A72DEDB7130089E2E1 /* Filter */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Filter; sourceTree = "<group>"; };
+		5F4019AD2DEDB7800089E2E1 /* Data */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Data; sourceTree = "<group>"; };
+		5FF2D63B2DEA0F390062378B /* Worker */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (5F4019B42DEDB7BB0089E2E1 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = Worker; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -219,6 +265,10 @@
 		5FB3404E2C0595CA000B7A53 /* K-Spam */ = {
 			isa = PBXGroup;
 			children = (
+				5F4019952DED8B670089E2E1 /* Data */,
+				5F4019922DED8B490089E2E1 /* Service */,
+				5F40198F2DED8B1F0089E2E1 /* Repository */,
+				5FF2D63B2DEA0F390062378B /* Worker */,
 				5F1C4BC52DE5F5C00082D4AC /* Extension */,
 				5F1610662DE0444500CC547F /* Common */,
 				5F1610642DE041F900CC547F /* Scene */,
@@ -316,7 +366,9 @@
 		5FB340982C0599FE000B7A53 /* K-SpamFilter */ = {
 			isa = PBXGroup;
 			children = (
+				5F4019AD2DEDB7800089E2E1 /* Data */,
 				5FAC0EF02C05D8E100323BC8 /* K-SpamFilter.entitlements */,
+				5F4019A72DEDB7130089E2E1 /* Filter */,
 				5FB340992C0599FE000B7A53 /* MessageFilterExtension.swift */,
 				5FB340A32C059A8F000B7A53 /* FilterExtension.swift */,
 				5FB3409B2C0599FE000B7A53 /* Info.plist */,
@@ -377,6 +429,12 @@
 				5F1610642DE041F900CC547F /* Scene */,
 				5F1610662DE0444500CC547F /* Common */,
 				5F1C4BC52DE5F5C00082D4AC /* Extension */,
+				5F40198F2DED8B1F0089E2E1 /* Repository */,
+				5F4019922DED8B490089E2E1 /* Service */,
+				5F4019952DED8B670089E2E1 /* Data */,
+				5F4019A72DEDB7130089E2E1 /* Filter */,
+				5F4019AD2DEDB7800089E2E1 /* Data */,
+				5FF2D63B2DEA0F390062378B /* Worker */,
 			);
 			name = "K-Spam";
 			packageProductDependencies = (
@@ -436,6 +494,10 @@
 			buildRules = (
 			);
 			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				5F4019A72DEDB7130089E2E1 /* Filter */,
+				5F4019AD2DEDB7800089E2E1 /* Data */,
 			);
 			name = "K-SpamFilter";
 			productName = "K-SpamFilter";
@@ -778,7 +840,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2;
+				MARKETING_VERSION = 2.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "toby.app.K-Spam";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -814,7 +876,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2;
+				MARKETING_VERSION = 2.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "toby.app.K-Spam";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
