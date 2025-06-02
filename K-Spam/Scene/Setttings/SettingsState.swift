@@ -28,8 +28,6 @@ protocol SettingsStateDataProtocol: AnyObject {
 
 protocol SettingsStateProtocol: AnyObject {
     func presentInitData(response: SettingsModels.InitData.Response)
-    func presentAppInfo(response: SettingsModels.TapAppInfo.Response)
-    func presentPrivacyPolicy(response: SettingsModels.TapPrivacyPolicy.Response)
     func presentConfigureTime(response: SettingsModels.ConfigureTime.Response)
     func presentConfigureDate(response: SettingsModels.ConfigureDate.Response)
     func presentAlarmPopup()
@@ -121,14 +119,6 @@ extension SettingsState: SettingsStateProtocol {
     
     func popNavigationPath() {
         path.removeLast()
-    }
-    
-    func presentAppInfo(response: SettingsModels.TapAppInfo.Response) {
-        path.append(response.path)
-    }
-    
-    func presentPrivacyPolicy(response: SettingsModels.TapPrivacyPolicy.Response) {
-        path.append(response.path)
     }
     
     func presentAlarmPopup() {

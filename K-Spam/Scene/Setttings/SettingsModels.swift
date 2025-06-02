@@ -22,22 +22,6 @@ enum SettingsModels {
         }
     }
     
-    enum TapAppInfo {
-        struct Request {}
-        
-        struct Response {
-            let path: SettingsModels.NavigationPath
-        }
-    }
-    
-    enum TapPrivacyPolicy {
-        struct Request {}
-        
-        struct Response {
-            let path: SettingsModels.NavigationPath
-        }
-    }
-    
     enum ConfigureTime {
         struct Request {
             let startTime: Date

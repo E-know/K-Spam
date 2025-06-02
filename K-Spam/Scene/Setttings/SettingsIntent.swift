@@ -8,8 +8,8 @@
 import Foundation
 
 protocol SettingsIntentProtocol: AnyObject {
-    func tapAppInfo(request: SettingsModels.TapAppInfo.Request)
-    func tapPrivacyPolicy(request: SettingsModels.TapPrivacyPolicy.Request)
+    func tapAppInfo()
+    func tapPrivacyPolicy()
     func tapRouteToSettings()
     func getAlarmStatus()
     func setConfigureTIme(request: SettingsModels.ConfigureTime.Request)
@@ -110,10 +110,14 @@ extension SettingsIntent: SettingsIntentProtocol {
     }
     
     func setisTravelNotificationEnabled(_ value: Bool) {
-        if value {
-            state?.routeToNaviageationPath(.configureTravel)
-        } else {
-            state?.setTravelNotificationEnabled(value)
+        Task {
+            if value {
+                state?.routeToNaviageationPath(.configureTravel)
+            } else {
+                let worker = GroupUserDefaultsWorker()
+                worker.removeValue(forKey: GroupUserDefaultsKey.Settings.dateSetting)
+                state?.setTravelNotificationEnabled(value)
+            }
         }
     }
     
@@ -121,18 +125,18 @@ extension SettingsIntent: SettingsIntentProtocol {
         if value {
             state?.routeToNaviageationPath(.configureTime)
         } else {
+            let worker = GroupUserDefaultsWorker()
+            worker.removeValue(forKey: GroupUserDefaultsKey.Settings.timeSetting)
             state?.setScheduledFilterEnabled(value)
         }
     }
     
-    func tapAppInfo(request: SettingsModels.TapAppInfo.Request) {
-        state?.presentAppInfo(response: .init(
-            path: .appInfo
-        ))
+    func tapAppInfo() {
+        state?.routeToNaviageationPath(.appInfo)
     }
     
-    func tapPrivacyPolicy(request: SettingsModels.TapPrivacyPolicy.Request) {
-        state?.presentPrivacyPolicy(response: .init(path: .privacyPolicy))
+    func tapPrivacyPolicy() {
+        state?.routeToNaviageationPath(.privacyPolicy)
     }
     
     func tapRouteToSettings() {

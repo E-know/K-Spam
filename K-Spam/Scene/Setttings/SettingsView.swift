@@ -128,7 +128,7 @@ struct SettingsView: MVIView {
                 
                 Spacer()
                 
-                Button(action: { intent.tapAppInfo(request: .init()) }) {
+                Button(action: { intent.tapAppInfo() }) {
                     Image(.rightArrow)
                         .resizable()
                         .aspectRatio(contentMode: .fit)
@@ -143,7 +143,7 @@ struct SettingsView: MVIView {
                 
                 Spacer()
                 
-                Button(action: { intent.tapPrivacyPolicy(request: .init()) }) {
+                Button(action: { intent.tapPrivacyPolicy() }) {
                     Image(.rightArrow)
                         .resizable()
                         .aspectRatio(contentMode: .fit)
