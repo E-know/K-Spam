@@ -139,6 +139,7 @@
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				GroupUserDefaultsWorker.swift,
+				WordFilterWorker.swift,
 			);
 			target = 5FB340962C0599FE000B7A53 /* K-SpamFilter */;
 		};
@@ -183,7 +184,6 @@
 		5F4019922DED8B490089E2E1 /* Service */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (5F4019BB2DEDB84E0089E2E1 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = Service; sourceTree = "<group>"; };
 		5F4019952DED8B670089E2E1 /* Data */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (5F4019B72DEDB8000089E2E1 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = Data; sourceTree = "<group>"; };
 		5F4019A72DEDB7130089E2E1 /* Filter */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Filter; sourceTree = "<group>"; };
-		5F4019AD2DEDB7800089E2E1 /* Data */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Data; sourceTree = "<group>"; };
 		5FF2D63B2DEA0F390062378B /* Worker */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (5F4019B42DEDB7BB0089E2E1 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = Worker; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
@@ -367,7 +367,6 @@
 		5FB340982C0599FE000B7A53 /* K-SpamFilter */ = {
 			isa = PBXGroup;
 			children = (
-				5F4019AD2DEDB7800089E2E1 /* Data */,
 				5FAC0EF02C05D8E100323BC8 /* K-SpamFilter.entitlements */,
 				5F4019A72DEDB7130089E2E1 /* Filter */,
 				5FB340992C0599FE000B7A53 /* MessageFilterExtension.swift */,
@@ -434,7 +433,6 @@
 				5F4019922DED8B490089E2E1 /* Service */,
 				5F4019952DED8B670089E2E1 /* Data */,
 				5F4019A72DEDB7130089E2E1 /* Filter */,
-				5F4019AD2DEDB7800089E2E1 /* Data */,
 				5FF2D63B2DEA0F390062378B /* Worker */,
 			);
 			name = "K-Spam";
@@ -498,7 +496,6 @@
 			);
 			fileSystemSynchronizedGroups = (
 				5F4019A72DEDB7130089E2E1 /* Filter */,
-				5F4019AD2DEDB7800089E2E1 /* Data */,
 			);
 			name = "K-SpamFilter";
 			productName = "K-SpamFilter";
