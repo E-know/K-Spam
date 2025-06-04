@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-enum ReportType: String, Hashable, Identifiable, CaseIterable {
+enum ReportType2: String, Hashable, Identifiable, CaseIterable {
     case spam
     case bug
     
@@ -24,7 +24,7 @@ enum ReportType: String, Hashable, Identifiable, CaseIterable {
 struct ReportingView: View {
     @Binding var showThisView: Bool
     
-    @State private var reportType: ReportType = .spam
+    @State private var reportType: ReportType2 = .spam
     @FocusState private var focusField: Bool
     @State private var context = ""
     
@@ -47,7 +47,7 @@ struct ReportingView: View {
                 .foregroundStyle(Color.gray)
             
             Picker("제보유형", selection: $reportType) {
-                ForEach(ReportType.allCases) { value in
+                ForEach(ReportType2.allCases) { value in
                     Text(value.messageString)
                         .frame(width: 500)
                         .tag(value)
@@ -80,7 +80,7 @@ struct ReportingView: View {
     private var SendButton: some View {
         Button(action: {
             Task.detached {
-                let response: TelegramBotResponse = try await NetworkManager(type: .telegramBot)
+                let response: TelegramBotResponse2 = try await NetworkManager(type: .telegramBot)
                     .appendQuery(key: "text", value: "[\(reportType.rawValue.uppercased())]\n\(context)")
                     .decode()
                 #if DEBUG

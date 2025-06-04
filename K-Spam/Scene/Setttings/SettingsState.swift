@@ -31,6 +31,7 @@ protocol SettingsStateProtocol: AnyObject {
     func presentInit(response: SettingsModels.Init.Response)
     func presentConfigureTime(response: SettingsModels.ConfigureTime.Response)
     func presentConfigureDate(response: SettingsModels.ConfigureDate.Response)
+    func presentReportConfirm(response: SettingsModels.Report.Response)
     func presentAlarmPopup()
     func routeToSettings()
     
@@ -71,6 +72,10 @@ final class SettingsState: SettingsStateDataProtocol {
 }
 
 extension SettingsState: SettingsStateProtocol {
+    func presentReportConfirm(response: SettingsModels.Report.Response) {
+        self.path.removeLast()
+    }
+    
     func setBasicFilterEnabled(_ value: Bool) {
         self.isBasicFilterEnabled = value
     }

@@ -12,6 +12,7 @@ struct SettingsView: MVIView {
         case popChildView
         case confirmScheduleTime(Date, Date)
         case confirmTravleDate(Date, Date)
+        case report(ReportType, String)
     }
     
     private let intent: SettingsIntentProtocol
@@ -75,6 +76,12 @@ struct SettingsView: MVIView {
                                     intent.popNavigation()
                                 default:
                                     break
+                            }
+                        }
+                    case .report:
+                        ReportView() { action in
+                            if case let .report(reportType, message) = action {
+                                intent.requestReportConfirm(request: .init(reportType: reportType, message: message))
                             }
                         }
                 }
@@ -142,6 +149,20 @@ struct SettingsView: MVIView {
                 Spacer()
                 
                 Button(action: { intent.tapPrivacyPolicy() }) {
+                    Image(.rightArrow)
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(height: 28)
+                }
+            }
+            
+            HStack {
+                Text("기능 요청 및 스팸 메세지 신고")
+                    .font(16)
+                
+                Spacer()
+                
+                Button(action: { intent.routeToNavigate(.report)}) {
                     Image(.rightArrow)
                         .resizable()
                         .aspectRatio(contentMode: .fit)

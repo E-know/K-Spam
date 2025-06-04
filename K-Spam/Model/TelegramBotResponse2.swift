@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct TelegramBotResponse: Decodable {
+struct TelegramBotResponse2: Decodable {
     let ok: Bool
     let result: TelegramBotResult
 }

@@ -13,6 +13,7 @@ enum SettingsModels {
         case privacyPolicy
         case configureTime
         case configureTravel
+        case report
     }
     
     enum Init {
@@ -44,6 +45,17 @@ enum SettingsModels {
         struct Response {
             let startDate: Date
             let endDate: Date
+        }
+    }
+    
+    enum Report {
+        struct Request {
+            let reportType: ReportType
+            let message: String
+        }
+        
+        struct Response {
+            
         }
     }
 }

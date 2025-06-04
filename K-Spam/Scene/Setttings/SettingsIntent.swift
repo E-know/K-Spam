@@ -24,6 +24,8 @@ protocol SettingsIntentProtocol: AnyObject {
     
     func routeToNavigate(_ value: SettingsModels.NavigationPath)
     func popNavigation()
+    
+    func requestReportConfirm(request: SettingsModels.Report.Request)
 }
 
 final class SettingsIntent {
@@ -62,6 +64,17 @@ final class SettingsIntent {
 }
 
 extension SettingsIntent: SettingsIntentProtocol {
+    func requestReportConfirm(request: SettingsModels.Report.Request) {
+        Task {
+            let worker = ReportWorker()
+            
+            let _ = try await worker.report(reportType: request.reportType, message: request.message)
+            #warning("토글 메세지 전달 성공 여부 등")
+            
+            state?.presentReportConfirm(response: .init())
+        }
+    }
+    
     func setisBasicFilterEnabled(_ value: Bool) {
         Task {
             let worker = SettingsFilterWorker()

@@ -13,7 +13,7 @@
 		5F24B6232C285F7B00964F4A /* NetworkResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F24B6222C285F7B00964F4A /* NetworkResponse.swift */; };
 		5F2709C82C107C0000565243 /* HapticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F2709C72C107C0000565243 /* HapticManager.swift */; };
 		5F2709CC2C108AE900565243 /* FilterResultInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F2709CB2C108AE900565243 /* FilterResultInfoView.swift */; };
-		5F279D2C2C31416300A54F47 /* TelegramBotResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F279D2B2C31416300A54F47 /* TelegramBotResponse.swift */; };
+		5F279D2C2C31416300A54F47 /* TelegramBotResponse2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F279D2B2C31416300A54F47 /* TelegramBotResponse2.swift */; };
 		5F3D829E2C07B90C001F595D /* Keyboard+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F3D829D2C07B90C001F595D /* Keyboard+.swift */; };
 		5F57E8902C096CA300A0D1C1 /* ActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F57E88F2C096CA300A0D1C1 /* ActivityView.swift */; };
 		5F60C86F2C0AF6D4003E8E77 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F60C86E2C0AF6D4003E8E77 /* AppDelegate.swift */; };
@@ -91,7 +91,7 @@
 		5F24B6222C285F7B00964F4A /* NetworkResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkResponse.swift; sourceTree = "<group>"; };
 		5F2709C72C107C0000565243 /* HapticManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticManager.swift; sourceTree = "<group>"; };
 		5F2709CB2C108AE900565243 /* FilterResultInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterResultInfoView.swift; sourceTree = "<group>"; };
-		5F279D2B2C31416300A54F47 /* TelegramBotResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelegramBotResponse.swift; sourceTree = "<group>"; };
+		5F279D2B2C31416300A54F47 /* TelegramBotResponse2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelegramBotResponse2.swift; sourceTree = "<group>"; };
 		5F3D829D2C07B90C001F595D /* Keyboard+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Keyboard+.swift"; sourceTree = "<group>"; };
 		5F57E88F2C096CA300A0D1C1 /* ActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityView.swift; sourceTree = "<group>"; };
 		5F60C86E2C0AF6D4003E8E77 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -144,8 +144,11 @@
 				Domain/FilterDateData.swift,
 				Domain/FilterTimeData.swift,
 				Domain/LaunchConfig.swift,
+				Domain/ReportType.swift,
+				Domain/TelegramBotResponse.swift,
 				Entity/GroupUserDefaultsKey.swift,
 				Entity/LaunchConfigEntity.swift,
+				Entity/TelegramBotEntity.swift,
 			);
 			target = 5FB340962C0599FE000B7A53 /* K-SpamFilter */;
 		};
@@ -339,7 +342,7 @@
 				5FFC81C22C077B34009DC5C1 /* MainTabPages.swift */,
 				5F24B6222C285F7B00964F4A /* NetworkResponse.swift */,
 				5FFC81CD2C07A1F8009DC5C1 /* FilterType.swift */,
-				5F279D2B2C31416300A54F47 /* TelegramBotResponse.swift */,
+				5F279D2B2C31416300A54F47 /* TelegramBotResponse2.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -623,7 +626,7 @@
 				5F60C86F2C0AF6D4003E8E77 /* AppDelegate.swift in Sources */,
 				5F24B6212C285F5100964F4A /* ReportingView.swift in Sources */,
 				5F60C8792C0B5078003E8E77 /* NetworkManager.swift in Sources */,
-				5F279D2C2C31416300A54F47 /* TelegramBotResponse.swift in Sources */,
+				5F279D2C2C31416300A54F47 /* TelegramBotResponse2.swift in Sources */,
 				5FFC81C32C077B34009DC5C1 /* MainTabPages.swift in Sources */,
 				5FB3408A2C0596A8000B7A53 /* OnboardingMainView.swift in Sources */,
 				5F24B6232C285F7B00964F4A /* NetworkResponse.swift in Sources */,
