@@ -37,7 +37,7 @@ struct NumberFilterView: MVIView {
                         .padding()
                         
                         if state.numberList.isEmpty {
-                            ContentUnavailableView("저장한 번호가 없습니다!", systemImage: "tray.fill")
+                            ContentUnavailableView("저장된 번호가 없습니다!", systemImage: "numbers.rectangle.fill")
                         } else {
                             List {
                                 ForEach(state.numberList, id: \.self) { number in
@@ -50,22 +50,21 @@ struct NumberFilterView: MVIView {
                         }
                     }
                     
-                    if state.isInputFocused {
+                    if state.showCustomKeyboard {
                         Color.gray.opacity(0.3)
                             .ignoresSafeArea(.container)
                             .onTapGesture {
-                                intent.setIsInputFocused(false)
+                                intent.requestShowCustomKeyboard(request: .init(showCustomKeyboard: false))
                             }
                     }
                 }
                 
-                if state.isInputFocused {
+                if state.showCustomKeyboard {
                     VStack {
                         HStack {
-                            ShadowBoxText(state.newNumber == "" ? "번호를 입력해주세요" : state.newNumber)
+                            ShadowBoxText(state.newNumber)
                                 .padding()
                                 .frame(maxWidth: .infinity, minHeight: 44)
-//                                .overlay(RoundedRectangle(cornerRadius: 8).stroke(Color.gray))
                             
                             Spacer()
                         }
@@ -87,9 +86,9 @@ struct NumberFilterView: MVIView {
                     .padding()
                 } else {
                     Button {
-                        intent.setIsInputFocused(true)
+                        intent.requestShowCustomKeyboard(request: .init(showCustomKeyboard: true))
                     } label: {
-                        Label("번호 추가", systemImage: "plus")
+                        Label("번호 입력", systemImage: "plus")
                             .padding()
                             .frame(maxWidth: .infinity)
                             .background(Color.blue)
@@ -101,7 +100,10 @@ struct NumberFilterView: MVIView {
             }
             .navigationTitle("번호 필터 관리")
             .onDisappear {
-                intent.setIsInputFocused(false)
+                intent.requestShowCustomKeyboard(request: .init(showCustomKeyboard: false))
+            }
+            .sheet(isPresented: bind(\.showCustomKeyboardGuide, intent.setShowCustomKeyboardGuide)) {
+                CustomKeyboardGuideView()
             }
         }
     }

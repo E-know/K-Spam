@@ -39,10 +39,6 @@
 		5FB3409E2C0599FE000B7A53 /* K-SpamFilter.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 5FB340972C0599FE000B7A53 /* K-SpamFilter.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		5FB340A42C059A8F000B7A53 /* FilterExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB340A32C059A8F000B7A53 /* FilterExtension.swift */; };
 		5FB340A52C059AC7000B7A53 /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB340882C0596A8000B7A53 /* UserDefaultsManager.swift */; };
-		5FC09E052C1DE28A00CFB2DA /* SpamFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC09E042C1DE28A00CFB2DA /* SpamFilter.swift */; };
-		5FC09E062C1DE2F000CFB2DA /* SpamFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC09E042C1DE28A00CFB2DA /* SpamFilter.swift */; };
-		5FC09E082C1DF17600CFB2DA /* SpamResultModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC09E072C1DF17600CFB2DA /* SpamResultModel.swift */; };
-		5FC09E092C1DF1C700CFB2DA /* SpamResultModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC09E072C1DF17600CFB2DA /* SpamResultModel.swift */; };
 		5FFC81C12C077B06009DC5C1 /* MainTabViewOld.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFC81C02C077B06009DC5C1 /* MainTabViewOld.swift */; };
 		5FFC81C32C077B34009DC5C1 /* MainTabPages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFC81C22C077B34009DC5C1 /* MainTabPages.swift */; };
 		5FFC81C72C0784EF009DC5C1 /* WordFilterView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFC81C62C0784EF009DC5C1 /* WordFilterView2.swift */; };
@@ -124,8 +120,6 @@
 		5FB340992C0599FE000B7A53 /* MessageFilterExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageFilterExtension.swift; sourceTree = "<group>"; };
 		5FB3409B2C0599FE000B7A53 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5FB340A32C059A8F000B7A53 /* FilterExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterExtension.swift; sourceTree = "<group>"; };
-		5FC09E042C1DE28A00CFB2DA /* SpamFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpamFilter.swift; sourceTree = "<group>"; };
-		5FC09E072C1DF17600CFB2DA /* SpamResultModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpamResultModel.swift; sourceTree = "<group>"; };
 		5FFC81C02C077B06009DC5C1 /* MainTabViewOld.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabViewOld.swift; sourceTree = "<group>"; };
 		5FFC81C22C077B34009DC5C1 /* MainTabPages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabPages.swift; sourceTree = "<group>"; };
 		5FFC81C62C0784EF009DC5C1 /* WordFilterView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordFilterView2.swift; sourceTree = "<group>"; };
@@ -149,7 +143,9 @@
 			membershipExceptions = (
 				Domain/FilterDateData.swift,
 				Domain/FilterTimeData.swift,
+				Domain/LaunchConfig.swift,
 				Entity/GroupUserDefaultsKey.swift,
+				Entity/LaunchConfigEntity.swift,
 			);
 			target = 5FB340962C0599FE000B7A53 /* K-SpamFilter */;
 		};
@@ -182,6 +178,7 @@
 		5F1610642DE041F900CC547F /* Scene */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Scene; sourceTree = "<group>"; };
 		5F1610662DE0444500CC547F /* Common */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Common; sourceTree = "<group>"; };
 		5F1C4BC52DE5F5C00082D4AC /* Extension */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (5F4019BE2DEDBA420089E2E1 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = Extension; sourceTree = "<group>"; };
+		5F35F9CF2DF05F0400AE2DF2 /* Networking */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Networking; sourceTree = "<group>"; };
 		5F40198F2DED8B1F0089E2E1 /* Repository */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (5F4019B92DEDB8400089E2E1 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = Repository; sourceTree = "<group>"; };
 		5F4019922DED8B490089E2E1 /* Service */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (5F4019BB2DEDB84E0089E2E1 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = Service; sourceTree = "<group>"; };
 		5F4019952DED8B670089E2E1 /* Data */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (5F4019B72DEDB8000089E2E1 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = Data; sourceTree = "<group>"; };
@@ -268,6 +265,7 @@
 		5FB3404E2C0595CA000B7A53 /* K-Spam */ = {
 			isa = PBXGroup;
 			children = (
+				5F35F9CF2DF05F0400AE2DF2 /* Networking */,
 				5F4019952DED8B670089E2E1 /* Data */,
 				5F4019922DED8B490089E2E1 /* Service */,
 				5F40198F2DED8B1F0089E2E1 /* Repository */,
@@ -374,8 +372,6 @@
 				5FB340992C0599FE000B7A53 /* MessageFilterExtension.swift */,
 				5FB340A32C059A8F000B7A53 /* FilterExtension.swift */,
 				5FB3409B2C0599FE000B7A53 /* Info.plist */,
-				5FC09E042C1DE28A00CFB2DA /* SpamFilter.swift */,
-				5FC09E072C1DF17600CFB2DA /* SpamResultModel.swift */,
 			);
 			path = "K-SpamFilter";
 			sourceTree = "<group>";
@@ -431,6 +427,7 @@
 				5F1610642DE041F900CC547F /* Scene */,
 				5F1610662DE0444500CC547F /* Common */,
 				5F1C4BC52DE5F5C00082D4AC /* Extension */,
+				5F35F9CF2DF05F0400AE2DF2 /* Networking */,
 				5F40198F2DED8B1F0089E2E1 /* Repository */,
 				5F4019922DED8B490089E2E1 /* Service */,
 				5F4019952DED8B670089E2E1 /* Data */,
@@ -628,7 +625,6 @@
 				5F60C8792C0B5078003E8E77 /* NetworkManager.swift in Sources */,
 				5F279D2C2C31416300A54F47 /* TelegramBotResponse.swift in Sources */,
 				5FFC81C32C077B34009DC5C1 /* MainTabPages.swift in Sources */,
-				5FC09E062C1DE2F000CFB2DA /* SpamFilter.swift in Sources */,
 				5FB3408A2C0596A8000B7A53 /* OnboardingMainView.swift in Sources */,
 				5F24B6232C285F7B00964F4A /* NetworkResponse.swift in Sources */,
 				5FB340922C0596A8000B7A53 /* UserDefaultsManager.swift in Sources */,
@@ -640,7 +636,6 @@
 				5FAC0EF22C05EB8700323BC8 /* WKWebViewUI.swift in Sources */,
 				5F57E8902C096CA300A0D1C1 /* ActivityView.swift in Sources */,
 				5FFC81C12C077B06009DC5C1 /* MainTabViewOld.swift in Sources */,
-				5FC09E092C1DF1C700CFB2DA /* SpamResultModel.swift in Sources */,
 				5FFC81CE2C07A1F8009DC5C1 /* FilterType.swift in Sources */,
 				5F2709C82C107C0000565243 /* HapticManager.swift in Sources */,
 			);
@@ -669,9 +664,7 @@
 			files = (
 				5FB3409A2C0599FE000B7A53 /* MessageFilterExtension.swift in Sources */,
 				5FB340A42C059A8F000B7A53 /* FilterExtension.swift in Sources */,
-				5FC09E052C1DE28A00CFB2DA /* SpamFilter.swift in Sources */,
 				5FB340A52C059AC7000B7A53 /* UserDefaultsManager.swift in Sources */,
-				5FC09E082C1DF17600CFB2DA /* SpamResultModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -991,7 +984,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 2;
+				MARKETING_VERSION = 2.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "toby.app.K-Spam.K-SpamFilter";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -1021,7 +1014,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 2;
+				MARKETING_VERSION = 2.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "toby.app.K-Spam.K-SpamFilter";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;

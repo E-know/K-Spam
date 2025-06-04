@@ -24,10 +24,9 @@ struct SettingsView: MVIView {
     }
     
     var body: some View {
-        
         NavigationStack(path: bind(\.path, intent.setNavigationPath)) {
             ScrollView {
-                VStack(spacing: 8) {
+                VStack(spacing: 26) {
                     AlarmView()
                         .padding(.horizontal, 16)
                     
@@ -98,7 +97,7 @@ struct SettingsView: MVIView {
     }
     
     private func AlarmView() -> some View {
-        VStack(alignment: .leading) {
+        VStack(alignment: .leading, spacing: 26) {
             Text("알림")
                 .font(22, .bold)
                 .padding(.vertical, 8)
@@ -109,16 +108,15 @@ struct SettingsView: MVIView {
                         .font(16)
                     
                     Text("K-Spam의 업데이트가 있을 때 알림을 받습니다.")
-                        .font(14)
+                        .font(12)
                         .foregroundStyle(Color.gray)
                 }
             }
-            .padding(.vertical, 13.5)
         }
     }
     
     private func InformationView() -> some View {
-        VStack(alignment: .leading) {
+        VStack(alignment: .leading, spacing: 26) {
             Text("정보")
                 .font(22, .bold)
                 .padding(.vertical, 8)
@@ -136,7 +134,6 @@ struct SettingsView: MVIView {
                         .frame(height: 28)
                 }
             }
-            .padding(.vertical, 16)
             
             HStack {
                 Text("개인정보처리방침")
@@ -151,7 +148,6 @@ struct SettingsView: MVIView {
                         .frame(height: 28)
                 }
             }
-            .padding(.vertical, 16)
             
             HStack {
                 Text("소프트웨어 버전")
@@ -162,14 +158,26 @@ struct SettingsView: MVIView {
                 Text(state.appVersion)
                     .font(16)
             }
-            .padding(.vertical, 16)
         }
     }
     
     private func FilterSettingsView() -> some View {
-        VStack(alignment: .leading) {
+        VStack(alignment: .leading, spacing: 26) {
             Text("필터 활성화")
                 .font(22, .bold)
+            
+            VStack {
+                Toggle(isOn: bind(\.isBasicFilterEnabled, intent.setisBasicFilterEnabled)) {
+                    VStack(alignment: .leading) {
+                        Text("K-Spam 기본 필터 활성화")
+                            .font(16)
+                            .padding(.bottom, 2)
+                        Text("K-Spam에서 설정한 기본 스팸 필터를 활성화 합니다.")
+                            .font(12)
+                            .foregroundStyle(.gray)
+                    }
+                }
+            }
             
             VStack {
                 Toggle(isOn: bind(\.isScheduledFilterEnabled, intent.setisScheduledFilterEnabled)) {
@@ -193,7 +201,6 @@ struct SettingsView: MVIView {
                     }
                 }
             }
-            .padding(.vertical, 13.5)
             
             VStack {
                 Toggle(isOn: bind(\.isTravelNotificationEnabled, intent.setisTravelNotificationEnabled)) {
@@ -221,7 +228,6 @@ struct SettingsView: MVIView {
                     .padding(.vertical, 4)
                 }
             }
-            .padding(.vertical, 13.5)
             
         }
     }

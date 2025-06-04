@@ -9,52 +9,56 @@ import IdentityLookup
 
 extension MessageFilterExtension {
     func offlineAction(for queryRequest: ILMessageFilterQueryRequest) -> (ILMessageFilterAction, ILMessageFilterSubAction) {
-        queryRequest.sender
-//        guard let messageBody = queryRequest.messageBody else { return (.none, .none) }
-//        let messageLines = messageBody.split(separator: "\n").map { String($0) }
-//        
-//        if filter.checkWhiteFilterWords(messageLines: messageLines) {
-//            return (.allow, .none)
-//        }
-//        
-//        if filter.checkKSpam(messageLines: messageLines) {
-//            return (.junk, .none)
-//        }
-//        
-//        if let sender = queryRequest.sender, filter.isStrangeNumber(sender: sender) {
-//            return (.junk, .none)
-//        }
-//        
-//        
-//        // MARK: Custom Filter
-//        if UserDefaultsManager.shared.getBool(key: .InternationalSend) {
-//            if let sender = queryRequest.sender {
-//                let res = filter.isFromKorea(sender: sender)
-//                guard res != .no else { return (.junk, .none) }
-//            }
-//            
-//            // SKT 전용 국제발신
-//            if let res = messageLines.first?.elementsEqual("[국제발신]"), res {
-//                return (.junk, .none)
-//            }
-//        }
-//        
-//        if UserDefaultsManager.shared.getBool(key: .ChargeCasino) {
-//            if filter.checkChargeCasino(messageLines) {
-//                return (.junk, .none)
-//            }
-//        }
-//        
-//        if UserDefaultsManager.shared.getBool(key: .Advertise) {
-//            if filter.checkAdvertise(messageLines: messageLines) {
-//                return (.junk, .none)
-//            }
-//        }
-//        
-//        if filter.checkBlackFilterWords(messageLines: messageLines) {
-//            return (.junk, .none)
-//        }
+        guard isInTravelPeriod() != .scheduleTime else { return (.none, .none) } // 여행 기간 중에는 필터링하지 않는다.
+        
+        guard isTimeInFilterRange() == .scheduleTime else { return (.none, .none) } // (특정 시간에만 필터링 되거나 설정하지 않음) 에는 필터링 작동한다.
+        
+        if let sender = queryRequest.sender, isInWhiteListNumber(number: sender) == .matched { // 화이트 리스트 번호에 해당하면 필터링 체크하지 않는다.
+            return (.none, .none)
+        }
+        
+        if let messageBody = queryRequest.messageBody, isInWhiteListWord(text: messageBody) == .matched { // 화이트 리스트 단어에 해당하면 필터링 체크하지 않는다.
+            return (.none, .none)
+        }
+        
+        if let sender = queryRequest.sender, isInBlackListNumber(number: sender) == .matched { // 블랙 리스트 번호에 해당하면 필터링한다.
+            return (.junk, .none)
+        }
+        
+        if let messageBody = queryRequest.messageBody, isInBlackListWord(text: messageBody) == .matched { // 블랙 리스트 단어에 해당하면 필터링한다.
+            return (.junk, .none)
+        }
         
         return (.none, .none)
+    }
+    
+    private func isInTravelPeriod() -> FilteringPeriod {
+        let filter = DateFilter()
+        return filter.isDateInTravelRange()
+    }
+    
+    private func isTimeInFilterRange() -> FilteringPeriod {
+        let filter = DateFilter()
+        return filter.isTimeInFilterRange()
+    }
+    
+    private func isInWhiteListNumber(number: String) -> NumberListMatchResult {
+        let filter = NumberFilter()
+        return filter.checkWhiteList(for: number)
+    }
+    
+    private func isInWhiteListWord(text: String) -> WordListMatchResult {
+        let filter = WordFilter()
+        return filter.checkWhiteList(for: text)
+    }
+    
+    private func isInBlackListNumber(number: String) -> NumberListMatchResult {
+        let filter = NumberFilter()
+        return filter.checkBlackList(for: number)
+    }
+    
+    private func isInBlackListWord(text: String) -> WordListMatchResult {
+        let filter = WordFilter()
+        return filter.checkBlackList(for: text)
     }
 }

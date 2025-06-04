@@ -15,7 +15,9 @@ protocol SettingsFilterRepositoryProtocol {
     func setFilterTime(data: FilterTimeData)
     func fetchFilterTime() -> FilterTimeData?
     func fetchFilterDate() -> FilterDateData?
-    
+    func setBasicFilterEnable(_ enable: Bool)
+    func fetchBasicFilterEnable() -> Bool?
+        
 }
 
 struct SettingsFilterRepository: SettingsFilterRepositoryProtocol {
@@ -23,6 +25,14 @@ struct SettingsFilterRepository: SettingsFilterRepositoryProtocol {
     
     init(service: GroupUserDefaultsService = GroupUserDefaultsService()) {
         self.service = service
+    }
+    
+    func setBasicFilterEnable(_ enable: Bool) {
+        service.setValue(enable, forKey: GroupUserDefaultsKey.Settings.basicFilterEnable)
+    }
+    
+    func fetchBasicFilterEnable() -> Bool? {
+        service.fetchValue(forKey: GroupUserDefaultsKey.Settings.basicFilterEnable) as? Bool
     }
     
     func setFilterDate(data: FilterDateData) {

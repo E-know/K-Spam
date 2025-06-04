@@ -15,10 +15,11 @@ enum SettingsModels {
         case configureTravel
     }
     
-    enum InitData {
+    enum Init {
         struct Response {
             let filterDate: FilterDateData?
             let filterTime: FilterTimeData?
+            let basicFilterEnabled: Bool
         }
     }
     

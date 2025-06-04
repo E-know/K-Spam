@@ -20,6 +20,7 @@ struct FilterTimeData {
         self.endMinute = endMinute
     }
     
+    // Entitiy -> Domain
     init?(timeIntervalString: String) {
         let times = timeIntervalString.split(separator: "|").map { String($0) }
         guard times.count == 2 else { return nil }

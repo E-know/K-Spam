@@ -11,19 +11,10 @@ protocol UserDefaultsKeyProtocol {
 }
 
 enum GroupUserDefaultsKey {
-    enum SpamType: String, UserDefaultsKeyProtocol {
-        case internationalMessage
-        case casinoTopup
-        case advertisement
-        
-        var keyValue: String {
-            self.rawValue
-        }
-    }
-    
     enum Settings: String, UserDefaultsKeyProtocol {
         case timeSetting
         case dateSetting
+        case basicFilterEnable
         
         var keyValue: String {
             self.rawValue

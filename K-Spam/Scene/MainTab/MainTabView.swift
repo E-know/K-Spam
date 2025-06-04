@@ -9,7 +9,7 @@ import SwiftUI
 
 
 
-struct MainTabView: View {
+struct MainTabView: MVIView {
     enum TabSelection: Hashable, CaseIterable {
         case home
         case number
@@ -39,10 +39,17 @@ struct MainTabView: View {
         }
     }
     
-    @State private var currentTab: TabSelection = .home
+    let state: MainTabStateDataProtocol
+    private let intent: MainTabIntentProtocol
+    
+    init() {
+        let state = MainTabState()
+        self.intent = MainTabIntent(state: state)
+        self.state = state
+    }
     
     var body: some View {
-        TabView(selection: $currentTab) {
+        TabView(selection: bind(\.currentTab, intent.setCurrentTab)) {
             ForEach(TabSelection.allCases, id: \.self) { tab in
                 switch tab {
                     case .settings:
@@ -84,9 +91,22 @@ struct MainTabView: View {
                 }
             }
         }
-        .onChange(of: currentTab) {
-            HapticManager.shared.haptic(style: .soft)
+        .alert("업데이트가 필요합니다", isPresented: bind(\.showForceUpdateAlert, intent.setForceUpdateAlert)) {
+            Button("업데이트") {
+                intent.requestForceUpdate()
+            }
+        } message: {
+            Text("앱을 계속 사용하려면 업데이트가 필요합니다.")
         }
+        .alert("업데이트 권장", isPresented: bind(\.showRecommendUpdateAlert, intent.setRecommendUpdateAlert)) {
+            Button("닫기", role: .cancel) { }
+            Button("업데이트") {
+                intent.requestRecommendUpdate()
+            }
+        } message: {
+            Text("최신 기능을 이용하려면 업데이트를 권장합니다.")
+        }
+        
     }
 }
 

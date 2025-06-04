@@ -18,7 +18,8 @@ protocol NumberFilterStateDataProtocol {
     var selectedType: NumberType { get }
     var numberList: [String] { get }
     var newNumber: String { get }
-    var isInputFocused: Bool { get }
+    var showCustomKeyboard: Bool { get }
+    var showCustomKeyboardGuide: Bool { get }
 }
 
 protocol NumberFilterStateProtocol: AnyObject {
@@ -27,16 +28,18 @@ protocol NumberFilterStateProtocol: AnyObject {
     func presentDelteNumber(response: NumberFilterModel.DeleteNumber.Response)
     func presentAddNumber(response: NumberFilterModel.AddNumber.Response)
     func setNewNumber(_ value: String)
+    func setShowCustomKeyboardGuide(_ value: Bool)
     func tapCustomKeyboard(response: NumberFilterModel.TapCustomKeyboard.Response)
-    func setIsInputFocused(_ value: Bool)
+    func presentShowCustomKeyboard(response: NumberFilterModel.ShowCustomKeyboard.Response)
 }
 
 @Observable
 final class NumberFilterState: NumberFilterStateDataProtocol {
     var selectedType: NumberType = .blackList
-    var numberList: [String] = ["010-1234-5678"]
+    var numberList: [String] = []
     var newNumber: String = ""
-    var isInputFocused: Bool = false
+    var showCustomKeyboard: Bool = false
+    var showCustomKeyboardGuide: Bool = false
 }
 
 extension NumberFilterState: NumberFilterStateProtocol {
@@ -57,7 +60,7 @@ extension NumberFilterState: NumberFilterStateProtocol {
     func presentAddNumber(response: NumberFilterModel.AddNumber.Response) {
         self.numberList = response.numberList.map { $0.toPhoneNumberFormat() }
         self.newNumber = ""
-        self.isInputFocused = false
+        self.showCustomKeyboard = false
     }
     
     func setNewNumber(_ value: String) {
@@ -69,12 +72,14 @@ extension NumberFilterState: NumberFilterStateProtocol {
         self.newNumber = numberString ?? ""
     }
     
-    func setIsInputFocused(_ value: Bool) {
-        isInputFocused = value
-        if value {
-            self.newNumber = " "
-        } else {
-            self.newNumber = ""
-        }
+    func presentShowCustomKeyboard(response: NumberFilterModel.ShowCustomKeyboard.Response) {
+        self.showCustomKeyboardGuide = response.showCustomKeyboardGuide
+        self.showCustomKeyboard = response.showCustomKeyboard
+        
+        self.newNumber = "번호를 입력해주세요"
+    }
+    
+    func setShowCustomKeyboardGuide(_ value: Bool) {
+        self.showCustomKeyboardGuide = value
     }
 }

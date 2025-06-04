@@ -20,7 +20,7 @@ protocol SettingsIntentProtocol: AnyObject {
     func setAlertRouteToSettings(_ value: Bool)
     func setisScheduledFilterEnabled(_ value: Bool)
     func setisTravelNotificationEnabled(_ value: Bool)
-    
+    func setisBasicFilterEnabled(_ value: Bool)
     
     func routeToNavigate(_ value: SettingsModels.NavigationPath)
     func popNavigation()
@@ -46,20 +46,32 @@ final class SettingsIntent {
     
     private func fetchTimeAndDate() {
         Task {
-            let worker = GroupUserDefaultsWorker()
+            let worker = SettingsFilterWorker()
             
             self.filterDate = worker.fetchFilterDate()
             self.filterTime = worker.fetchFilterTime()
+            let basicFilterEnable = worker.fetchBasicFilterEnable() ?? true
             
-            state?.presentInitData(response: .init(
+            state?.presentInit(response: .init(
                 filterDate: filterDate,
-                filterTime: filterTime
+                filterTime: filterTime,
+                basicFilterEnabled: basicFilterEnable
             ))
         }
     }
 }
 
 extension SettingsIntent: SettingsIntentProtocol {
+    func setisBasicFilterEnabled(_ value: Bool) {
+        Task {
+            let worker = SettingsFilterWorker()
+            worker.setBasicFilterEnable(value)
+            worker.setBasicFilterEnable(value)
+            
+            state?.setBasicFilterEnabled(value)
+        }
+    }
+    
     func setConfigureDate(request: SettingsModels.ConfigureDate.Request) {
         Task {
             guard request.startDate < request.endDate else {
@@ -68,7 +80,7 @@ extension SettingsIntent: SettingsIntentProtocol {
             }
             let filterDate = FilterDateData(startDate: request.startDate, endDate: request.endDate)
             self.filterDate = filterDate
-            let worker = GroupUserDefaultsWorker()
+            let worker = SettingsFilterWorker()
             worker.setFilterDate(data: filterDate)
             
             state?.presentConfigureDate(response: .init(
@@ -95,7 +107,7 @@ extension SettingsIntent: SettingsIntentProtocol {
                 endMinute: endMinute
             )
             self.filterTime = filterTime
-            let worker = GroupUserDefaultsWorker()
+            let worker = SettingsFilterWorker()
             worker.setFilterTime(data: filterTime)
             
             state?.presentConfigureTime(response: .init(
@@ -114,7 +126,7 @@ extension SettingsIntent: SettingsIntentProtocol {
             if value {
                 state?.routeToNaviageationPath(.configureTravel)
             } else {
-                let worker = GroupUserDefaultsWorker()
+                let worker = SettingsFilterWorker()
                 worker.removeValue(forKey: GroupUserDefaultsKey.Settings.dateSetting)
                 state?.setTravelNotificationEnabled(value)
             }
@@ -125,7 +137,7 @@ extension SettingsIntent: SettingsIntentProtocol {
         if value {
             state?.routeToNaviageationPath(.configureTime)
         } else {
-            let worker = GroupUserDefaultsWorker()
+            let worker = SettingsFilterWorker()
             worker.removeValue(forKey: GroupUserDefaultsKey.Settings.timeSetting)
             state?.setScheduledFilterEnabled(value)
         }

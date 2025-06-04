@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum NetworkError: Error {
+enum NetworkError2: Error {
     case URLStringError
     case ResponseBad
 }
@@ -32,7 +32,7 @@ class NetworkManager {
     private var queryItems = [URLQueryItem]()
     
     init(type: BaseURL) throws {
-        guard var url = URL(string: type.rawValue) else { throw NetworkError.URLStringError }
+        guard var url = URL(string: type.rawValue) else { throw NetworkError2.URLStringError }
         url.append(path: type.path)
         
         self.url = url
@@ -55,7 +55,7 @@ class NetworkManager {
         
         let (rawData, response) = try await URLSession.shared.data(from: url)
         
-        guard let urlResponse = response as? HTTPURLResponse, urlResponse.statusCode == 200 else { throw NetworkError.ResponseBad }
+        guard let urlResponse = response as? HTTPURLResponse, urlResponse.statusCode == 200 else { throw NetworkError2.ResponseBad }
         
         let data = try JSONDecoder().decode(T.self, from: rawData)
         

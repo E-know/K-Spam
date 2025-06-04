@@ -31,6 +31,14 @@ struct SettingsFilterWorker {
         return domain
     }
     
+    func setBasicFilterEnable(_ value: Bool) {
+        repository.setBasicFilterEnable(value)
+    }
+    
+    func fetchBasicFilterEnable() -> Bool? {
+        repository.fetchBasicFilterEnable()
+    }
+    
     func removeValue(forKey key: UserDefaultsKeyProtocol...) {
         key.forEach {
             repository.removeValue(forKey: $0)

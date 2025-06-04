@@ -28,7 +28,7 @@ struct DateFilter {
     
     func isTimeInFilterRange() -> FilteringPeriod {
         let worker = SettingsFilterWorker()
-        guard let domain = worker.fetchFilterTime() else { return .none }
+        guard let domain = worker.fetchFilterTime() else { return .scheduleTime }
     
         let now = Date.now.formatToHourMinute().split(separator: ":").compactMap { Int($0) }
         guard now.count == 2 else { return .none }

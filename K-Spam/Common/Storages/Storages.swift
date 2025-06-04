@@ -10,10 +10,11 @@ import Foundation
 enum StorageKey: String {
     case didFinishMainOnboarding
     case didAllowNotification
+    case showCustomKeyboardGuide
 }
 
 struct Storages {
-    let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "Unknown"
+    static let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "Unknown"
     @Storage(key: .didFinishMainOnboarding, defaultValue: false) var didFinishMainOnboarding
-    @Storage(key: .didAllowNotification, defaultValue: false) var didAllowNotification
+    @Storage(key: .showCustomKeyboardGuide, defaultValue: false) static var shownCustomKeyboardGuide
 }

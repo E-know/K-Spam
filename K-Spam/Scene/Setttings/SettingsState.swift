@@ -12,7 +12,7 @@ protocol SettingsStateDataProtocol: AnyObject {
     var alarmSetting: Bool { get }
     var path: [SettingsModels.NavigationPath] { get }
     var alertRoutetoSettings: Bool { get }
-    
+    var isBasicFilterEnabled: Bool { get }
     var isScheduledFilterEnabled: Bool { get }
     var isTravelNotificationEnabled: Bool { get }
     
@@ -24,10 +24,11 @@ protocol SettingsStateDataProtocol: AnyObject {
     
     var startDateString: String { get }
     var endDateString: String { get }
+
 }
 
 protocol SettingsStateProtocol: AnyObject {
-    func presentInitData(response: SettingsModels.InitData.Response)
+    func presentInit(response: SettingsModels.Init.Response)
     func presentConfigureTime(response: SettingsModels.ConfigureTime.Response)
     func presentConfigureDate(response: SettingsModels.ConfigureDate.Response)
     func presentAlarmPopup()
@@ -38,6 +39,7 @@ protocol SettingsStateProtocol: AnyObject {
     func setNavigationPath(_ value: [SettingsModels.NavigationPath])
     func setScheduledFilterEnabled(_ value: Bool)
     func setTravelNotificationEnabled(_ value: Bool)
+    func setBasicFilterEnabled(_ value: Bool)
     
     func routeToNaviageationPath(_ value: SettingsModels.NavigationPath)
     func popNavigationPath()
@@ -55,6 +57,7 @@ final class SettingsState: SettingsStateDataProtocol {
     var filterStartTime: Date = Calendar.current.date(bySettingHour: 9, minute: 0, second: 0, of: Date()) ?? .now
     var filterEndTime: Date = Calendar.current.date(bySettingHour: 9, minute: 0, second: 0, of: Date()) ?? .now
     
+    var isBasicFilterEnabled: Bool = false
     var isScheduledFilterEnabled: Bool = false
     var isTravelNotificationEnabled: Bool = false
     var alarmSetting: Bool = false
@@ -63,13 +66,16 @@ final class SettingsState: SettingsStateDataProtocol {
     var alertRoutetoSettings = false
     
     init() {
-        let storage = Storages()
-        self.appVersion = storage.appVersion
+        self.appVersion = Storages.appVersion
     }
 }
 
 extension SettingsState: SettingsStateProtocol {
-    func presentInitData(response: SettingsModels.InitData.Response) {
+    func setBasicFilterEnabled(_ value: Bool) {
+        self.isBasicFilterEnabled = value
+    }
+    
+    func presentInit(response: SettingsModels.Init.Response) {
         if let filterDate = response.filterDate {
             self.startDateString = filterDate.startDate.formatToKoreanDateString()
             self.endDateString = filterDate.endDate.formatToKoreanDateString()
@@ -85,6 +91,8 @@ extension SettingsState: SettingsStateProtocol {
             self.endTimeString = "\(endHour):\(endMinute)"
             self.isScheduledFilterEnabled = true
         }
+        
+        self.isBasicFilterEnabled = response.basicFilterEnabled
     }
     
     func presentConfigureDate(response: SettingsModels.ConfigureDate.Response) {

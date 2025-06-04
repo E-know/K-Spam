@@ -13,8 +13,8 @@ protocol NumberFilterIntentProtocol {
     func requestAddNumber(request: NumberFilterModel.AddNumber.Request)
     func setNewNumber(_ value: String)
     func tapCustomKeyboard(_ key: String)
-    func setIsInputFocused(_ value: Bool)
-        
+    func setShowCustomKeyboardGuide(_ value: Bool)
+    func requestShowCustomKeyboard(request: NumberFilterModel.ShowCustomKeyboard.Request)
 }
 
 final class NumberFilterIntent {
@@ -107,8 +107,25 @@ extension NumberFilterIntent: NumberFilterIntentProtocol {
         state?.tapCustomKeyboard(response: .init(number: addNumber))
     }
     
-    func setIsInputFocused(_ value: Bool) {
-        state?.setIsInputFocused(value)
+    func requestShowCustomKeyboard(request: NumberFilterModel.ShowCustomKeyboard.Request) {
+        if request.showCustomKeyboard {
+            let showCustomKeyboardGuide = Storages.shownCustomKeyboardGuide == false
+            
+            state?.presentShowCustomKeyboard(response: .init(
+                showCustomKeyboard: request.showCustomKeyboard,
+                showCustomKeyboardGuide: showCustomKeyboardGuide
+            ))
+        } else {
+            state?.presentShowCustomKeyboard(response: .init(
+                showCustomKeyboard: request.showCustomKeyboard,
+                showCustomKeyboardGuide: false
+            ))
+        }
+    }
+    
+    func setShowCustomKeyboardGuide(_ value: Bool) {
+        Storages.shownCustomKeyboardGuide = true
+        state?.setShowCustomKeyboardGuide(value)
     }
 }
 
@@ -130,6 +147,17 @@ enum NumberFilterModel {
     enum DeleteNumber {
         struct Response {
             let numberList: [String]
+        }
+    }
+    
+    enum ShowCustomKeyboard {
+        struct Request {
+            let showCustomKeyboard: Bool
+        }
+        
+        struct Response {
+            let showCustomKeyboard: Bool
+            let showCustomKeyboardGuide: Bool
         }
     }
     

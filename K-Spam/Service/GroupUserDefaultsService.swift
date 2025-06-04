@@ -20,6 +20,5 @@ struct GroupUserDefaultsService {
     
     func removeValue(forKey key: UserDefaultsKeyProtocol) {
         groupUserDefaults?.removeObject(forKey: key.keyValue)
-        
     }
 }
