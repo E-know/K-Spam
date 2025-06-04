@@ -15,7 +15,7 @@ enum FilteringPeriod {
 
 struct DateFilter {
     func isDateInTravelRange() -> FilteringPeriod {
-        let worker = GroupUserDefaultsWorker()
+        let worker = SettingsFilterWorker()
         
         guard let domain = worker.fetchFilterDate() else { return .none }
         
@@ -27,7 +27,7 @@ struct DateFilter {
     }
     
     func isTimeInFilterRange() -> FilteringPeriod {
-        let worker = GroupUserDefaultsWorker()
+        let worker = SettingsFilterWorker()
         guard let domain = worker.fetchFilterTime() else { return .none }
     
         let now = Date.now.formatToHourMinute().split(separator: ":").compactMap { Int($0) }

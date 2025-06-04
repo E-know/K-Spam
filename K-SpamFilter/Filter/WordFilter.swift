@@ -14,7 +14,7 @@ struct WordFilter {
     func checkWhiteList(for texts: [String]) -> WordListMatchResult {
         let worker = WordFilterWorker()
         
-        guard let whiteListWordList = try? worker.fetchWhileListWordList() else { return .notMatched }
+        guard let whiteListWordList = try? worker.fetchWhiteListWordList() else { return .notMatched }
         
         for line in texts {
             for word in whiteListWordList {

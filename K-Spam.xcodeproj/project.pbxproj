@@ -31,7 +31,7 @@
 		5FB3407B2C05965D000B7A53 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 5FB3407A2C05965D000B7A53 /* Lottie */; };
 		5FB3408A2C0596A8000B7A53 /* OnboardingMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB3407C2C0596A8000B7A53 /* OnboardingMainView.swift */; };
 		5FB3408B2C0596A8000B7A53 /* OnboardingPages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB3407D2C0596A8000B7A53 /* OnboardingPages.swift */; };
-		5FB3408E2C0596A8000B7A53 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB340812C0596A8000B7A53 /* HomeView.swift */; };
+		5FB3408E2C0596A8000B7A53 /* HomeView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB340812C0596A8000B7A53 /* HomeView2.swift */; };
 		5FB340902C0596A8000B7A53 /* MainHome.json in Resources */ = {isa = PBXBuildFile; fileRef = 5FB340852C0596A8000B7A53 /* MainHome.json */; };
 		5FB340912C0596A8000B7A53 /* Slider.json in Resources */ = {isa = PBXBuildFile; fileRef = 5FB340862C0596A8000B7A53 /* Slider.json */; };
 		5FB340922C0596A8000B7A53 /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB340882C0596A8000B7A53 /* UserDefaultsManager.swift */; };
@@ -116,7 +116,7 @@
 		5FB3406C2C0595CB000B7A53 /* K_SpamUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = K_SpamUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		5FB3407C2C0596A8000B7A53 /* OnboardingMainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingMainView.swift; sourceTree = "<group>"; };
 		5FB3407D2C0596A8000B7A53 /* OnboardingPages.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingPages.swift; sourceTree = "<group>"; };
-		5FB340812C0596A8000B7A53 /* HomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		5FB340812C0596A8000B7A53 /* HomeView2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeView2.swift; sourceTree = "<group>"; };
 		5FB340852C0596A8000B7A53 /* MainHome.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MainHome.json; sourceTree = "<group>"; };
 		5FB340862C0596A8000B7A53 /* Slider.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Slider.json; sourceTree = "<group>"; };
 		5FB340882C0596A8000B7A53 /* UserDefaultsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
@@ -138,7 +138,8 @@
 		5F4019B42DEDB7BB0089E2E1 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				GroupUserDefaultsWorker.swift,
+				NumberFilterWorker.swift,
+				SettingsFilterWorker.swift,
 				WordFilterWorker.swift,
 			);
 			target = 5FB340962C0599FE000B7A53 /* K-SpamFilter */;
@@ -155,7 +156,8 @@
 		5F4019B92DEDB8400089E2E1 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				GroupUserDefaultsRepository.swift,
+				NumberFilterRepository.swift,
+				SettingsFilterRepository.swift,
 				WordFilterRepository.swift,
 			);
 			target = 5FB340962C0599FE000B7A53 /* K-SpamFilter */;
@@ -381,7 +383,7 @@
 		5FFC81C42C078456009DC5C1 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				5FB340812C0596A8000B7A53 /* HomeView.swift */,
+				5FB340812C0596A8000B7A53 /* HomeView2.swift */,
 				5FFC81C82C078A52009DC5C1 /* FilterLogicView.swift */,
 				5FFC81C52C078460009DC5C1 /* WordFilter */,
 				5FFC81CA2C079248009DC5C1 /* CustomSetting */,
@@ -617,7 +619,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5FB3408E2C0596A8000B7A53 /* HomeView.swift in Sources */,
+				5FB3408E2C0596A8000B7A53 /* HomeView2.swift in Sources */,
 				5F2709CC2C108AE900565243 /* FilterResultInfoView.swift in Sources */,
 				5F3D829E2C07B90C001F595D /* Keyboard+.swift in Sources */,
 				5FFC81C92C078A52009DC5C1 /* FilterLogicView.swift in Sources */,

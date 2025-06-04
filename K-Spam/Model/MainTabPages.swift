@@ -20,7 +20,7 @@ enum MainTabPages: Identifiable, CaseIterable {
         case .wordFilter:
             WordFilterView2()
         case .home:
-            HomeView()
+            HomeView2()
         case .customSetting:
             Text("Empty")
 //            CustomSettingView()

@@ -38,4 +38,13 @@ enum GroupUserDefaultsKey {
             self.rawValue
         }
     }
+    
+    enum NumberFilter: String, UserDefaultsKeyProtocol {
+        case whiteList
+        case blackList
+        
+        var keyValue: String {
+            self.rawValue
+        }
+    }
 }

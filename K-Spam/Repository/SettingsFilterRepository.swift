@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol GroupUserDefaultsRepositoryProtocol {
+protocol SettingsFilterRepositoryProtocol {
     func fetchValue<T>(forKey key: UserDefaultsKeyProtocol) -> T?
     func removeValue(forKey key: UserDefaultsKeyProtocol)
     
@@ -18,7 +18,7 @@ protocol GroupUserDefaultsRepositoryProtocol {
     
 }
 
-struct GroupUserDefaultsRepository: GroupUserDefaultsRepositoryProtocol {
+struct SettingsFilterRepository: SettingsFilterRepositoryProtocol {
     private let service: GroupUserDefaultsService
     
     init(service: GroupUserDefaultsService = GroupUserDefaultsService()) {

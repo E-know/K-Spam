@@ -35,7 +35,7 @@ final class WordFilterIntent {
         Task {
             let worker = WordFilterWorker()
             do {
-                self.whitelistWords = try worker.fetchWhileListWordList()
+                self.whitelistWords = try worker.fetchWhiteListWordList()
             } catch {
                 worker.setWhiteListWordList([])
                 self.whitelistWords = []

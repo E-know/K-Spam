@@ -7,10 +7,10 @@
 
 import Foundation
 
-struct GroupUserDefaultsWorker {
-    private let repository: GroupUserDefaultsRepositoryProtocol
+struct SettingsFilterWorker {
+    private let repository: SettingsFilterRepositoryProtocol
     
-    init(repository: GroupUserDefaultsRepositoryProtocol = GroupUserDefaultsRepository()) {
+    init(repository: SettingsFilterRepositoryProtocol = SettingsFilterRepository()) {
         self.repository = repository
     }
     

@@ -12,14 +12,14 @@ import SwiftUI
 struct MainTabView: View {
     enum TabSelection: Hashable, CaseIterable {
         case home
-        case contact
+        case number
         case words
         case settings
         
         var text: String {
             switch self {
                 case .home: "홈"
-                case .contact: "연락처"
+                case .number: "연락처"
                 case .words: "단어"
                 case .settings: "설정"
             }
@@ -29,7 +29,7 @@ struct MainTabView: View {
             switch self {
                 case .home:
                     ImageResource.home
-                case .contact:
+                case .number:
                     ImageResource.contact
                 case .words:
                     ImageResource.words
@@ -63,8 +63,17 @@ struct MainTabView: View {
                                 Text(tab.text)
                             }
                             .tag(tab)
-                    default:
-                        Text(tab.text)
+                    case .number:
+                        NumberFilterView()
+                            .tabItem {
+                                Image(tab.tabImage)
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                Text(tab.text)
+                            }
+                            .tag(tab)
+                    case .home:
+                        HomeView()
                             .tabItem {
                                 Image(tab.tabImage)
                                     .resizable()

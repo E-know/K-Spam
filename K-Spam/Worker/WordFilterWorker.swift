@@ -12,7 +12,7 @@ struct WordFilterWorker {
         self.repository = repository
     }
     
-    func fetchWhileListWordList() throws -> [String] {
+    func fetchWhiteListWordList() throws -> [String] {
         try repository.fetchWhiteListWordList()
     }
     

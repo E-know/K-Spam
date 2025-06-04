@@ -8,7 +8,7 @@
 import Lottie
 import SwiftUI
 
-struct HomeView: View {
+struct HomeView2: View {
     @State private var showSettingInfo = false
     @State private var showFilterLogicView = false
     @State private var showWantNotFilter = false
@@ -72,5 +72,5 @@ struct HomeView: View {
 }
 
 #Preview {
-    HomeView()
+    HomeView2()
 }

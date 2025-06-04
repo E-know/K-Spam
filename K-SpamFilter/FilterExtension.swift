@@ -9,6 +9,7 @@ import IdentityLookup
 
 extension MessageFilterExtension {
     func offlineAction(for queryRequest: ILMessageFilterQueryRequest) -> (ILMessageFilterAction, ILMessageFilterSubAction) {
+        queryRequest.sender
 //        guard let messageBody = queryRequest.messageBody else { return (.none, .none) }
 //        let messageLines = messageBody.split(separator: "\n").map { String($0) }
 //        

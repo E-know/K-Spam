@@ -92,6 +92,9 @@ struct SettingsView: MVIView {
         .onReceive(NotificationCenter.default.publisher(for: UIApplication.willEnterForegroundNotification), perform: { _ in
             intent.getAlarmStatus()
         })
+        .onDisappear {
+            intent.setNavigationPath([])
+        }
     }
     
     private func AlarmView() -> some View {
