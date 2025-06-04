@@ -52,6 +52,12 @@ final class SettingsIntent {
             
             self.filterDate = worker.fetchFilterDate()
             self.filterTime = worker.fetchFilterTime()
+            
+            if let endDate = filterDate?.endDate, endDate < Date.now {
+                worker.removeValue(forKey: GroupUserDefaultsKey.Settings.dateSetting)
+                self.filterDate = nil
+            }
+            
             let basicFilterEnable = worker.fetchBasicFilterEnable() ?? true
             
             state?.presentInit(response: .init(

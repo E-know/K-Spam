@@ -2,12 +2,20 @@
 //  HapticManager.swift
 //  K-Spam
 //
+//  Created by Inho Choi on 6/4/25.
+//
+
+
+//
+//  HapticManager.swift
+//  K-Spam
+//
 //  Created by Inho Choi on 6/5/24.
 //
 
 import UIKit
 
-class HapticManager {
+final class HapticManager {
     private init() { }
     private let generator = UIImpactFeedbackGenerator(style: .rigid)
     static let shared = HapticManager()
