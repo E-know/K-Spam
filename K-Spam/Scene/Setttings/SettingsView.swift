@@ -209,6 +209,10 @@ struct SettingsView: MVIView {
                         Text("특정 시간대에만 스팸 필터를 활성화합니다")
                             .font(12)
                             .foregroundStyle(.gray)
+                            .padding(.bottom, 1)
+                        Text("• 비활성화 시 24시간 필터가 작동합니다.")
+                            .font(10)
+                            .foregroundStyle(.gray)
                     }
                 }
                 

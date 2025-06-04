@@ -137,3 +137,4 @@ xcuserdata
 **/xcshareddata/WorkspaceSettings.xcsettings
 
 # End of https://www.toptal.com/developers/gitignore/api/xcode,macos,swift,swiftpm
+K-Spam/GoogleService-Info.plist

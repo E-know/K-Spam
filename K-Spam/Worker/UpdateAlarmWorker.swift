@@ -9,6 +9,7 @@
 import UserNotifications
 
 struct UpdateAlarmWorker {
+    @discardableResult
     func requestNotificationAuthorization() async throws -> Bool {
         return try await UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge])
     }

@@ -11,9 +11,11 @@ protocol MainTabIntentProtocol: AnyObject {
     func setCurrentTab(_ tab: MainTabView.TabSelection)
     func setForceUpdateAlert(_ value: Bool)
     func setRecommendUpdateAlert(_ value: Bool)
+    func setNotificationSuggestionAlert(_ value: Bool)
     
     func requestForceUpdate()
     func requestRecommendUpdate()
+    func requestNotificationAlert()
 }
 
 final class MainTabIntent {
@@ -23,26 +25,42 @@ final class MainTabIntent {
     init(state: MainTabStateProtocol?) {
         self.state = state
         
-        fetchLaunchConfig()
+        setBasicFilter()
+        
+        initApp()
         setBasicFilter()
     }
     
-    private func fetchLaunchConfig() {
+    private func initApp() {
         Task {
-            let worker = LaunchConfigWorker()
-            let launchConfig = try await worker.launchConfig()
-            self.launchConfig = launchConfig
-            let currentAppVersion = Storages.appVersion
-
-            let recommendUpdate = launchConfig.appVersion > currentAppVersion
-            let forceUpdate = launchConfig.forceUpdate && recommendUpdate
-
-            
-            state?.presentLaunchConfigAlert(response: .init(
-                forceUpdate: forceUpdate,
-                recommendUpdate: recommendUpdate
-            ))
+            try? await fetchLaunchConfig()
+            await suggestNotification()
         }
+    }
+    
+    private func fetchLaunchConfig() async throws {
+        let worker = LaunchConfigWorker()
+        let launchConfig = try await worker.launchConfig()
+        self.launchConfig = launchConfig
+        let currentAppVersion = Storages.appVersion
+
+        let recommendUpdate = launchConfig.appVersion > currentAppVersion
+        let forceUpdate = launchConfig.forceUpdate && recommendUpdate
+
+        
+        state?.presentLaunchConfigAlert(response: .init(
+            forceUpdate: forceUpdate,
+            recommendUpdate: recommendUpdate
+        ))
+    }
+    
+    private func suggestNotification() async {
+        let worker = UpdateAlarmWorker()
+        let status = await worker.getNotificationAuthorization()
+        
+        guard status == .notDetermined else { return }
+        
+        state?.presentNotificationSuggestionAlert(true)
     }
     
     private func setBasicFilter() {
@@ -57,6 +75,17 @@ final class MainTabIntent {
 }
 
 extension MainTabIntent: MainTabIntentProtocol {
+    func requestNotificationAlert() {
+        Task {
+            let worker = UpdateAlarmWorker()
+            try await worker.requestNotificationAuthorization()
+        }
+    }
+    
+    func setNotificationSuggestionAlert(_ value: Bool) {
+        Task { state?.presentNotificationSuggestionAlert(value) }
+    }
+    
     func setForceUpdateAlert(_ value: Bool) {
         Task { state?.setForceUpdateAlert(value) }
     }

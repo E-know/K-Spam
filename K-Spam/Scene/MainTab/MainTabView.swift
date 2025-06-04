@@ -7,8 +7,6 @@
 
 import SwiftUI
 
-
-
 struct MainTabView: MVIView {
     enum TabSelection: Hashable, CaseIterable {
         case home
@@ -106,7 +104,13 @@ struct MainTabView: MVIView {
         } message: {
             Text("최신 기능을 이용하려면 업데이트를 권장합니다.")
         }
-        
+        .alert("알림 수신", isPresented: bind(\.showNotificationSuggestionAlert, intent.setNotificationSuggestionAlert)) {
+            Button("확인", role: .cancel) {
+                intent.requestNotificationAlert()
+            }
+        } message: {
+            Text("알림 수신을 허용하시면 필터 업데이트시 알림을 받을 수 있습니다.\n\n광고 ❌")
+        }
     }
 }
 

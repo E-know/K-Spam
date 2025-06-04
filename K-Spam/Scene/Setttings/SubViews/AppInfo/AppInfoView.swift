@@ -21,9 +21,9 @@ struct AppInfoView: View {
                             return width / 3
                         }
                     
-                    Text("This app icon was designed\nby SongCool")
+                    Text("This app icon was designed\nby SongCool 🙏 Thank you!")
                         .font(10)
-                        .foregroundStyle(Color.lightGray)
+                        .foregroundStyle(Color.gray)
                 }
                 HStack(spacing: 12) {
                     Image(systemName: "shield.lefthalf.fill")

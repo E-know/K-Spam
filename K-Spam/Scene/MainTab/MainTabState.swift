@@ -11,6 +11,7 @@ protocol MainTabStateDataProtocol {
     var currentTab: MainTabView.TabSelection { get }
     var showForceUpdateAlert: Bool { get }
     var showRecommendUpdateAlert: Bool { get }
+    var showNotificationSuggestionAlert: Bool { get }
 }
 
 protocol MainTabStateProtocol: AnyObject {
@@ -21,10 +22,13 @@ protocol MainTabStateProtocol: AnyObject {
     
     @MainActor func presentForceUpdate(response: MainTabModel.ForceUpdate.Response)
     @MainActor func presentRecommendUpdate(response: MainTabModel.RecommendUpdate.Response)
+    func presentNotificationSuggestionAlert(_ value: Bool)
 }
 
 @Observable
 final class MainTabState: MainTabStateDataProtocol {
+    var showNotificationSuggestionAlert: Bool = false
+    
     var showForceUpdateAlert: Bool = false
 
     var showRecommendUpdateAlert: Bool = false
@@ -34,6 +38,10 @@ final class MainTabState: MainTabStateDataProtocol {
 }
 
 extension MainTabState: MainTabStateProtocol {
+    func presentNotificationSuggestionAlert(_ value: Bool) {
+        showNotificationSuggestionAlert = value
+    }
+    
     @MainActor
     func presentForceUpdate(response: MainTabModel.ForceUpdate.Response) {
         UIApplication.shared.open(response.appStoreURL)
