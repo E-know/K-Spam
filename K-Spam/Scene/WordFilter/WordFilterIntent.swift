@@ -63,6 +63,8 @@ extension WordFilterIntent: WordFilterIntentProtocol {
     
     func requestAddWord(request: WordFilterModel.AddWord.Request) {
         Task {
+            guard request.word.isEmpty == false else { return }
+            
             let worker = WordFilterWorker()
             if selectedType == .blacklist {
                 blacklistWords.append(request.word)

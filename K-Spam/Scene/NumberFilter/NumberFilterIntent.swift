@@ -71,7 +71,7 @@ extension NumberFilterIntent: NumberFilterIntentProtocol {
     
     func requestAddNumber(request: NumberFilterModel.AddNumber.Request) {
         Task {
-            guard request.number.isEmpty == false else { return }
+            guard request.number.filter({ $0.isHexDigit || $0 == "X" }).isEmpty == false else { return }
             let numberString = request.number.replacingOccurrences(of: "-", with: "")
             let worker = NumberFilterWorker()
             if currentType == .blackList {

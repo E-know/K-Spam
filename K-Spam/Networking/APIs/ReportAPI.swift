@@ -18,18 +18,10 @@ extension ReportAPI: TargetType {
         return URL(string: "https://api.telegram.org")!
     }
     
-    private var telegramKey: String {
-        "bot7442830474:AAGPcz-bdEjgKOpuijRezIo0Fn0bum134TI"
-    }
-    
-    private var telegramChatID: String {
-        "7298669942"
-    }
-    
     var path: String {
         switch self {
             case .report:
-                "/\(telegramKey)/sendMessage"
+                "/\(Storages.telegramKey ?? "")/sendMessage"
         }
     }
     
@@ -45,7 +37,7 @@ extension ReportAPI: TargetType {
             case let .report(message):
                 return .requestParameters(
                     parameters: [
-                        "chat_id": telegramChatID,
+                        "chat_id": Storages.telegramChatID ?? "",
                         "text": message
                     ],
                     encoding: URLEncoding.default
