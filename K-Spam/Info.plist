@@ -2,13 +2,15 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>telegramKey</key>
-	<string>bot7442830474:AAGPcz-bdEjgKOpuijRezIo0Fn0bum134TI</string>
-	<key>telegramChatID</key>
-	<string>7298669942</string>
+	<key>ITSAppUsesNonExemptEncryption</key>
+	<false/>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>remote-notification</string>
 	</array>
+	<key>telegramChatID</key>
+	<string>7298669942</string>
+	<key>telegramKey</key>
+	<string>bot7442830474:AAGPcz-bdEjgKOpuijRezIo0Fn0bum134TI</string>
 </dict>
 </plist>
