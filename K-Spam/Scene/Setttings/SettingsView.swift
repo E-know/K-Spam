@@ -101,6 +101,9 @@ struct SettingsView: MVIView {
         .onDisappear {
             intent.setNavigationPath([])
         }
+        .onAppear {
+            intent.getAlarmStatus()
+        }
     }
     
     private func AlarmView() -> some View {
@@ -253,7 +256,6 @@ struct SettingsView: MVIView {
                     .padding(.vertical, 4)
                 }
             }
-            
         }
     }
 }

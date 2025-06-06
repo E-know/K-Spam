@@ -21,6 +21,22 @@ extension MessageFilterExtension {
             return (.none, .none)
         }
         
+        if let sender = queryRequest.sender, isInWhiteListNumber(number: sender) == .matched {
+            return (.none, .none)
+        }
+        
+        if let messageBody = queryRequest.messageBody, isInPublicWhiteListWords(text: messageBody) == .matched {
+            return (.none, .none)
+        }
+        
+        if let sender = queryRequest.sender, isInBlackListNumber(number: sender) == .matched {
+            return (.junk, .none)
+        }
+        
+        if let messageBody = queryRequest.messageBody, isInPublicBlackListWords(text: messageBody) == .matched {
+            return (.junk, .none)
+        }
+        
         if let sender = queryRequest.sender, isInBlackListNumber(number: sender) == .matched { // 블랙 리스트 번호에 해당하면 필터링한다.
             return (.junk, .none)
         }
@@ -60,5 +76,25 @@ extension MessageFilterExtension {
     private func isInBlackListWord(text: String) -> WordListMatchResult {
         let filter = WordFilter()
         return filter.checkBlackList(for: text)
+    }
+    
+    private func isInPublicWhiteListWords(text: String) -> PublicFilterResult {
+        let filter = PublicFilter()
+        return filter.checkBlackListWords(for: text)
+    }
+    
+    private func isInPublicWhiteListNumbers(number: String) -> PublicFilterResult {
+        let filter = PublicFilter()
+        return filter.checkWhiteListNumbers(for: number)
+    }
+    
+    private func isInPublicBlackListWords(text: String) -> PublicFilterResult {
+        let filter = PublicFilter()
+        return filter.checkBlackListWords(for: text)
+    }
+    
+    private func isInPublicBlackListNumbers(number: String) -> PublicFilterResult {
+        let filter = PublicFilter()
+        return filter.checkBlackListNumbers(for: number)
     }
 }

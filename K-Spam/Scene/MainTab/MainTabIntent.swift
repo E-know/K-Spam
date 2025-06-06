@@ -8,6 +8,7 @@
 import Foundation
 
 protocol MainTabIntentProtocol: AnyObject {
+    func setShowToast(_ value: Bool)
     func setCurrentTab(_ tab: MainTabView.TabSelection)
     func setForceUpdateAlert(_ value: Bool)
     func setRecommendUpdateAlert(_ value: Bool)
@@ -35,6 +36,7 @@ final class MainTabIntent {
         Task {
             try? await fetchLaunchConfig()
             await suggestNotification()
+            try? await fetchPublicFilter()
         }
     }
     
@@ -72,9 +74,25 @@ final class MainTabIntent {
             }
         }
     }
+    
+    private func fetchPublicFilter() async throws {
+        let worker = PublicFilterWorker()
+        let publicFilter = try await worker.fetchPublicFilter()
+        
+        if publicFilter.version > Storages.publicFilterVersion {
+            Storages.publicFilterVersion = publicFilter.version
+            worker.registerPublicFilter(publicFilter)
+            
+            state?.presentToast(message: "필터 업데이트가 완료되었습니다.")
+        }
+    }
 }
 
 extension MainTabIntent: MainTabIntentProtocol {
+    func setShowToast(_ value: Bool) {
+        state?.setShowToast(value)
+    }
+    
     func requestNotificationAlert() {
         Task {
             let worker = UpdateAlarmWorker()

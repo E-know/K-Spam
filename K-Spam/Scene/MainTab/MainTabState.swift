@@ -12,9 +12,13 @@ protocol MainTabStateDataProtocol {
     var showForceUpdateAlert: Bool { get }
     var showRecommendUpdateAlert: Bool { get }
     var showNotificationSuggestionAlert: Bool { get }
+    var toastMessage: String { get }
+    var showToast: Bool { get }
 }
 
 protocol MainTabStateProtocol: AnyObject {
+    func setShowToast(_ value: Bool)
+    func presentToast(message: String)
     func setCurrentTab(_ tab: MainTabView.TabSelection)
     func setForceUpdateAlert(_ value: Bool)
     func setRecommendUpdateAlert(_ value: Bool)
@@ -27,17 +31,24 @@ protocol MainTabStateProtocol: AnyObject {
 
 @Observable
 final class MainTabState: MainTabStateDataProtocol {
+    var showToast: Bool = false
+    var toastMessage: String = "테스트입니다."
     var showNotificationSuggestionAlert: Bool = false
-    
     var showForceUpdateAlert: Bool = false
-
     var showRecommendUpdateAlert: Bool = false
-    
     var currentTab: MainTabView.TabSelection = .home
-    
 }
 
 extension MainTabState: MainTabStateProtocol {
+    func setShowToast(_ value: Bool) {
+        showToast = value
+    }
+    
+    func presentToast(message: String) {
+        self.toastMessage = message
+        self.showToast = true
+    }
+    
     func presentNotificationSuggestionAlert(_ value: Bool) {
         showNotificationSuggestionAlert = value
     }

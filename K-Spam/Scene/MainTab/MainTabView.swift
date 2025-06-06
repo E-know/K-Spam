@@ -89,6 +89,7 @@ struct MainTabView: MVIView {
                 }
             }
         }
+        .toast(state.toastMessage, isPresented: bind(\.showToast, intent.setShowToast))
         .alert("업데이트가 필요합니다", isPresented: bind(\.showForceUpdateAlert, intent.setForceUpdateAlert)) {
             Button("업데이트") {
                 intent.requestForceUpdate()

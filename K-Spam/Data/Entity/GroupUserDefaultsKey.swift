@@ -38,4 +38,15 @@ enum GroupUserDefaultsKey {
             self.rawValue
         }
     }
+    
+    enum PublicFilter: String, UserDefaultsKeyProtocol {
+        case whiteListWords
+        case blackListWords
+        case whiteListNumbers
+        case blackListNumbers
+        
+        var keyValue: String {
+            self.rawValue
+        }
+    }
 }
