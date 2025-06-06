@@ -8,6 +8,7 @@
 import SwiftUI
 
 protocol SettingsStateDataProtocol: AnyObject {
+    var publicFilterVersion: String { get }
     var appVersion: String { get }
     var alarmSetting: Bool { get }
     var path: [SettingsModels.NavigationPath] { get }
@@ -28,6 +29,7 @@ protocol SettingsStateDataProtocol: AnyObject {
 }
 
 protocol SettingsStateProtocol: AnyObject {
+    func presentPublicFilterVersion(_ value: String)
     func presentInit(response: SettingsModels.Init.Response)
     func presentConfigureTime(response: SettingsModels.ConfigureTime.Response)
     func presentConfigureDate(response: SettingsModels.ConfigureDate.Response)
@@ -48,6 +50,8 @@ protocol SettingsStateProtocol: AnyObject {
 
 @Observable
 final class SettingsState: SettingsStateDataProtocol {
+    var publicFilterVersion: String = Storages.publicFilterVersion
+    
     var startDateString: String = "2025년 06월 01일"
     
     var endDateString: String = "2025년 07월 01일"
@@ -72,6 +76,10 @@ final class SettingsState: SettingsStateDataProtocol {
 }
 
 extension SettingsState: SettingsStateProtocol {
+    func presentPublicFilterVersion(_ value: String) {
+        self.publicFilterVersion = value
+    }
+    
     func presentReportConfirm(response: SettingsModels.Report.Response) {
         self.path.removeLast()
     }
