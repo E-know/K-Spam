@@ -14,6 +14,7 @@ struct ReportWorker {
     
     func report(reportType: ReportType, message: String) async throws -> TelegramBotResponse? {
         guard message.isEmpty == false else { return nil }
+        
         return try await repository.report(reportType: reportType, message: message)
     }
 }

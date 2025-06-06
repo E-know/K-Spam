@@ -18,7 +18,15 @@ struct ReportRepository: ReportRepositoryProtocol {
     }
     
     func report(reportType: ReportType, message: String) async throws -> TelegramBotResponse {
-        let text = "[Report Type: \(reportType.title)]\n\(message)"
+        let text = """
+            [K-Spam Report]
+            \(reportType.title)
+            [Message]
+            \(message)
+            [Filter Info]
+            AppVersion: \(Storages.appVersion)
+            PublicFilter: \(Storages.publicFilterVersion)
+            """
         
         let entity: TelegramBotEntity = try await service.request(target: ReportAPI.report(text))
         
