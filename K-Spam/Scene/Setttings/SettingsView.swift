@@ -101,6 +101,9 @@ struct SettingsView: MVIView {
         .onDisappear {
             intent.setNavigationPath([])
         }
+        .onAppear {
+            intent.getAlarmStatus()
+        }
     }
     
     private func AlarmView() -> some View {
@@ -179,6 +182,16 @@ struct SettingsView: MVIView {
                 Text(state.appVersion)
                     .font(16)
             }
+            
+            HStack {
+                Text("기본 필터 버전")
+                    .font(16)
+                
+                Spacer()
+                
+                Text(state.publicFilterVersion)
+                    .font(16)
+            }
         }
     }
     
@@ -253,7 +266,6 @@ struct SettingsView: MVIView {
                     .padding(.vertical, 4)
                 }
             }
-            
         }
     }
 }

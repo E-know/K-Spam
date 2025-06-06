@@ -21,7 +21,7 @@ struct NumberFilter {
         let partternNumber = whiteListNumberList.map { $0.convertToRegexPattern() }
         
         for pattern in partternNumber {
-            if isMatch(sender, pattern: pattern) {
+            if sender.isMatch(pattern: pattern) {
                 return .matched
             }
         }
@@ -37,32 +37,13 @@ struct NumberFilter {
         let partternNumber = blackListNumberList.map { $0.convertToRegexPattern() }
         
         for pattern in partternNumber {
-            if isMatch(sender, pattern: pattern) {
+            if sender.isMatch(pattern: pattern) {
                 return .matched
             }
         }
         
         return .notMatched
     }
-        
-    private func isMatch(_ text: String, pattern: String) -> Bool {
-        guard let regex = try? NSRegularExpression(pattern: pattern) else { return false }
-        let range = NSRange(text.startIndex..., in: text)
-        return regex.firstMatch(in: text, options: [], range: range) != nil
-    }
 }
 
 
-extension String {
-    func convertToRegexPattern() -> String {
-        var numperPattern = self.replacingOccurrences(of: "X", with: "[0-9]")
-        
-        if numperPattern.prefix(3) == "010" {
-            numperPattern = String(numperPattern.dropFirst(1))
-        }
-        
-        let pattern = #"^\+82"# + numperPattern + "$"
-        
-        return pattern
-    }
-}

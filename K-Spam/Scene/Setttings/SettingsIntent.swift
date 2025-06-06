@@ -67,6 +67,13 @@ final class SettingsIntent {
             ))
         }
     }
+    
+    private func fetchPublicFilterVersion() {
+        Task {
+            let version = Storages.publicFilterVersion
+            state?.presentPublicFilterVersion(version)
+        }
+    }
 }
 
 extension SettingsIntent: SettingsIntentProtocol {
