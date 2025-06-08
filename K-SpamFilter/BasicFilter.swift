@@ -42,6 +42,6 @@ struct BasicFilter {
     
     private func checkBoxPattern(for text: String) -> StrangeResult {
         let filter = StrangeFilter()
-        filter.checkBoxPattern(for: text)
+        return filter.checkBoxPattern(for: text)
     }
 }
