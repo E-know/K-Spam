@@ -99,7 +99,6 @@ extension SettingsIntent: SettingsIntentProtocol {
         Task {
             let worker = SettingsFilterWorker()
             worker.setBasicFilterEnable(value)
-            worker.setBasicFilterEnable(value)
             
             state?.setBasicFilterEnabled(value)
         }

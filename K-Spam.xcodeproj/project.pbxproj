@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5F069D5F2DF569CC00F1A897 /* BasicFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F069D5C2DF569C600F1A897 /* BasicFilter.swift */; };
+		5F069D602DF569CC00F1A897 /* BasicFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F069D5C2DF569C600F1A897 /* BasicFilter.swift */; };
 		5F1610632DE041E400CC547F /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 5F1610622DE041E400CC547F /* Moya */; };
 		5F60C86F2C0AF6D4003E8E77 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F60C86E2C0AF6D4003E8E77 /* AppDelegate.swift */; };
 		5FB340502C0595CA000B7A53 /* K_SpamApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB3404F2C0595CA000B7A53 /* K_SpamApp.swift */; };
@@ -54,6 +56,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		5F069D5C2DF569C600F1A897 /* BasicFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicFilter.swift; sourceTree = "<group>"; };
 		5F60C86E2C0AF6D4003E8E77 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5F60C8732C0B194E003E8E77 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		5FAC0EEF2C05D8D300323BC8 /* K-Spam.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "K-Spam.entitlements"; sourceTree = "<group>"; };
@@ -247,6 +250,7 @@
 				5F4019A72DEDB7130089E2E1 /* Filter */,
 				5FB340992C0599FE000B7A53 /* MessageFilterExtension.swift */,
 				5FB340A32C059A8F000B7A53 /* FilterExtension.swift */,
+				5F069D5C2DF569C600F1A897 /* BasicFilter.swift */,
 				5FB3409B2C0599FE000B7A53 /* Info.plist */,
 			);
 			path = "K-SpamFilter";
@@ -432,6 +436,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5F60C86F2C0AF6D4003E8E77 /* AppDelegate.swift in Sources */,
+				5F069D5F2DF569CC00F1A897 /* BasicFilter.swift in Sources */,
 				5FB340502C0595CA000B7A53 /* K_SpamApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -450,6 +455,7 @@
 			files = (
 				5FB3409A2C0599FE000B7A53 /* MessageFilterExtension.swift in Sources */,
 				5FB340A42C059A8F000B7A53 /* FilterExtension.swift in Sources */,
+				5F069D602DF569CC00F1A897 /* BasicFilter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

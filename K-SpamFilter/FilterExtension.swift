@@ -13,41 +13,60 @@ extension MessageFilterExtension {
         
         guard isTimeInFilterRange() == .scheduleTime else { return (.none, .none) } // (특정 시간에만 필터링 되거나 설정하지 않음) 에는 필터링 작동한다.
         
+        // MARK: 화이트리스트 검사
+        
+        // 사용자 화이트리스트 번호에 포함되면 필터링하지 않음
         if let sender = queryRequest.sender, isInWhiteListNumber(number: sender) == .matched { // 화이트 리스트 번호에 해당하면 필터링 체크하지 않는다.
             return (.none, .none)
         }
         
+        // 사용자 화이트리스트 단어에 포함되면 필터링하지 않음
         if let messageBody = queryRequest.messageBody, isInWhiteListWord(text: messageBody) == .matched { // 화이트 리스트 단어에 해당하면 필터링 체크하지 않는다.
             return (.none, .none)
         }
         
-        if let sender = queryRequest.sender, isInWhiteListNumber(number: sender) == .matched {
-            return (.none, .none)
-        }
-        
+        // 퍼블릭 화이트리스트 단어에 포함되면 필터링하지 않음
         if let messageBody = queryRequest.messageBody, isInPublicWhiteListWords(text: messageBody) == .matched {
             return (.none, .none)
         }
         
-        if let sender = queryRequest.sender, isInBlackListNumber(number: sender) == .matched {
+        // 퍼블릭 화이트리스트 번호에 포함되면 필터링하지 않음
+        if let sender = queryRequest.sender, isInPublicWhiteListNumbers(number: sender) == .matched {
+            return (.none, .none)
+        }
+        
+        // MARK: 블랙리스트 검사
+        
+        // 퍼블릭 블랙리스트 번호에 포함되면 필터링 (스팸 처리)
+        if let sender = queryRequest.sender, isInPublicBlackListNumbers(number: sender) == .matched {
             return (.junk, .none)
         }
         
+        // 퍼블릭 블랙리스트 단어에 포함되면 필터링 (스팸 처리)
         if let messageBody = queryRequest.messageBody, isInPublicBlackListWords(text: messageBody) == .matched {
             return (.junk, .none)
         }
         
+        // 사용자 블랙리스트 번호에 포함되면 필터링 (스팸 처리) - 중복 검사
         if let sender = queryRequest.sender, isInBlackListNumber(number: sender) == .matched { // 블랙 리스트 번호에 해당하면 필터링한다.
             return (.junk, .none)
         }
         
+        // 사용자 블랙리스트 단어에 포함되면 필터링 (스팸 처리)
         if let messageBody = queryRequest.messageBody, isInBlackListWord(text: messageBody) == .matched { // 블랙 리스트 단어에 해당하면 필터링한다.
+            return (.junk, .none)
+        }
+        
+        let basicFilter = BasicFilter()
+        if let messageBody = queryRequest.messageBody, basicFilter.checkBasicFilter(for: messageBody) == .spam {
             return (.junk, .none)
         }
         
         return (.none, .none)
     }
-    
+}
+
+extension MessageFilterExtension {
     private func isInTravelPeriod() -> FilteringPeriod {
         let filter = DateFilter()
         return filter.isDateInTravelRange()
