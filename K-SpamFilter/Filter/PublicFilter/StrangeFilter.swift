@@ -41,7 +41,6 @@ struct StrangeFilter {
 
 extension StrangeFilter {
     func checkWeirdSymbolsPattern(for text: String) -> StrangeResult {
-        let multiLine = text.split(separator: "\n").map { String($0) }
         
         let similarPlus = [
 //            "\u{002B}", // +
