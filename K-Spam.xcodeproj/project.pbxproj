@@ -87,6 +87,7 @@
 				Domain/FilterDateData.swift,
 				Domain/FilterTimeData.swift,
 				Domain/LaunchConfig.swift,
+				Domain/NotificationContent.swift,
 				Domain/PublicFilterData.swift,
 				Domain/ReportType.swift,
 				Domain/TelegramBotResponse.swift,

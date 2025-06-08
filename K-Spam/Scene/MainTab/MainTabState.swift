@@ -32,7 +32,7 @@ protocol MainTabStateProtocol: AnyObject {
 @Observable
 final class MainTabState: MainTabStateDataProtocol {
     var showToast: Bool = false
-    var toastMessage: String = "테스트입니다."
+    var toastMessage: String = "???"
     var showNotificationSuggestionAlert: Bool = false
     var showForceUpdateAlert: Bool = false
     var showRecommendUpdateAlert: Bool = false

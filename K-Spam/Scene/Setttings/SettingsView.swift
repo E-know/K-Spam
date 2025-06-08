@@ -98,6 +98,9 @@ struct SettingsView: MVIView {
         .onReceive(NotificationCenter.default.publisher(for: UIApplication.willEnterForegroundNotification), perform: { _ in
             intent.getAlarmStatus()
         })
+        .onChange(of: Storages.publicFilterVersion, initial: true) {
+            intent.updatePublicFilterVersion(Storages.publicFilterVersion)
+        }
         .onDisappear {
             intent.setNavigationPath([])
         }

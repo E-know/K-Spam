@@ -8,6 +8,7 @@
 import Foundation
 
 protocol SettingsIntentProtocol: AnyObject {
+    func updatePublicFilterVersion(_ value: String)
     func tapAppInfo()
     func tapPrivacyPolicy()
     func tapRouteToSettings()
@@ -77,6 +78,12 @@ final class SettingsIntent {
 }
 
 extension SettingsIntent: SettingsIntentProtocol {
+    func updatePublicFilterVersion(_ value: String) {
+        Task {
+            state?.presentPublicFilterVersion(value)
+        }
+    }
+    
     func requestReportConfirm(request: SettingsModels.Report.Request) {
         Task {
             let worker = ReportWorker()

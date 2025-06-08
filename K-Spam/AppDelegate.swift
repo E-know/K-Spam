@@ -45,6 +45,27 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification) async -> UNNotificationPresentationOptions {
         return [.banner, .sound, .badge]
     }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse) async {
+        
+        let content = response.notification.request.content.toDomain()
+        guard let type = content?.userInfo.messageType else { return }
+        switch type {
+            case .filterUpdate:
+                // 필터 업데이트가 왔을 때, 필터를 업데이트 해준다.
+                do {
+                    let worker = PublicFilterWorker()
+                    let newFilter = try await worker.fetchPublicFilter()
+                    worker.registerPublicFilter(newFilter)
+                } catch {
+                    #warning("필터 업데이트 실패")
+                }
+        }
+        
+        #if DEBUG
+        print(content)
+        #endif
+    }
 }
 
 extension AppDelegate: MessagingDelegate {
@@ -58,3 +79,4 @@ extension AppDelegate: MessagingDelegate {
         #endif
     }
 }
+
